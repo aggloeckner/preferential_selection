@@ -1,8 +1,16 @@
 {{ block content }}
 
-    <p>Hier wird der Auswahlprozess beschrieben. (Frauenquote)</p>
+    <div>Das Geschlecht der Versuchsperson ist {{ participant.p_gender }}. </div>
 
-    <p>Hier wird der Auswahlprozess beschrieben. (Performanzquote)</p>
+    {% if player.gender_based == True %}
+
+        <p>Hier wird der Auswahlprozess beschrieben. (Frauenquote)</p>
+
+    {% else %}
+
+        <p>Hier wird der Auswahlprozess beschrieben. (Performanzquote)</p>
+
+    {% endif %}
 
     <br><br>
 

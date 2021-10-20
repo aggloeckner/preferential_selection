@@ -55,6 +55,10 @@ class demographics(Page):
     form_model = 'player'
     form_fields = ['age', 'gender', 'education']
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        player.participant.p_gender = player.gender
+
 
 page_sequence = [
     demographics
