@@ -1,6 +1,164 @@
 {{ block content }}
+<style>
+.button-red {
+  background-color: #F44336;
+  border: none;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 10px;
+  margin: 2px 2px;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.button-yellow {
+  background-color: #F4E036;
+  border: none;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 10px;
+  margin: 2px 2px;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.button-green {
+  background-color: #4CAF50;
+  border: none;
+  color: black;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 10px;
+  margin: 2px 2px;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.grid-container-legend {
+  display: grid;
+  grid-template-columns: 180px 180px 180px;
+  grid-template-rows: 10px 10px;
+  justify-content: center;
+  padding: 15px;
+}
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: auto;
+  padding: 0px;
+}
+.grid-column {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto auto auto;
+  padding: 0px;
+}
+.grid-item {
+  justify-content: center;
+  padding: 2px;
+  font-size: 12px;
+  text-align: center;
+}
+</style>
+
+
+<body>
+
+<div class="grid-container-legend">
+  <div class="grid-item"></div>
+  <div class="grid-item"><b>Legende</b></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"><button id="ButtonG" type="button" class="button-green">Überdurchschnittlich</button></div>
+  <div class="grid-item"><button  id="ButtonY" type="button" class="button-yellow">Durchschnittlich</button></div>
+  <div class="grid-item"><button  id="ButtonR" type="button" class="button-red">Unterdurchschnittlich</button></div>
+</div>
+
+<div class="grid-container">
+	<div class="grid-column">
+  		<div class="grid-item">Bewerber/in A</div>
+  		<div class="grid-item"><button id="ButtonA1" type="button" class="button-green">Aufenthalt im Ausland</button></div>
+        <div class="grid-item"><button id="ButtonA2" type="button" class="button-green">Lehrerfahrungen</button></div>
+        <div class="grid-item"><button id="ButtonA3" type="button" class="button-yellow">Kooperation in Fakultät</button></div>
+        <div class="grid-item"><button id="ButtonA4" type="button" class="button-red">Einwerben von Drittmitteln</button></div>
+        <div class="grid-item"><button id="ButtonA5" type="button" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+    </div>
+	<div class="grid-column">
+  		<div class="grid-item">Bewerber/in B</div>
+  		<div class="grid-item"><button id="ButtonB1" type="button" class="button-green">Aufenthalt im Ausland</button></div>
+        <div class="grid-item"><button id="ButtonB2" type="button" class="button-green">Lehrerfahrungen</button></div>
+        <div class="grid-item"><button id="ButtonB3" type="button" class="button-yellow">Kooperation in Fakultät</button></div>
+        <div class="grid-item"><button id="ButtonB4" type="button" class="button-red">Einwerben von Drittmitteln</button></div>
+        <div class="grid-item"><button id="ButtonB5" type="button" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+    </div>
+	<div class="grid-column">
+  		<div class="grid-item">Bewerber/in C</div>
+  		<div class="grid-item"><button id="ButtonC1" type="button" class="button-green">Aufenthalt im Ausland</button></div>
+        <div class="grid-item"><button id="ButtonC2" type="button" class="button-green">Lehrerfahrungen</button></div>
+        <div class="grid-item"><button id="ButtonC3" type="button" class="button-yellow">Internationale Kooperation</button></div>
+        <div class="grid-item"><button id="ButtonC4" type="button" class="button-red">Einwerben von Drittmitteln</button></div>
+        <div class="grid-item"><button id="ButtonC5" type="button" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+    </div>
+	<div class="grid-column">
+  		<div class="grid-item">Bewerber/in D</div>
+  		<div class="grid-item"><button id="ButtonD1" type="button" class="button-green">Aufenthalt im Ausland</button></div>
+        <div class="grid-item"><button id="ButtonD2" type="button" class="button-green">Lehrerfahrungen</button></div>
+        <div class="grid-item"><button id="ButtonD3" type="button" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+        <div class="grid-item"><button id="ButtonD4" type="button" class="button-yellow">Englisch Kenntnisse</button></div>
+        <div class="grid-item"><button id="ButtonD5" type="button" class="button-yellow">Publikationen</button></div>
+    </div>
+	<div class="grid-column">
+  		<div class="grid-item">Bewerber/in E</div>
+  		<div class="grid-item"><button id="ButtonE1" type="button" class="button-green">Aufenthalt im Ausland</button></div>
+        <div class="grid-item"><button id="ButtonE2" type="button" class="button-green">Lehrerfahrungen</button></div>
+        <div class="grid-item"><button id="ButtonE3" type="button" class="button-yellow">Internationale Kooperation</button></div>
+        <div class="grid-item"><button id="ButtonE4" type="button" class="button-red">Einwerben von Drittmitteln</button></div>
+        <div class="grid-item"><button id="ButtonE5" type="button" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+    </div>
+	<div class="grid-column">
+  		<div class="grid-item">Bewerber/in F</div>
+  		<div class="grid-item"><button id="ButtonF1" type="button" class="button-green">Publikationen</button></div>
+        <div class="grid-item"><button id="ButtonF2" type="button" class="button-yellow">Internationale Kooperation</button></div>
+        <div class="grid-item"><button id="ButtonF3" type="button" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+        <div class="grid-item"><button id="ButtonF4" type="button" class="button-red">Einwerben von Drittmitteln</button></div>
+        <div class="grid-item"><button id="ButtonF5" type="button" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+    </div>
+</div>
+
+    <br>
 
     {{ formfields }}
+
+    <br>
+
     {{ next_button }}
+
+</body>
+
+
+<script>
+    function initAllSliders(){
+        $('#ButtonG').attr("disabled", true);
+        $('#ButtonY').attr("disabled", true);
+        $('#ButtonR').attr("disabled", true);
+    }
+
+    window.onload = initAllSliders;
+</script>
 
 {{ endblock }}

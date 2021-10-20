@@ -25,6 +25,30 @@ class Player(BasePlayer):
     time_start = models.StringField()
     gender_based = models.BooleanField()
     describe_procedure = models.TextField(label="")
+    hidden_profile_task = models.IntegerField(
+        label="Wen würden Sie auf Basis der Ihnen aktuell vorliegenden Informationen für die Besetzung der Professur auswählen?",
+        choices=[
+            [1, 'Bewerber/in A'],
+            [2, 'Bewerber/in B'],
+            [3, 'Bewerber/in C'],
+            [4, 'Bewerber/in D'],
+            [5, 'Bewerber/in E'],
+            [6, 'Bewerber/in F'],
+        ],
+        widget=widgets.RadioSelect
+    )
+    voted_candidate = models.IntegerField(
+        label="Nachdem Sie mit den anderen Personen Ihrer Gruppe neue Informationen zu den infrage kommendenden Bewerbern/Bewerberinnen geteilt haben, für welche/n Bewerber/in wollen Sie nun Ihre Stimme abgeben?",
+        choices=[
+            [1, 'Bewerber/in A'],
+            [2, 'Bewerber/in B'],
+            [3, 'Bewerber/in C'],
+            [4, 'Bewerber/in D'],
+            [5, 'Bewerber/in E'],
+            [6, 'Bewerber/in F'],
+        ],
+        widget=widgets.RadioSelect
+    )
 
 # DEFS
 
@@ -60,15 +84,14 @@ class ProcedureTask(Page):
 
 class HiddenProfileTask(Page):
     form_model = 'player'
-    form_fields = ['describe_procedure']
+    form_fields = ['hidden_profile_task']
 
 class Discussion(Page):
-    form_model = 'player'
-    form_fields = ['describe_procedure']
+    pass
 
 class Voting(Page):
     form_model = 'player'
-    form_fields = ['describe_procedure']
+    form_fields = ['voted_candidate']
 
 class GeneralAssessment(Page):
     pass
