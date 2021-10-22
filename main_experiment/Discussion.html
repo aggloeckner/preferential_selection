@@ -161,17 +161,18 @@
 
     window.onload = initAllSliders;
 
-    function buttonsendA1() {
-        var table = document.getElementById("chat");
-        var row = table.insertRow(0);
-        var cell1 = row.insertCell(0);
-        cell1.innerHTML = "Spieler 1 schreibt: Bewerber/in A hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten";
-        //add participant avatar dynamically
-        //cell1.innerHTML = "<img src='"+participant+".png'> schreibt: Bewerber/in A hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten";
-        $('#ButtonA1').attr("disabled", true); //disable button after clicking
-        document.getElementById("ButtonA1").style.background='#CEF6CE'; //change background-color after clicking
+    let chat = document.getElementById('chat');
+    function liveRecv(data) {
+    chat.innerHTML += '<tr><td>Spieler ' + data.id_in_group +' schreibt: '+ data.msg + '</td></tr>';
     }
 
+    function buttonsendA1() {
+        liveSend('Bewerber/in A hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
+        $('#ButtonA1').attr("disabled", true); //disable button after clicking
+        document.getElementById("ButtonA1").style.background='#CEF6CE'; //change background-color after clicking
+         //add participant avatar dynamically
+          //cell1.innerHTML = "<img src='"+participant+".png'> schreibt: Bewerber/in A hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten";
+    }
 </script>
 
 {{ endblock }}

@@ -66,6 +66,10 @@ def group_by_arrival_time_method(subsession, waiting_players):
 
         return subsession.get_players()
 
+def live_chat(player: Player, data):
+    my_id = player.id_in_group
+    response = dict(id_in_group=my_id, msg=data)
+    return{0: response}
 
 # PAGES
 class GroupingWaitPage(WaitPage):
@@ -87,7 +91,7 @@ class HiddenProfileTask(Page):
     form_fields = ['hidden_profile_task']
 
 class Discussion(Page):
-    pass
+    live_method = 'live_chat'
 
 class Voting(Page):
     form_model = 'player'
