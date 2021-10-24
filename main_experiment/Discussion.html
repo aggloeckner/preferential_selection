@@ -107,8 +107,8 @@
 <div class="grid-container">
 	<div class="grid-column">
   		<div class="grid-item">Bewerber/in A</div>
-  	      <div class="grid-item"><button id="ButtonA1" type="button" class="button-green">Aufenthalt im Ausland</button></div>
-          <div class="grid-item"><button id="ButtonA2" type="button" class="button-green">Lehrerfahrung</button></div>
+        <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
+          <div class="grid-item"><button id="ButtonA2" type="button" class="button-green">Lehrerfahrungen</button></div>
           <div class="grid-item"><button id="ButtonA3" type="button" class="button-yellow">Kooperation in Fakultät</button></div>
           <div class="grid-item"><button id="ButtonA4" type="button" class="button-red">Einwerben von Drittmitteln</button></div>
           <div class="grid-item"><button id="ButtonA5" type="button" class="button-red">Interdisziplinäre Ausrichtung</button></div>
@@ -265,6 +265,7 @@
 {% endif %}
 
     <br>
+<table id="chat"><tr><td></td></tr></table>
 
     {{ formfields }}
 
@@ -282,6 +283,17 @@
     }
 
     window.onload = initAllSliders;
+
+    let chat = document.getElementById('chat');
+    function liveRecv(data) {
+    chat.innerHTML += '<tr><td>Spieler ' + data.id_in_group +' schreibt: '+ data.msg + '</td></tr>';
+    }
+
+    function buttonsendA1() {
+        liveSend('Bewerber/in A hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
+        $('#ButtonA1').attr("disabled", true); //disable button after clicking
+        document.getElementById("ButtonA1").style.background='#CEF6CE'; //change background-color after clicking
+    }
 </script>
 
 {{ endblock }}

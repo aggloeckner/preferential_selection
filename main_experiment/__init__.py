@@ -66,6 +66,10 @@ def group_by_arrival_time_method(subsession, waiting_players):
 
         return subsession.get_players()
 
+def live_chat(player: Player, data):
+    my_id = player.id_in_group
+    response = dict(id_in_group=my_id, msg=data)
+    return{0: response}
 
 # PAGES
 class GroupingWaitPage(WaitPage):
@@ -92,6 +96,7 @@ class DiscussionWaitPage(WaitPage):
 class Discussion(Page):
     timeout_seconds = 600
     timer_text = 'Verbleibende Zeit: <br>'
+    live_method = 'live_chat'
 
 class Voting(Page):
     form_model = 'player'
