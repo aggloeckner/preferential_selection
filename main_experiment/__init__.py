@@ -86,8 +86,12 @@ class HiddenProfileTask(Page):
     form_model = 'player'
     form_fields = ['hidden_profile_task']
 
-class Discussion(Page):
+class DiscussionWaitPage(WaitPage):
     pass
+
+class Discussion(Page):
+    timeout_seconds = 600
+    timer_text = 'Verbleibende Zeit: <br>'
 
 class Voting(Page):
     form_model = 'player'
@@ -114,6 +118,7 @@ page_sequence = [
     ProcedureDescription,
     ProcedureTask,
     HiddenProfileTask,
+    DiscussionWaitPage,
     Discussion,
     Voting,
     GeneralAssessment,
