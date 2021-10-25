@@ -286,7 +286,7 @@
 
     let chat = document.getElementById('chat');
     function liveRecv(data) {
-    chat.innerHTML += '<tr><td>Spieler ' + data.id_in_group +' schreibt: '+ data.msg + '</td></tr>';
+    chat.innerHTML = '<tr><td>Spieler ' + data.id_in_group +' schreibt: '+ data.msg + '</td></tr>' + chat.innerHTML;
     }
 
     function buttonsendA1() {
