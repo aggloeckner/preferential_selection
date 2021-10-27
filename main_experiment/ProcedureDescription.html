@@ -1,6 +1,6 @@
 {{ block content }}
 
-    <div>Das Geschlecht der Versuchsperson ist {{ participant.p_gender }}. </div>
+    <div>Das Geschlecht der Versuchsperson ist {{ if participant.p_gender == 1 }} weiblich {{ else }} männlich {{ endif }}. </div>
 
     {% if player.gender_based == True %}
 

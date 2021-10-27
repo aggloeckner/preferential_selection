@@ -94,7 +94,7 @@ class DiscussionWaitPage(WaitPage):
     pass
 
 class Discussion(Page):
-    timeout_seconds = 600
+    timeout_seconds = 600000
     timer_text = 'Verbleibende Zeit: <br>'
     live_method = 'live_chat'
 

@@ -1,5 +1,9 @@
-{{ block content }}
+{{ block style }}
 <style>
+body {
+    margin-top: -50px;
+}
+
 .button-red {
   background-color: #F44336;
   border: none;
@@ -9,8 +13,8 @@
   text-decoration: none;
   display: flex;
   font-size: 10px;
-  margin: 2px 2px;
-  width: 100%;
+  margin: 0px 0px;
+  width: 180px;
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -24,8 +28,8 @@
   text-decoration: none;
   display: flex;
   font-size: 10px;
-  margin: 2px 2px;
-  width: 100%;
+  margin: 0px 0px;
+  width: 180px;
   height: 50px;
   justify-content: center;
   align-items: center;
@@ -39,15 +43,15 @@
   text-decoration: none;
   display: flex;
   font-size: 10px;
-  margin: 2px 2px;
-  width: 100%;
+  margin: 0px 0px;
+  width: 180px;
   height: 50px;
   justify-content: center;
   align-items: center;
 }
 .grid-container-legend {
   display: grid;
-  grid-template-columns: 180px 180px 180px;
+  grid-template-columns: auto auto auto;
   grid-template-rows: 10px 10px;
   justify-content: center;
   padding: 15px;
@@ -63,7 +67,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: auto;
-  grid-template-rows: 180px 180px 180px 180px 180px 180px;
+  grid-template-rows: auto auto auto auto auto auto;
   padding: 0px;
 }
 .grid-item {
@@ -78,6 +82,7 @@
   font-size: 10px;
   float: right;
   height: 50px;
+  margin-left: 0px;
   margin-top: 40px;
   text-align: center;
   background-color: white;
@@ -86,180 +91,181 @@
   border-radius: 0%;
 }
 </style>
+{{ endblock }}
 
-
+{{ block content }}
 <body>
-
-<div class="grid-container-legend">
-  <div class="grid-item"></div>
-  <div class="grid-item"><b>Legende</b></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"></div>
-  <div class="grid-item"><button id="ButtonG" type="button" class="button-green">Überdurchschnittlich</button></div>
-  <div class="grid-item"><button  id="ButtonY" type="button" class="button-yellow">Durchschnittlich</button></div>
-  <div class="grid-item"><button  id="ButtonR" type="button" class="button-red">Unterdurchschnittlich</button></div>
-</div>
-
-<!-- Participant 1 -->
-{% if player.participant.id_in_session == 1 %}
-<div class="grid-container">
-	<div class="grid-column">
-  		<div class="grid-item">Bewerber/in A</div>
-          <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
-          <div class="grid-item"><button id="ButtonA2" type="button" onclick="buttonsendA2()" class="button-green">Lehrerfahrungen</button></div>
-          <div class="grid-item"><button id="ButtonA3" type="button" onclick="buttonsendA3()" class="button-yellow">Kooperation in Fakultät</button></div>
-          <div class="grid-item"><button id="ButtonA4" type="button" onclick="buttonsendA4()" class="button-red">Einwerben von Drittmitteln</button></div>
-          <div class="grid-item"><button id="ButtonA5" type="button" onclick="buttonsendA5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+<div style="margin-left: 120px">
+    <div class="grid-container-legend">
+      <div class="grid-item"></div>
+      <div class="grid-item"><b>Legende</b></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"><button id="ButtonG" type="button" class="button-green">Überdurchschnittlich</button></div>
+      <div class="grid-item"><button  id="ButtonY" type="button" class="button-yellow">Durchschnittlich</button></div>
+      <div class="grid-item"><button  id="ButtonR" type="button" class="button-red">Unterdurchschnittlich</button></div>
     </div>
-	<div class="grid-column">
-  		<div class="grid-item">Bewerber/in B</div>
-  		  <div class="grid-item"><button id="ButtonB1" type="button" onclick="buttonsendB1()" class="button-green">Aufenthalt im Ausland</button></div>
-          <div class="grid-item"><button id="ButtonB2" type="button" onclick="buttonsendB2()" class="button-green">Lehrerfahrung</button></div>
-          <div class="grid-item"><button id="ButtonB3" type="button" onclick="buttonsendB3()" class="button-yellow">Kooperation in Fakultät</button></div>
-          <div class="grid-item"><button id="ButtonB4" type="button" onclick="buttonsendB4()" class="button-red">Einwerben von Drittmitteln</button></div>
-          <div class="grid-item"><button id="ButtonB5" type="button" onclick="buttonsendB5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-	<div class="grid-column">
-  		<div class="grid-item">Bewerber/in C</div>
-          <div class="grid-item"><button id="ButtonC1" type="button" onclick="buttonsendC1()" class="button-green">Aufenthalt im Ausland</button></div>
-          <div class="grid-item"><button id="ButtonC2" type="button" onclick="buttonsendC2()" class="button-green">Lehrerfahrung</button></div>
-          <div class="grid-item"><button id="ButtonC6" type="button" onclick="buttonsendC6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-          <div class="grid-item"><button id="ButtonC4" type="button" onclick="buttonsendC4()" class="button-red">Einwerben von Drittmitteln</button></div>
-          <div class="grid-item"><button id="ButtonC5" type="button" onclick="buttonsendC5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-	<div class="grid-column">
-  		<div class="grid-item">Bewerber/in D</div>
-  		  <div class="grid-item"><button id="ButtonD1" type="button" onclick="buttonsendD1()" class="button-green">Aufenthalt im Ausland</button></div>
-          <div class="grid-item"><button id="ButtonD2" type="button" onclick="buttonsendD2()" class="button-green">Lehrerfahrung</button></div>
-          <div class="grid-item"><button id="ButtonD7" type="button" onclick="buttonsendD7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-          <div class="grid-item"><button id="ButtonD8" type="button" onclick="buttonsendD8()" class="button-yellow">Englischkenntnisse</button></div>
-          <div class="grid-item"><button id="ButtonD9" type="button" onclick="buttonsendD9()" class="button-yellow">Publikationen</button></div>
-    </div>
-	<div class="grid-column">
-  		<div class="grid-item">Bewerber/in E</div>
-  		  <div class="grid-item"><button id="ButtonE1" type="button" onclick="buttonsendE1()" class="button-green">Aufenthalt im Ausland</button></div>
-          <div class="grid-item"><button id="ButtonE2" type="button" onclick="buttonsendE2()" class="button-green">Lehrerfahrung</button></div>
-          <div class="grid-item"><button id="ButtonE6" type="button" onclick="buttonsendE6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-          <div class="grid-item"><button id="ButtonE4" type="button" onclick="buttonsendE4()" class="button-red">Einwerben von Drittmitteln</button></div>
-          <div class="grid-item"><button id="ButtonE5" type="button" onclick="buttonsendE5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-	<div class="grid-column">
-  		<div class="grid-item">Bewerber/in F</div>
-  		  <div class="grid-item"><button id="ButtonF9" type="button" onclick="buttonsendF9()" class="button-green">Publikationen</button></div>
-          <div class="grid-item"><button id="ButtonF6" type="button" onclick="buttonsendF6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-          <div class="grid-item"><button id="ButtonF7" type="button" onclick="buttonsendF7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-          <div class="grid-item"><button id="ButtonF4" type="button" onclick="buttonsendF4()" class="button-red">Einwerben von Drittmitteln</button></div>
-          <div class="grid-item"><button id="ButtonF5" type="button" onclick="buttonsendF5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-</div>
-{% endif %}
-
-<!-- Participant 2 -->
-{% if player.participant.id_in_session == 2 %}
-<div class="grid-container">
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in A</div>
-        <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonA2" type="button" onclick="buttonsendA2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonA7" type="button" onclick="buttonsendA7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-        <div class="grid-item"><button id="ButtonA8" type="button" onclick="buttonsendA8()" class="button-yellow">Englischkenntnisse</button></div>
-        <div class="grid-item"><button id="ButtonA9" type="button" onclick="buttonsendA9()" class="button-yellow">Publikationen</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in B</div>
-        <div class="grid-item"><button id="ButtonB1" type="button" onclick="buttonsendB1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonB2" type="button" onclick="buttonsendB2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonB6" type="button" onclick="buttonsendB6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-        <div class="grid-item"><button id="ButtonB4" type="button" onclick="buttonsendB4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonB5" type="button" onclick="buttonsendB5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in C</div>
-        <div class="grid-item"><button id="ButtonC1" type="button" onclick="buttonsendC1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonC2" type="button" onclick="buttonsendC2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonC3" type="button" onclick="buttonsendC3()" class="button-yellow">Kooperation in Fakultät</button></div>
-        <div class="grid-item"><button id="ButtonC4" type="button" onclick="buttonsendC4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonC5" type="button" onclick="buttonsendC5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in D</div>
-        <div class="grid-item"><button id="ButtonD1" type="button" onclick="buttonsendD1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonD2" type="button" onclick="buttonsendD2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonD3" type="button" onclick="buttonsendD3()" class="button-yellow">Kooperation in Fakultät</button></div>
-        <div class="grid-item"><button id="ButtonD4" type="button" onclick="buttonsendD4()" class="button-red"> Einwerben von Drittmitteln </button></div>
-        <div class="grid-item"><button id="ButtonD5" type="button" onclick="buttonsendD5()" class="button-red"> Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in E</div>
-        <div class="grid-item"><button id="ButtonE1" type="button" onclick="buttonsendE1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonE2" type="button" onclick="buttonsendE2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonE6" type="button" onclick="buttonsendE6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-        <div class="grid-item"><button id="ButtonE4" type="button" onclick="buttonsendE4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonE5" type="button" onclick="buttonsendE5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in F</div>
-        <div class="grid-item"><button id="ButtonF8" type="button" onclick="buttonsendF8()" class="button-green">Englischkenntnisse</button></div>
-        <div class="grid-item"><button id="ButtonF6" type="button" onclick="buttonsendF6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-        <div class="grid-item"><button id="ButtonF7" type="button" onclick="buttonsendF7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-        <div class="grid-item"><button id="ButtonF4" type="button" onclick="buttonsendF4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonF5" type="button" onclick="buttonsendF5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-</div>
-{% endif %}
-
-<!-- Participant 3 -->
-{% if player.participant.id_in_session == 3 %}
+    <!-- Participant 1 -->
+    {% if player.participant.id_in_session == 1 %}
     <div class="grid-container">
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in A</div>
-        <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonA6" type="button" onclick="buttonsendA6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-        <div class="grid-item"><button id="ButtonA7" type="button" onclick="buttonsendA7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-        <div class="grid-item"><button id="ButtonA4" type="button" onclick="buttonsendA4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonA5" type="button" onclick="buttonsendA5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        <div class="grid-column">
+            <div class="grid-item">Bewerber/in A</div>
+              <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
+              <div class="grid-item"><button id="ButtonA2" type="button" onclick="buttonsendA2()" class="button-green">Lehrerfahrungen</button></div>
+              <div class="grid-item"><button id="ButtonA3" type="button" onclick="buttonsendA3()" class="button-yellow">Kooperation in Fakultät</button></div>
+              <div class="grid-item"><button id="ButtonA4" type="button" onclick="buttonsendA4()" class="button-red">Einwerben von Drittmitteln</button></div>
+              <div class="grid-item"><button id="ButtonA5" type="button" onclick="buttonsendA5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+        <div class="grid-column">
+            <div class="grid-item">Bewerber/in B</div>
+              <div class="grid-item"><button id="ButtonB1" type="button" onclick="buttonsendB1()" class="button-green">Aufenthalt im Ausland</button></div>
+              <div class="grid-item"><button id="ButtonB2" type="button" onclick="buttonsendB2()" class="button-green">Lehrerfahrung</button></div>
+              <div class="grid-item"><button id="ButtonB3" type="button" onclick="buttonsendB3()" class="button-yellow">Kooperation in Fakultät</button></div>
+              <div class="grid-item"><button id="ButtonB4" type="button" onclick="buttonsendB4()" class="button-red">Einwerben von Drittmitteln</button></div>
+              <div class="grid-item"><button id="ButtonB5" type="button" onclick="buttonsendB5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+        <div class="grid-column">
+            <div class="grid-item">Bewerber/in C</div>
+              <div class="grid-item"><button id="ButtonC1" type="button" onclick="buttonsendC1()" class="button-green">Aufenthalt im Ausland</button></div>
+              <div class="grid-item"><button id="ButtonC2" type="button" onclick="buttonsendC2()" class="button-green">Lehrerfahrung</button></div>
+              <div class="grid-item"><button id="ButtonC6" type="button" onclick="buttonsendC6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+              <div class="grid-item"><button id="ButtonC4" type="button" onclick="buttonsendC4()" class="button-red">Einwerben von Drittmitteln</button></div>
+              <div class="grid-item"><button id="ButtonC5" type="button" onclick="buttonsendC5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+        <div class="grid-column">
+            <div class="grid-item">Bewerber/in D</div>
+              <div class="grid-item"><button id="ButtonD1" type="button" onclick="buttonsendD1()" class="button-green">Aufenthalt im Ausland</button></div>
+              <div class="grid-item"><button id="ButtonD2" type="button" onclick="buttonsendD2()" class="button-green">Lehrerfahrung</button></div>
+              <div class="grid-item"><button id="ButtonD7" type="button" onclick="buttonsendD7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+              <div class="grid-item"><button id="ButtonD8" type="button" onclick="buttonsendD8()" class="button-yellow">Englischkenntnisse</button></div>
+              <div class="grid-item"><button id="ButtonD9" type="button" onclick="buttonsendD9()" class="button-yellow">Publikationen</button></div>
+        </div>
+        <div class="grid-column">
+            <div class="grid-item">Bewerber/in E</div>
+              <div class="grid-item"><button id="ButtonE1" type="button" onclick="buttonsendE1()" class="button-green">Aufenthalt im Ausland</button></div>
+              <div class="grid-item"><button id="ButtonE2" type="button" onclick="buttonsendE2()" class="button-green">Lehrerfahrung</button></div>
+              <div class="grid-item"><button id="ButtonE6" type="button" onclick="buttonsendE6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+              <div class="grid-item"><button id="ButtonE4" type="button" onclick="buttonsendE4()" class="button-red">Einwerben von Drittmitteln</button></div>
+              <div class="grid-item"><button id="ButtonE5" type="button" onclick="buttonsendE5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+        <div class="grid-column">
+            <div class="grid-item">Bewerber/in F</div>
+              <div class="grid-item"><button id="ButtonF9" type="button" onclick="buttonsendF9()" class="button-green">Publikationen</button></div>
+              <div class="grid-item"><button id="ButtonF6" type="button" onclick="buttonsendF6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+              <div class="grid-item"><button id="ButtonF7" type="button" onclick="buttonsendF7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+              <div class="grid-item"><button id="ButtonF4" type="button" onclick="buttonsendF4()" class="button-red">Einwerben von Drittmitteln</button></div>
+              <div class="grid-item"><button id="ButtonF5" type="button" onclick="buttonsendF5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
     </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in B</div>
-        <div class="grid-item"><button id="ButtonB1" type="button" onclick="buttonsendB1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonB2" type="button" onclick="buttonsendB2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonB7" type="button" onclick="buttonsendB7()" class="button-yellow">Betreuung Abschlussarbeiten </button></div>
-        <div class="grid-item"><button id="ButtonB8" type="button" onclick="buttonsendB8()" class="button-yellow">Englischkenntnisse</button></div>
-        <div class="grid-item"><button id="ButtonB9" type="button" onclick="buttonsendB9()" class="button-yellow">Publikationen</button></div>
+    {% endif %}
+
+    <!-- Participant 2 -->
+    {% if player.participant.id_in_session == 2 %}
+    <div class="grid-container">
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in A</div>
+            <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonA2" type="button" onclick="buttonsendA2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonA7" type="button" onclick="buttonsendA7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+            <div class="grid-item"><button id="ButtonA8" type="button" onclick="buttonsendA8()" class="button-yellow">Englischkenntnisse</button></div>
+            <div class="grid-item"><button id="ButtonA9" type="button" onclick="buttonsendA9()" class="button-yellow">Publikationen</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in B</div>
+            <div class="grid-item"><button id="ButtonB1" type="button" onclick="buttonsendB1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonB2" type="button" onclick="buttonsendB2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonB6" type="button" onclick="buttonsendB6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+            <div class="grid-item"><button id="ButtonB4" type="button" onclick="buttonsendB4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonB5" type="button" onclick="buttonsendB5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in C</div>
+            <div class="grid-item"><button id="ButtonC1" type="button" onclick="buttonsendC1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonC2" type="button" onclick="buttonsendC2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonC3" type="button" onclick="buttonsendC3()" class="button-yellow">Kooperation in Fakultät</button></div>
+            <div class="grid-item"><button id="ButtonC4" type="button" onclick="buttonsendC4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonC5" type="button" onclick="buttonsendC5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in D</div>
+            <div class="grid-item"><button id="ButtonD1" type="button" onclick="buttonsendD1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonD2" type="button" onclick="buttonsendD2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonD3" type="button" onclick="buttonsendD3()" class="button-yellow">Kooperation in Fakultät</button></div>
+            <div class="grid-item"><button id="ButtonD4" type="button" onclick="buttonsendD4()" class="button-red"> Einwerben von Drittmitteln </button></div>
+            <div class="grid-item"><button id="ButtonD5" type="button" onclick="buttonsendD5()" class="button-red"> Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in E</div>
+            <div class="grid-item"><button id="ButtonE1" type="button" onclick="buttonsendE1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonE2" type="button" onclick="buttonsendE2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonE6" type="button" onclick="buttonsendE6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+            <div class="grid-item"><button id="ButtonE4" type="button" onclick="buttonsendE4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonE5" type="button" onclick="buttonsendE5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in F</div>
+            <div class="grid-item"><button id="ButtonF8" type="button" onclick="buttonsendF8()" class="button-green">Englischkenntnisse</button></div>
+            <div class="grid-item"><button id="ButtonF6" type="button" onclick="buttonsendF6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+            <div class="grid-item"><button id="ButtonF7" type="button" onclick="buttonsendF7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+            <div class="grid-item"><button id="ButtonF4" type="button" onclick="buttonsendF4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonF5" type="button" onclick="buttonsendF5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
     </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in C</div>
-        <div class="grid-item"><button id="ButtonC1" type="button" onclick="buttonsendC1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonC2" type="button" onclick="buttonsendC2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonC6" type="button" onclick="buttonsendC6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-        <div class="grid-item"><button id="ButtonC4" type="button" onclick="buttonsendC4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonC5" type="button" onclick="buttonsendC5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in D</div>
-        <div class="grid-item"><button id="ButtonD1" type="button" onclick="buttonsendD1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonD2" type="button" onclick="buttonsendD2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonD6" type="button" onclick="buttonsendD6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
-        <div class="grid-item"><button id="ButtonD4" type="button" onclick="buttonsendD4()" class="button-red"> Einwerben von Drittmitteln </button></div>
-        <div class="grid-item"><button id="ButtonD5" type="button" onclick="buttonsendD5()" class="button-red"> Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in E</div>
-        <div class="grid-item"><button id="ButtonE1" type="button" onclick="buttonsendE1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonE2" type="button" onclick="buttonsendE2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonE3" type="button" onclick="buttonsendE3()" class="button-yellow">Kooperation in Fakultät</button></div>
-        <div class="grid-item"><button id="ButtonE4" type="button" onclick="buttonsendE4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonE5" type="button" onclick="buttonsendE5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
-    </div>
-   <div class="grid-column">
-      <div class="grid-item">Bewerber/in F</div>
-        <div class="grid-item"><button id="ButtonF1" type="button" onclick="buttonsendF1()" class="button-green">Aufenthalt im Ausland</button></div>
-        <div class="grid-item"><button id="ButtonF2" type="button" onclick="buttonsendF2()" class="button-green">Lehrerfahrung</button></div>
-        <div class="grid-item"><button id="ButtonF3" type="button" onclick="buttonsendF3()" class="button-yellow">Kooperation in Fakultät</button></div>
-        <div class="grid-item"><button id="ButtonF4" type="button" onclick="buttonsendF4()" class="button-red">Einwerben von Drittmitteln</button></div>
-        <div class="grid-item"><button id="ButtonF5" type="button" onclick="buttonsendF5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+    {% endif %}
+
+    <!-- Participant 3 -->
+    {% if player.participant.id_in_session == 3 %}
+        <div class="grid-container">
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in A</div>
+            <div class="grid-item"><button id="ButtonA1" type="button" onclick="buttonsendA1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonA6" type="button" onclick="buttonsendA6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+            <div class="grid-item"><button id="ButtonA7" type="button" onclick="buttonsendA7()" class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+            <div class="grid-item"><button id="ButtonA4" type="button" onclick="buttonsendA4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonA5" type="button" onclick="buttonsendA5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in B</div>
+            <div class="grid-item"><button id="ButtonB1" type="button" onclick="buttonsendB1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonB2" type="button" onclick="buttonsendB2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonB7" type="button" onclick="buttonsendB7()" class="button-yellow">Betreuung Abschlussarbeiten </button></div>
+            <div class="grid-item"><button id="ButtonB8" type="button" onclick="buttonsendB8()" class="button-yellow">Englischkenntnisse</button></div>
+            <div class="grid-item"><button id="ButtonB9" type="button" onclick="buttonsendB9()" class="button-yellow">Publikationen</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in C</div>
+            <div class="grid-item"><button id="ButtonC1" type="button" onclick="buttonsendC1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonC2" type="button" onclick="buttonsendC2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonC6" type="button" onclick="buttonsendC6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+            <div class="grid-item"><button id="ButtonC4" type="button" onclick="buttonsendC4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonC5" type="button" onclick="buttonsendC5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in D</div>
+            <div class="grid-item"><button id="ButtonD1" type="button" onclick="buttonsendD1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonD2" type="button" onclick="buttonsendD2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonD6" type="button" onclick="buttonsendD6()" class="button-yellow">Internationale Kooperationserfahrung</button></div>
+            <div class="grid-item"><button id="ButtonD4" type="button" onclick="buttonsendD4()" class="button-red"> Einwerben von Drittmitteln </button></div>
+            <div class="grid-item"><button id="ButtonD5" type="button" onclick="buttonsendD5()" class="button-red"> Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in E</div>
+            <div class="grid-item"><button id="ButtonE1" type="button" onclick="buttonsendE1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonE2" type="button" onclick="buttonsendE2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonE3" type="button" onclick="buttonsendE3()" class="button-yellow">Kooperation in Fakultät</button></div>
+            <div class="grid-item"><button id="ButtonE4" type="button" onclick="buttonsendE4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonE5" type="button" onclick="buttonsendE5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
+       <div class="grid-column">
+          <div class="grid-item">Bewerber/in F</div>
+            <div class="grid-item"><button id="ButtonF1" type="button" onclick="buttonsendF1()" class="button-green">Aufenthalt im Ausland</button></div>
+            <div class="grid-item"><button id="ButtonF2" type="button" onclick="buttonsendF2()" class="button-green">Lehrerfahrung</button></div>
+            <div class="grid-item"><button id="ButtonF3" type="button" onclick="buttonsendF3()" class="button-yellow">Kooperation in Fakultät</button></div>
+            <div class="grid-item"><button id="ButtonF4" type="button" onclick="buttonsendF4()" class="button-red">Einwerben von Drittmitteln</button></div>
+            <div class="grid-item"><button id="ButtonF5" type="button" onclick="buttonsendF5()" class="button-red">Interdisziplinäre Ausrichtung</button></div>
+        </div>
     </div>
 </div>
 {% endif %}
@@ -275,6 +281,9 @@
 </body>
 
 
+{{ endblock }}
+
+{{ block script }}
 <script>
     function initAllSliders(){
         $('#ButtonG').attr("disabled", true);

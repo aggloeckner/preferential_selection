@@ -4,6 +4,7 @@ SESSION_CONFIGS = [
     dict(
         name='preferential_selection',
         app_sequence=[
+            'informed_consent',
             'LabIds',
             'demographics',
             'main_experiment'
@@ -14,6 +15,7 @@ SESSION_CONFIGS = [
     dict(
         name='test',
         app_sequence=[
+            'informed_consent',
 #            'LabIds',
             'demographics',
             'main_experiment'
