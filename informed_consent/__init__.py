@@ -35,6 +35,11 @@ class InformedConsent(Page):
     form_model = 'player'
     form_fields = ['informed_consent']
 
+    @staticmethod
+    def error_message(player, values):
+        if(values['informed_consent'] == False):
+            return "Um fortzufahren müssen Sie der Datenschutzerklärung zustimmen."
+
 
 
 page_sequence = [InformedConsent]
