@@ -38,7 +38,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     voted_candidate = models.IntegerField(
-        label="Nachdem Sie mit den anderen Personen Ihrer Gruppe neue Informationen zu den infrage kommendenden Bewerbern/Bewerberinnen geteilt haben, für welche/n Bewerber/in wollen Sie nun Ihre Stimme abgeben?",
+        label="Nachdem Sie mit den anderen Personen Ihrer Gruppe neue Informationen zu den infrage kommendenden Bewerbern/Bewerberinnen geteilt haben, für welchen Bewerber/welche Bewerberin wollen Sie nun Ihre Stimme abgeben?",
         choices=[
             [1, 'Bewerber/in A'],
             [2, 'Bewerber/in B'],
@@ -74,6 +74,7 @@ def live_chat(player: Player, data):
 # PAGES
 class GroupingWaitPage(WaitPage):
     group_by_arrival_time = True
+    body_text = "Bitte warten Sie einen Moment, bis das Experiment losgeht."
 
     def vars_for_template(self):
         return {'body_text': 'Sobald die anderen Teilnehmer eintreffen, geht es los.',
@@ -86,12 +87,15 @@ class ProcedureTask(Page):
     form_model = 'player'
     form_fields = ['describe_procedure']
 
+class HiddenProfileWaitPage(WaitPage):
+    body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
+
 class HiddenProfileTask(Page):
     form_model = 'player'
     form_fields = ['hidden_profile_task']
 
 class DiscussionWaitPage(WaitPage):
-    pass
+    body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
 
 class Discussion(Page):
     timeout_seconds = 600000
@@ -102,10 +106,10 @@ class Voting(Page):
     form_model = 'player'
     form_fields = ['voted_candidate']
 
-class GeneralAssessment(Page):
-    pass
+class VotingWaitPage(WaitPage):
+    body_text = "Wir bitten Sie um ein bisschen Geduld. Sobald alle Gruppenmitglieder mit der Abstimmung für einen Bewerber/eine Bewerberin fertig sind, können Sie das Experiment fortsetzen."
 
-class InformationRelevance(Page):
+class GeneralAssessment(Page):
     pass
 
 class FairnessQuiestionnaire(Page):
@@ -122,12 +126,13 @@ page_sequence = [
     GroupingWaitPage,
     ProcedureDescription,
     ProcedureTask,
+    HiddenProfileWaitPage,
     HiddenProfileTask,
     DiscussionWaitPage,
     Discussion,
     Voting,
+    VotingWaitPage,
     GeneralAssessment,
-    InformationRelevance,
     FairnessQuiestionnaire,
     Results,
     Payment
