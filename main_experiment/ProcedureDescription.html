@@ -2,13 +2,32 @@
 
     <div>Das Geschlecht der Versuchsperson ist {{ if participant.p_gender == 1 }} weiblich {{ else }} männlich {{ endif }}. </div>
 
+    <p>Sie nehmen nun an einem Experiment teil. Wenn Sie die nachfolgenden Erklärungen genau lesen, dann können Sie je nach Ihren Entscheidungen und den Entscheidungen der anderen Teilnehmer/innen des Experiments eine nicht unbeträchtliche  Geldsumme verdienen. Es ist daher sehr wichtig, dass Sie diese Erklärungen genau durchlesen.
+        Die Instruktionen, die Sie von uns erhalten, dienen ausschließlich Ihrer privaten Information. Während des  Experiments herrscht ein absolutes Kommunikationsverbot. Wenn Sie Fragen haben, dann richten Sie diese bitte direkt an uns. Die Nichtbeachtung dieser Regel führt zum Ausschluss von dem Experiment und allen Zahlungen.</p><br><br>
+
+    <p>Bitte versetzen Sie sich in die folgende Situation:<br>
+    Eine Professur an einer deutschen Universität soll neu besetzt werden und Sie entscheiden gemeinsam mit 4 weiteren Gruppenmitgliedern über die Besetzung dieser Stelle. Ihrer Gruppe als Berufungskommission liegen Unterlagen von 6 Bewerber/innen vor, die sich auf die Stelle beworben haben. Dabei wurden die Bewerbungsunterlagen im Vorfeld insofern reduziert, dass Ihre Gruppe lediglich 9 Informationen für jeden Bewerber/jede Bewerberin erhält, die für die Besetzung von Hochschulprofessuren relevant sind. Diese 9 Informationen sind jedoch nicht allen Mitgliedern Ihrer 5er-Gruppe bekannt, sondern jedes Gruppenmitglied erhält 5 Informationen über jeden Bewerber/jede Bewerberin. Im späteren Verlauf des Experiments bekommen Sie und Ihre anderen Gruppenmitglieder die Möglichkeit, die Ihnen zugeteilten Informationen mittels standardisierter Nachrichten miteinander zu teilen. Aus den gesamten Informationen ergibt sich eindeutig, wer für die vakante Professur am besten geeignet ist.
+        <br><br>
+        Die Informationen über die einzelnen Bewerber/innen werden Sie und die anderen Mitglieder Ihrer Gruppe farblich hinterlegt erhalten. <b style="color:#4CAF50">Grün</b> hinterlegte Eigenschaften bedeuten <b style="color:#4CAF50">überdurchschnittliche Leistung </b>in diesem Bereich. Ein <b style="color:#EBD802">gelber</b> Hintergrund bedeutet <b style="color:#EBD802">durchschnittliche</b> und ein <b style="color:#F44336">roter</b> Hintergrund <b style="color:#F44336">unterdurchschnittliche Leistung</b>. Sollten für einen Bewerber/eine Bewerberin beispielsweise folgende Informationen vorliegen: <b style="color:#4CAF50">Auslandsaufenthalt</b>, <b style="color:#F44336">Einwerbung von Drittmitteln</b>, <b style="color:#EBD802">Publikationsleistung</b> bedeutet dies, dass dieser Bewerber/diese Bewerberin also überdurchschnittlich lange im Ausland tätig war, unterdurchschnittlich viele Drittmittel eingeworben und durchschnittlich viel oder gut publiziert hat.
+        <br><br>
+    Die Prüfungskommission hat festgelegt, alle zur Verfügung stehenden Informationen gleich zu gewichten. Lehrerfahrung sollte zum Beispiel gleich gewichtet werden wie das Einwerben von Drittmitteln. Unter Berücksichtigung dieses Beurteilungsschemas sollte eine unterdurchschnittliche Leistung im Bereich Lehrerfahrung also ebenso berücksichtigt werden wie eine überdurchschnittliche Leistung hinsichtlich internationaler Kooperation.
+        <br><br>
+    Stimmt die Mehrheit der Mitglieder der Berufungskommission für den am besten geeigneten Bewerber/die am besten geeignete Bewerberin, erhalten Sie neben dem Fixbetrag von 8,50 € eine zusätzliche Vergütung von 5,00 € für diesen Teil des Experiments.
+        <br>
+
     {% if player.gender_based == True %}
 
-        <p>Hier wird der Auswahlprozess beschrieben. (Frauenquote)</p>
+        <p>Hier wird der Auswahlprozess beschrieben. (Frauenquote)<br>
+        Die anderen Mitglieder Ihrer Gruppe, mit denen Sie die Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin für eine Hochschulprofessur bilden, sind ebenfalls Teilnehmende des Experiments. Diese werden in den Instruktionen als “Gruppenmitglieder” bzw. “Mitglieder Ihrer Gruppe” bezeichnet.
+        Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass ein Anteil von mindestens 40% Frauen vorliegt, um die Repräsentation von Frauen zu stärken. Ihre Gruppe besteht nun also aus 2 Frauen und 3 Männern. Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden. Auf den nächsten Seiten werden Sie also 2 weibliche und 3 männliche Avatare sehen.</p>
 
     {% else %}
 
-        <p>Hier wird der Auswahlprozess beschrieben. (Performanzquote)</p>
+        <p>Hier wird der Auswahlprozess beschrieben. (Performanzquote)<br>
+        Die anderen Mitglieder Ihrer Gruppe, mit denen Sie die Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin für eine Hochschulprofessur bilden, sind ebenfalls Teilnehmende des Experiments. Diese werden in den Instruktionen als “Gruppenmitglieder” bzw. “Mitglieder Ihrer Gruppe” bezeichnet.
+        Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass die besten 90% der Online-Studie eingeladen wurden [ODER: dass nur die leistungsstärksten Personen der Online-Studie eingeladen wurden].
+        Ihre Gruppe besteht nun aus {2} Frauen und {3} Männern. Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden.
+        Auf den nächsten Seiten werden Sie also {2} weibliche und {3} männliche {und X diverse} Avatare sehen.</p>
 
     {% endif %}
 
