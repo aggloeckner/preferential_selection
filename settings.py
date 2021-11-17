@@ -15,12 +15,12 @@ SESSION_CONFIGS = [
     dict(
         name='test',
         app_sequence=[
-            'informed_consent',
+#            'informed_consent',
 #            'LabIds',
             'demographics',
             'main_experiment'
         ],
-        num_demo_participants=2,
+        num_demo_participants=5,
         max_number_participants=2000,
     ),
 ]

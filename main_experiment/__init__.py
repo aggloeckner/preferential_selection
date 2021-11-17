@@ -8,8 +8,8 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'main_experiment'
-#    players_per_group = 5
-    players_per_group = 2
+    players_per_group = 5
+#    players_per_group = 2
     num_rounds = 1
 
 
@@ -50,13 +50,23 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
+    def waiting_too_long(player):
+        participant = player.participant
+
+        import time
+        # assumes you set wait_page_arrival in PARTICIPANT_FIELDS.
+        return time.time() - participant.wait_page_arrival > 5 * 60
+
 # DEFS
 
 def group_by_arrival_time_method(subsession, waiting_players):
     import random
     import datetime
 
-    if len(waiting_players) >= subsession.session.config['num_demo_participants']:
+    print(len(waiting_players))
+    print(len(subsession.get_players()))
+
+    if len(waiting_players) == len(subsession.get_players()):
 
         treatment = random.choice([True, False])
 
@@ -65,6 +75,14 @@ def group_by_arrival_time_method(subsession, waiting_players):
             player.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
         return subsession.get_players()
+
+#    waiting = True
+#    for player in waiting_players:
+#        if not waiting_too_long(player):
+#            waiting = False
+
+#    if waiting == True:
+#        return subsession.get_players()
 
 def live_chat(player: Player, data):
     my_id = player.id_in_group
@@ -101,6 +119,18 @@ class Discussion(Page):
     timeout_seconds = 600000
     timer_text = 'Verbleibende Zeit: <br>'
     live_method = 'live_chat'
+
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_id = player.id_in_group,
+            my_gender = player.participant.p_gender,
+            player1_gender = player.group.get_player_by_id(1).participant.p_gender,
+            player2_gender = player.group.get_player_by_id(2).participant.p_gender,
+            player3_gender = player.group.get_player_by_id(3).participant.p_gender,
+            player4_gender = player.group.get_player_by_id(4).participant.p_gender,
+            player5_gender = player.group.get_player_by_id(5).participant.p_gender,
+        )
 
 class Voting(Page):
     form_model = 'player'

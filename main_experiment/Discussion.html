@@ -8,14 +8,14 @@ body {
   background-color: #F44336;
   border: none;
   color: black;
-  padding: 15px 10px;
+  padding: 15px 5px;
   text-align: center;
   text-decoration: none;
   display: flex;
   font-size: 10px;
   margin: 0px 0px;
-  width: 180px;
-  height: 50px;
+  width: 150px;
+  height: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -23,14 +23,14 @@ body {
   background-color: #F4E036;
   border: none;
   color: black;
-  padding: 15px 10px;
+  padding: 15px 5px;
   text-align: center;
   text-decoration: none;
   display: flex;
   font-size: 10px;
   margin: 0px 0px;
-  width: 180px;
-  height: 50px;
+  width: 150px;
+  height: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -38,14 +38,14 @@ body {
   background-color: #4CAF50;
   border: none;
   color: black;
-  padding: 15px 10px;
+  padding: 15px 5px;
   text-align: center;
   text-decoration: none;
   display: flex;
   font-size: 10px;
   margin: 0px 0px;
-  width: 180px;
-  height: 50px;
+  width: 150px;
+  height: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -77,25 +77,89 @@ body {
   text-align: center;
 }
 .otree-timer {
+  display: inline-block;
   width: 120px;
   color: black;
   font-size: 10px;
   float: right;
-  height: 50px;
+  height: 60px;
   margin-left: 0px;
-  margin-top: 132px;
   text-align: center;
+  align-items: center;
+  vertical-align: middle;
+
   background-color: white;
   border-color: black;
   /*delete border-radius attribute for (default) rounded corners*/
   border-radius: 0%;
 }
+.avatar {
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 5px;
+  height: 50px;
+}
+.chat {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 200px 200px 200px;
+  grid-gap: 0px 0px;
+  border-style: solid;
+  border-width: 0.5px;
+  font-size: 10px;
+}
+.mychat-box {
+  padding: 5px;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  border-style: solid;
+  border-width: 0.5px;
+}
+.chat-box {
+  padding: 5px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+.messages {
+  padding: 5px;
+  overflow-y: auto;
+  height: 139px;
+}
+table {
+  margin: auto;
+}
+td {
+  padding-left: 25px;
+  padding-right: 5px;
+  height: 50px;
+  width: 450px;
+}
+tr {
+  background-repeat: no-repeat;
+}
+tr.mychat {
+  background-image: url("/static/images/message_lightred.svg");
+}
+tr.chat1 {
+  background-image: url("/static/images/message_lightblue.svg");
+}
+tr.chat2 {
+  background-image: url("/static/images/message_yellow.svg");
+}
+tr.chat3 {
+  background-image: url("/static/images/message_orange.svg");
+}
+tr.chat4 {
+  background-image: url("/static/images/message_violet.svg");
+}
+
 </style>
 {{ endblock }}
 
 {{ block content }}
 <body>
-<div style="margin-left: -60px">Um Informationen mit Ihren Gruppenmitgliedern zu teilen, klicken Sie auf die jeweilige Schaltfläche. <br>Sie können jede der Ihnen zugeteilten Informationen nur einmal mit Ihren Gruppenmitgliedern teilen. <br>Es steht Ihnen frei, wie viele Informationen Sie mit der Gruppe teilen.</div><br>
+
+<div style="text-align: left; margin-left: auto">Um Informationen mit Ihren Gruppenmitgliedern zu teilen, klicken Sie auf die jeweilige Schaltfläche. <br>Sie können jede der Ihnen zugeteilten Informationen nur einmal mit Ihren Gruppenmitgliedern teilen. <br>Es steht Ihnen frei, wie viele Informationen Sie mit der Gruppe teilen.</div><br>
 <div style="margin-left: 20px">
     <div class="grid-container-legend">
       <div class="grid-item"></div>
@@ -380,15 +444,37 @@ body {
 
 </div>
 
-    <br>
+<br>
 
-    <div style="overflow: auto; height:150px;"><table id="chat"><tr><td></td></tr></table></div>
+    <div class="chat">
+        <div class="mychat-box">
+            <div id="my_avatar" class="avatar"></div>
+            <div class="messages"><table id="mychat"></table></div>
+        </div>
+        <div class="chat-box">
+            <div id="avatar1" class="avatar"></div>
+            <div class="messages"><table id="chat1"></table></div>
+        </div>
+        <div class="chat-box">
+            <div id="avatar2" class="avatar"></div>
+            <div class="messages"><table id="chat2"></table></div>
+        </div>
+        <div class="chat-box">
+            <div id="avatar3" class="avatar"></div>
+            <div class="messages"><table id="chat3"></table></div>
+        </div>
+        <div class="chat-box">
+            <div id="avatar4" class="avatar"></div>
+            <div class="messages"><table id="chat4"></table></div>
+        </div>
+    </div>
 
     {{ formfields }}
 
     <br>
 
     {{ next_button }}
+
 </body>
 
 {{ endblock }}
@@ -396,17 +482,127 @@ body {
 
 {{ block script }}
 <script>
+
+
     function initAllSliders(){
+        if(js_vars.my_gender == 1) {
+            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/female_red.svg')";
+        }
+        else {
+            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/male_red.svg')";
+        }
+        if(get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/female_celeste.svg')";
+        }
+        else {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/male_celeste.svg')";
+        }
+        if(get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/female_yellow.svg')";
+        }
+        else {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/male_yellow.svg')";
+        }
+        if(get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/female_orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/male_orange.svg')";
+        }
+        if(get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/female_violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/male_violet.svg')";
+        }
+
+
         $('#ButtonG').attr("disabled", true);
         $('#ButtonY').attr("disabled", true);
         $('#ButtonR').attr("disabled", true);
     }
 
+    function get_avatar_gender(id){
+        if (id < js_vars.player_id) {
+            if (id == 1) {
+                return js_vars.player1_gender;
+            }
+            else if (id == 2) {
+                return js_vars.player2_gender;
+            }
+            else if (id == 3) {
+                return js_vars.player3_gender;
+            }
+            else if (id == 4) {
+                return js_vars.player4_gender;
+            }
+        }
+        else {
+            if (id == 1) {
+                return js_vars.player2_gender;
+            }
+            else if (id == 2) {
+                return js_vars.player3_gender;
+            }
+            else if (id == 3) {
+                return js_vars.player4_gender;
+            }
+            else if (id == 4) {
+                return js_vars.player5_gender;
+            }
+        }
+
+
+        if (id == get_player_id(1)) {
+            return js_vars.player1_gender;
+        }
+        else if (id == get_player_id(2)) {
+            return js_vars.player2_gender;
+        }
+        else if (id == get_player_id(3)) {
+            return js_vars.player3_gender;
+        }
+        else if (id == get_player_id(4)) {
+            return js_vars.player4_gender;
+        }
+        else if (id == get_player_id(5)) {
+            return js_vars.player5_gender;
+        }
+    }
+
+    function get_player_id(id){
+        if (id > js_vars.player_id) {
+            return (id - 1);
+        }
+        else {
+            return (id);
+        }
+    }
+
     window.onload = initAllSliders;
 
-    let chat = document.getElementById('chat');
+    let mychat = document.getElementById('mychat');
+    let chat1 = document.getElementById('chat1');
+    let chat2 = document.getElementById('chat2');
+    let chat3 = document.getElementById('chat3');
+    let chat4 = document.getElementById('chat4');
+
     function liveRecv(data) {
-    chat.innerHTML = '<tr><td>Spieler ' + data.id_in_group +' schreibt: '+ data.msg + '</td></tr>' + chat.innerHTML;
+        if (data.id_in_group == js_vars.player_id) {
+            mychat.innerHTML = '<tr class="mychat"><td>' + data.msg + '</td></tr>' + mychat.innerHTML;
+        }
+        else if (get_player_id(data.id_in_group) == 1) {
+            chat1.innerHTML = '<tr class="chat1"><td>' + data.msg + '</td></tr>' + chat1.innerHTML;
+        }
+        else if (get_player_id(data.id_in_group) == 2) {
+            chat2.innerHTML = '<tr class="chat2"><td>' + data.msg + '</td></tr>' + chat2.innerHTML;
+        }
+        else if (get_player_id(data.id_in_group) == 3) {
+            chat3.innerHTML = '<tr class="chat3"><td>' + data.msg + '</td></tr>' + chat3.innerHTML;
+        }
+        else if (get_player_id(data.id_in_group) == 4) {
+            chat4.innerHTML = '<tr class="chat4"><td>' + data.msg + '</td></tr>' + chat4.innerHTML;
+        }
     }
 
     function buttonsendA1() {
