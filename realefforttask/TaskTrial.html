@@ -1,0 +1,123 @@
+{% block styles %}
+    <style>
+        .otree-title{
+            display: none;
+        }
+    </style>
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+    <style>
+        .otree-body{
+            text-align: center;
+        }
+        input[type='checkbox'] {
+            transform: scale(1);
+        }
+    </style>
+    <style>
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="card" align="center" style="height: 80px; top: 5px; margin-bottom: 10px;">
+        <div class="card-body" style="top: 2px; padding-top: 0px;">
+            <b> Matrix #{{ round_number }}</b> <br>
+            Verbleibende Zeit:
+            <span>
+                <span class="otree-timer__time-left"></span>
+            </span> <br>
+            Bitte kreuzen Sie alle 'd' Buchstaben an!
+        </div>
+    </div>
+
+    <div class="table-responsive" style="margin-top: 10px;">
+        <table class="table">
+            <tr>
+                {% for i,f,l in choices_0_10 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_10_20 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_20_30 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_30_40 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_40_50 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_50_60 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_60_70 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for i,f,l in choices_70_80 %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                        {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+
+    <p><b>Möchten Sie die Matrik abschicken?</b></p>
+
+    <button class="otree-btn-next btn btn-primary">Abschicken</button>
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+
+     const selectedElm = document.getElementById('selected');
+     var total_d = {{Constants.d_total|json}}
+     var total_b = {{Constants.b_total|json}}
+     var total_letters = total_d + total_b
+
+     function showChecked(){
+        selectedElm.innerHTML = total_d - document.querySelectorAll('input[value=d]:checked').length;
+     }
+
+     document.querySelectorAll("input[value=d]").forEach(i=>{
+     i.onclick = () => showChecked();
+      });
+
+    </script>
+{% endblock %}

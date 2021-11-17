@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+
+    <h3 class="panel-sub-heading">
+        Bitte beantworten Sie die folgenden Fragen!
+    </h3>
+
+    <br>
+    <p>
+        {{ formfield_errors 'gender' }}
+        1. Bitte geben Sie das Geschlecht an, dem Sie sich zugehörig fühlen:<br style="display: block; content: ''; margin-top: 5px;">
+        <input type = "radio" name = "gender" value = "male">
+        <label for="female">Weiblich</label><br>
+
+        <input type = "radio" name = "gender" value = "female">
+        <label for="male">Männlich</label><br>
+
+        <input type = "radio" name = "gender" value = "others">
+        <label for="others">Andere (Bitte angeben):</label>  <input type="text" name = "gender_others" value = ""><br>
+
+        <input type = "radio" name = "gender" value = "notsay">
+        <label for="notsay">Ohne Angabe</label>
+    </p>
+    <p>
+        {{ formfield_errors 'age' }}
+        2. Bitte geben Sie ihr Alter als ganze Zahl an (z.B. 21): <br style="display: block; content: ''; margin-top: 5px;">
+        <input type = "number" name = "age" value = "" style="width: 5em"> <br>
+    </p>
+
+</div>
+<button class="otree-btn-next btn btn-primary">Weiter</button>
+
+<br><br><br>
+
+
+
+
+
+{% endblock %}

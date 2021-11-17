@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions Part I
+{% endblock %}
+
+{% block content %}
+
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+    <h2 class="panel-sub-heading">
+        
+    </h2>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'global/matrix.css' %}"/>
+
+    <p>
+      In diesem Teil der Studie werden Ihnen eine Reihe von Matrizen mit zufällig verteilten
+        'b' und 'd' Buchstaben präsentiert.
+        Neben jedem Buchstaben befindet sich eine Checkbox. Ihre Aufgabe ist es, jede Box neben dem Buchstaben 'd' anzukreuzen.
+        Die Matrix ist korrekt gelöst, wenn alle Boxen neben dem Buchstaben 'd' angekreuzt wurden und keine Box neben
+        dem Buchstaben 'b' fehlerhaft angekreuzt wurde.
+    </p>
+    <p>
+      Wenn Sie die Matrix vollständig bearbeitet haben, klicken Sie bitte den <b>Abschicken</b>-Knopf.
+        Nachdem Sie eine Matrix abgeschickt haben, wird eine neue Matrix auf dem Bildschirm erscheinen. Ihre Aufgabe ist es,
+        erneut alle Checkboxen neben dem Buchstaben 'd' anzukreuzen.
+    </p>
+    <p>
+        Zunächst folgt eine Übungsmatrix, für die Sie <b>{{ player.task_timer}}</b> Sekunden Zeit haben.
+        Innerhalb dieser Zeit werden jedes Mal neue Matrizen auf dem Bildschirm erscheinen, wenn Sie den "Abschicken"-Knopf anklicken.
+        Diese Übung dient dazu, Sie mit der Aufgabe vertraut zu machen. Die abgeschickten Matrizen werden auf Richtigkeit überprüft.
+        Nach der Übung werden Sie darüber informiert, wie viele Matrizen Sie abgeschickt haben und ob diese korrekt gelöst wurden.
+    </p>
+
+    <p>
+         Wenn Sie bereit sind, klicken Sie bitte den "Start"-Knopf, um mit der Übungsaufgabe zu beginnen.<br>
+    </p>
+	
+
+
+</div>
+<button class="otree-btn-next btn btn-primary">Start</button>
+
+<br><br><br>
+
+
+
+
+
+{% endblock %}

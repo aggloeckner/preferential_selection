@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen!
+{% endblock %}
+
+{% block content %}
+
+{% load otree_tags staticfiles %}
+
+<div class="instructions well well-lg">
+
+    <h2 class="panel-sub-heading">
+        
+    </h2>
+
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'global/matrix.css' %}"/>
+
+    <p>
+      Diese Studie besteht aus mehreren Teilen. Wir werden Sie über jeden Abschnitt der Studie detailliert informieren. <br>
+        Sie erhalten <b> {{ fixed_payoff }} </b> als fixen Beitrag für die Teilnahme an der Studie.
+        Darüber hinaus können Sie abhängig von Ihrer Performanz in den folgenden Aufgaben zusätzliches Geld verdienen.
+        Deshalb ist es wichtig, dass Sie die Instruktionen aufmerksam lesen. Nur so können Sie erfahren, wie sich ihre Auszahlung
+        zusammensetzt. <br>
+    </p>
+    <p>
+        Die Studie dauert ca. <b> 10 Minuten</b>. <br>
+        Sie können die Studie jederzeit abbrechen, indem Sie das Browser-Fenster schließen. Falls Sie die Studie jedoch vorzeitig abbrechen,
+        erhalten Sie keine Auszahlung.
+    </p>
+
+</div>
+<button class="otree-btn-next btn btn-primary">Weiter</button>
+
+<br><br><br>
+
+{% endblock %}
+

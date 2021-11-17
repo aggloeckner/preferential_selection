@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ergebnisse
+{% endblock %}
+
+{% block content %}
+
+    <p class="text-success">
+    </p>
+
+    <div class="panel panel-success">
+
+        <div class="panel-heading">
+            <h4>Insgesamt haben Sie {% if player.total_correct == 1 %}eine Matrix{% else %}{{ player.total_correct}} Matrizen{% endif %} korrekt gelöst.</h4>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th><center>Matrix #</th>
+                <th><center>Anzahl der angekreuzten 'd' Buchstaben</th>
+                <th><center>Anzahl der inkorrekt angekreuzten 'b' Buchstaben</th>
+                <th><center>Matrix korrekt?</th>
+            </tr>
+            {% for row in table_rows %}
+            <tr>
+                <td align="center">{{ row.round_number }}</td>
+                <td align="center">{{ row.d_crossed}} von 20</td>
+                <td align="center">{{ row.b_crossed}}</td>
+                <td align="center">{% if row.is_correct == 1 %} Ja {% elif row.is_correct == 0 %} Nein {% endif %}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+{% next_button %}
+
+{% endblock %}
+
+
+

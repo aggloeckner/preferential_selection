@@ -2,9 +2,19 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
+        name='real_effort_task',
+        app_sequence=[
+#            'informed_consent_online',
+#            'LabIds',
+            'realefforttask',
+        ],
+        num_demo_participants=1,
+        max_number_participants=2000,
+    ),
+    dict(
         name='preferential_selection',
         app_sequence=[
-            'informed_consent',
+            'informed_consent_lab',
             'LabIds',
             'demographics',
             'main_experiment'
@@ -15,7 +25,7 @@ SESSION_CONFIGS = [
     dict(
         name='test',
         app_sequence=[
-#            'informed_consent',
+#            'informed_consent_lab',
 #            'LabIds',
             'demographics',
             'main_experiment'
@@ -34,7 +44,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = [ 'p_gender' ]
+PARTICIPANT_FIELDS = [ 'p_gender', 'letters_choices', 't1_results', 'expiry_timestamp', 'endgame', 'letters_choices_made', 'letters_choices' ]
 SESSION_FIELDS = []
 
 # ISO-639 code
@@ -43,7 +53,7 @@ LANGUAGE_CODE = 'de'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'EUR'
-USE_POINTS = True
+USE_POINTS = False
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable

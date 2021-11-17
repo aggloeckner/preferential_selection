@@ -1,0 +1,70 @@
+
+                <tr>
+                    {% for i,f,l in choices|slice:"00:10" %}
+                        <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %} " width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                    {% for i,f,l in choices|slice:"10:20" %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10" />
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                 <tr>
+                    {% for i,f,l in choices|slice:"20:30" %}
+                     <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                 <tr>
+                    {% for i,f,l in choices|slice:"30:40" %}
+                     <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                    {% for i,f,l in choices|slice:"40:50" %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                    {% for i,f,l in choices|slice:"50:60" %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                    {% for i,f,l in choices|slice:"60:70" %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+                <tr>
+                    {% for i,f,l in choices|slice:"70:80" %}
+                    <td class= "{{ l }}" > <input type="checkbox" name="{{ f }}" value="{{ l }}"> {% if l == 'd' %} <img src="{% static 'd_letter.png' %}" width="8" height="10"/>
+                            {% elif l == 'b' %} <img src="{% static 'b_letter.png'%}" width="8" height="10"  />  {% endif %}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+
+
+
+<!-- line 59: -->
+     var d_colors = {{player.colors_d|json}}
