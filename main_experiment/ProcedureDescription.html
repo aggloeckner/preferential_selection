@@ -1,7 +1,7 @@
 {{ block content }}
 
     <p>Sie nehmen nun an einem Experiment teil. Wenn Sie die nachfolgenden Erklärungen genau lesen, dann können Sie je nach Ihren Entscheidungen und den Entscheidungen der anderen Teilnehmer/innen des Experiments eine nicht unbeträchtliche  Geldsumme verdienen. Es ist daher sehr wichtig, dass Sie diese Erklärungen genau durchlesen.
-        Die Instruktionen, die Sie von uns erhalten, dienen ausschließlich Ihrer privaten Information. Während des  Experiments herrscht ein absolutes Kommunikationsverbot. Wenn Sie Fragen haben, dann richten Sie diese bitte direkt an uns. Die Nichtbeachtung dieser Regel führt zum Ausschluss von dem Experiment und allen Zahlungen.</p><br><br>
+        Die Instruktionen, die Sie von uns erhalten, dienen ausschließlich Ihrer privaten Information. Während des  Experiments herrscht ein absolutes Kommunikationsverbot. Wenn Sie Fragen haben, dann richten Sie diese bitte direkt an uns. Die Nichtbeachtung dieser Regel führt zum Ausschluss von dem Experiment und allen Zahlungen.</p><br><hr><br>
 
     <p>Bitte versetzen Sie sich in die folgende Situation:<br>
     Eine Professur an einer deutschen Universität soll neu besetzt werden und Sie entscheiden gemeinsam mit 4 weiteren Gruppenmitgliedern über die Besetzung dieser Stelle. Ihrer Gruppe als Berufungskommission liegen Unterlagen von 6 Bewerber/innen vor, die sich auf die Stelle beworben haben. Dabei wurden die Bewerbungsunterlagen im Vorfeld insofern reduziert, dass Ihre Gruppe lediglich 9 Informationen für jeden Bewerber/jede Bewerberin erhält, die für die Besetzung von Hochschulprofessuren relevant sind. Diese 9 Informationen sind jedoch nicht allen Mitgliedern Ihrer 5er-Gruppe bekannt, sondern jedes Gruppenmitglied erhält 5 Informationen über jeden Bewerber/jede Bewerberin. Im späteren Verlauf des Experiments bekommen Sie und Ihre anderen Gruppenmitglieder die Möglichkeit, die Ihnen zugeteilten Informationen mittels standardisierter Nachrichten miteinander zu teilen. Aus den gesamten Informationen ergibt sich eindeutig, wer für die vakante Professur am besten geeignet ist.
@@ -15,13 +15,14 @@
 
     {% if player.gender_based == True %}
 
-        <p>Hier wird der Auswahlprozess beschrieben. (Frauenquote)<br>
+        <p>
         Die anderen Mitglieder Ihrer Gruppe, mit denen Sie die Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin für eine Hochschulprofessur bilden, sind ebenfalls Teilnehmende des Experiments. Diese werden in den Instruktionen als “Gruppenmitglieder” bzw. “Mitglieder Ihrer Gruppe” bezeichnet.
-        Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass ein Anteil von mindestens 40% Frauen vorliegt, um die Repräsentation von Frauen zu stärken. Ihre Gruppe besteht nun also aus 2 Frauen und 3 Männern. Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden. Auf den nächsten Seiten werden Sie also 2 weibliche und 3 männliche Avatare sehen.</p>
+        Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass ein Anteil von mindestens 40% Frauen vorliegt, um die Repräsentation von Frauen zu stärken. Ihre Gruppe besteht nun also aus 2 Frauen und 3 Männern.
+        Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden. Auf den nächsten Seiten werden Sie also 2 weibliche und 3 männliche Avatare sehen.</p>
 
     {% else %}
 
-        <p>Hier wird der Auswahlprozess beschrieben. (Performanzquote)<br>
+        <p>
         Die anderen Mitglieder Ihrer Gruppe, mit denen Sie die Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin für eine Hochschulprofessur bilden, sind ebenfalls Teilnehmende des Experiments. Diese werden in den Instruktionen als “Gruppenmitglieder” bzw. “Mitglieder Ihrer Gruppe” bezeichnet.
         Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass die besten 90% der Online-Studie eingeladen wurden [ODER: dass nur die leistungsstärksten Personen der Online-Studie eingeladen wurden].
         Ihre Gruppe besteht nun aus {2} Frauen und {3} Männern. Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden.

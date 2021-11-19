@@ -94,9 +94,9 @@ class GroupingWaitPage(WaitPage):
     group_by_arrival_time = True
     body_text = "Bitte warten Sie einen Moment, bis das Experiment losgeht."
 
-    def vars_for_template(self):
-        return {'body_text': 'Sobald die anderen Teilnehmer eintreffen, geht es los.',
-                'title_text': 'Bitte warten Sie.'}
+    #def vars_for_template(self):
+     #   return {'body_text': 'Sobald die anderen Teilnehmer eintreffen, geht es los.',
+     #           'title_text': 'Bitte warten Sie.'}
 
 class ProcedureDescription(Page):
     pass
