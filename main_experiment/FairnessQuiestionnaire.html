@@ -1,7 +1,85 @@
 {{ block content }}
     <div>Die folgenden Fragen beziehen sich auf das Verfahren, das für die Auswahl der Mitglieder der Berufungskommission verwendet wurde.
     Es geht hierbei also <u>nicht</u> um das Auswahlverfahren eines geeigneten Bewerbers/einer geeigneten Bewerberin.</div><br>
-    {{ formfields }}
+<table class="table">
+    <tr style="font-size:12px">
+        <td></td>
+        <td>stimme voll zu</td>
+        <td>stimme zu</td>
+        <td>stimme eher zu</td>
+        <td>teils, teils</td>
+        <td>stimme eher nicht zu</td>
+        <td>stimme nicht zu</td>
+        <td>stimme überhaupt nicht zu</td>
+    </tr>
+
+    <tr>
+    <td>{{ form.fairness1.label }}</td>
+    {{ for choice in form.fairness1 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness2.label }}</td>
+    {{ for choice in form.fairness2 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness3.label }}</td>
+    {{ for choice in form.fairness3 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness4.label }}</td>
+    {{ for choice in form.fairness4 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness5.label }}</td>
+    {{ for choice in form.fairness5 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness6.label }}</td>
+    {{ for choice in form.fairness6 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness7.label }}</td>
+    {{ for choice in form.fairness7 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+</table>
+<table class="table">
+    <tr style="font-size:12px">
+        <td></td>
+        <td>sehr fair</td>
+        <td>fair</td>
+        <td>eher fair</td>
+        <td>weder fair noch unfair</td>
+        <td>eher unfair</td>
+        <td>unfair</td>
+        <td>sehr unfair</td>
+    </tr>
+    <tr>
+    <td>{{ form.fairness8.label }}</td>
+    {{ for choice in form.fairness8 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+    <tr>
+    <td>{{ form.fairness9.label }}</td>
+    {{ for choice in form.fairness9 }}
+        <td>{{ choice }}</td>
+    {{ endfor }}
+   </tr>
+</table>
     {{ next_button }}
 
 {{ endblock }}
