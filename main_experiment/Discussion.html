@@ -84,7 +84,7 @@
       float: right;
       height: 50px;
       margin-left: -15px;
-      margin-top:120px;
+      margin-top:250px;
       margin-right: 10px;
       text-align: center;
       align-items: center;
@@ -163,6 +163,20 @@
     <div style="text-align: left; margin-left: auto">
         Um Informationen mit Ihren Gruppenmitgliedern zu teilen, klicken Sie auf die jeweilige Schaltfläche. <br>Sie können jede der Ihnen zugeteilten Informationen nur einmal mit Ihren Gruppenmitgliedern teilen. <br>Es steht Ihnen frei, wie viele Informationen Sie mit der Gruppe teilen.
     </div><br>
+
+    <table  style="width: 800px; border: 1px solid black">
+        <tr style="border: 1px solid black;">
+            <td style="text-align:center; border: 1px solid black; padding-right:30px;">Sie</td>
+            <td style="text-align:center; border: 1px solid black;" colspan=4>Ihre Gruppenmitglieder</td>
+        </tr>
+        <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black; padding-right:30px;"><div style="margin: 15px;" id="my_avatar_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black; padding-right:25px;"><div id="avatar1_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black; padding-right:25px;"><div id="avatar2_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black; padding-right:25px;"><div id="avatar3_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black; padding-right:25px;"><div id="avatar4_tbl" class="avatar"></div></td>
+        </tr>
+    </table>
 
     <div style="margin-left: 120px">
         <div class="grid-container-legend">
@@ -520,6 +534,36 @@
             document.getElementById('avatar4').style.backgroundImage = "url('/static/images/male_violet.svg')";
         }
 
+        if(js_vars.my_gender == 1) {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female_red.svg')";
+        }
+        else {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/male_red.svg')";
+        }
+        if(get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/female_celeste.svg')";
+        }
+        else {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/male_celeste.svg')";
+        }
+        if(get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/female_yellow.svg')";
+        }
+        else {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/male_yellow.svg')";
+        }
+        if(get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/female_orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/male_orange.svg')";
+        }
+        if(get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/female_violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/male_violet.svg')";
+        }
 
         $('#ButtonG').attr("disabled", true);
         $('#ButtonY').attr("disabled", true);

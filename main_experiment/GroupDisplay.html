@@ -1,0 +1,127 @@
+{{ block style }}
+<style>
+    .avatar {
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 5px;
+      height: 50px;
+    }
+</style>
+{{ endblock }}
+
+{{ block content }}
+    Ihre Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin besteht aus den folgenden Mitgliedern:
+<br><br>
+<table  style="width: 800px; border: 1px solid black">
+        <tr style="border: 1px solid black;">
+            <td style="text-align:center; border: 1px solid black; width: 160px; padding:10px;">Sie</td>
+            <td style="text-align:center; border: 1px solid black;" colspan=4>Ihre Gruppenmitglieder</td>
+        </tr>
+        <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;"><div style="margin: 15px;" id="my_avatar_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black;"><div id="avatar1_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black;"><div id="avatar2_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black;"><div id="avatar3_tbl" class="avatar"></div></td>
+            <td style="border: 1px solid black;"><div id="avatar4_tbl" class="avatar"></div></td>
+        </tr>
+    </table>
+<br>
+    {{ next_button }}
+
+{{ endblock }}
+
+{{ block script }}
+<script>
+    function initTable(){
+        if(js_vars.my_gender == 1) {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female_red.svg')";
+        }
+        else {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/male_red.svg')";
+        }
+        if(get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/female_celeste.svg')";
+        }
+        else {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/male_celeste.svg')";
+        }
+        if(get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/female_yellow.svg')";
+        }
+        else {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/male_yellow.svg')";
+        }
+        if(get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/female_orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/male_orange.svg')";
+        }
+        if(get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/female_violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/male_violet.svg')";
+        }
+    }
+
+    function get_avatar_gender(id){
+        if (id < js_vars.player_id) {
+            if (id == 1) {
+                return js_vars.player1_gender;
+            }
+            else if (id == 2) {
+                return js_vars.player2_gender;
+            }
+            else if (id == 3) {
+                return js_vars.player3_gender;
+            }
+            else if (id == 4) {
+                return js_vars.player4_gender;
+            }
+        }
+        else {
+            if (id == 1) {
+                return js_vars.player2_gender;
+            }
+            else if (id == 2) {
+                return js_vars.player3_gender;
+            }
+            else if (id == 3) {
+                return js_vars.player4_gender;
+            }
+            else if (id == 4) {
+                return js_vars.player5_gender;
+            }
+        }
+
+
+        if (id == get_player_id(1)) {
+            return js_vars.player1_gender;
+        }
+        else if (id == get_player_id(2)) {
+            return js_vars.player2_gender;
+        }
+        else if (id == get_player_id(3)) {
+            return js_vars.player3_gender;
+        }
+        else if (id == get_player_id(4)) {
+            return js_vars.player4_gender;
+        }
+        else if (id == get_player_id(5)) {
+            return js_vars.player5_gender;
+        }
+    }
+
+    function get_player_id(id){
+        if (id > js_vars.player_id) {
+            return (id - 1);
+        }
+        else {
+            return (id);
+        }
+    }
+
+    window.onload = initTable;
+</script>
+{{ endblock }}

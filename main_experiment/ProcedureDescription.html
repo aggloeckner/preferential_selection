@@ -14,19 +14,21 @@
         <br>
 
     {% if player.gender_based == True %}
-
+        <h4>Quotenbasierte Auswahl</h4>
         <p>
         Die anderen Mitglieder Ihrer Gruppe, mit denen Sie die Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin für eine Hochschulprofessur bilden, sind ebenfalls Teilnehmende des Experiments. Diese werden in den Instruktionen als “Gruppenmitglieder” bzw. “Mitglieder Ihrer Gruppe” bezeichnet.
         Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass ein Anteil von mindestens 40% Frauen vorliegt, um die Repräsentation von Frauen zu stärken. Ihre Gruppe besteht nun also aus 2 Frauen und 3 Männern.
-        Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden. Auf den nächsten Seiten werden Sie also 2 weibliche und 3 männliche Avatare sehen.</p>
+        Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden. Auf den nächsten Seiten werden Sie also 2 weibliche und 3 männliche Avatare sehen.
+        </p>
 
     {% else %}
-
+        <h4>Leistungsbasierte Auswahl</h4>
         <p>
         Die anderen Mitglieder Ihrer Gruppe, mit denen Sie die Berufungskommission zur Auswahl eines geeigneten Bewerbers/einer geeigneten Bewerberin für eine Hochschulprofessur bilden, sind ebenfalls Teilnehmende des Experiments. Diese werden in den Instruktionen als “Gruppenmitglieder” bzw. “Mitglieder Ihrer Gruppe” bezeichnet.
-        Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass die besten 90% der Online-Studie eingeladen wurden [ODER: dass nur die leistungsstärksten Personen der Online-Studie eingeladen wurden].
+        Ihre Berufungskommission wurde so zusammengestellt und die Gruppenmitglieder so ausgewählt, dass nur die Personen eingeladen wurden, die bei der Online-Studie am besten abgeschnitten haben.
         Ihre Gruppe besteht nun aus {2} Frauen und {3} Männern. Ihnen und den anderen Mitgliedern Ihrer Gruppe wurden virtuelle Avatare zugeordnet, mit denen Sie unterscheiden können, welche Informationen über die Bewerber/innen von welchem Gruppenmitglied geteilt wurden.
-        Auf den nächsten Seiten werden Sie also {2} weibliche und {3} männliche {und X diverse} Avatare sehen.</p>
+        Auf den nächsten Seiten werden Sie also {2} weibliche und {3} männliche {und X diverse} Avatare sehen.
+        </p>
 
     {% endif %}
 </div>
