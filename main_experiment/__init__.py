@@ -158,26 +158,26 @@ class Player(BasePlayer):
     fairness8 = models.IntegerField(
         label="Wie fair waren die Entscheidungsregeln und das Entscheidungsverfahren in dem Auswahlverfahren?",
         choices=[
-            [1, 'stimme voll zu'],
-            [2, 'stimme zu'],
-            [3, 'stimme eher zu'],
-            [4, 'teils, teils'],
-            [5, 'stimme eher nicht zu'],
-            [6, 'stimme nicht zu'],
-            [7, 'stimme überhaupt nicht zu']
+            [1, 'sehr fair'],
+            [2, 'fair'],
+            [3, 'eher fair'],
+            [4, 'weder fair noch unfair'],
+            [5, 'eher unfair'],
+            [6, 'unfair'],
+            [7, 'sehr unfair']
         ],
         widget=widgets.RadioSelect
     )
     fairness9 = models.IntegerField(
         label="Wie fair war das Ergebnis des Auswahlverfahrens?",
         choices=[
-            [1, 'stimme voll zu'],
-            [2, 'stimme zu'],
-            [3, 'stimme eher zu'],
-            [4, 'teils, teils'],
-            [5, 'stimme eher nicht zu'],
-            [6, 'stimme nicht zu'],
-            [7, 'stimme überhaupt nicht zu']
+            [1, 'sehr fair'],
+            [2, 'fair'],
+            [3, 'eher fair'],
+            [4, 'weder fair noch unfair'],
+            [5, 'eher unfair'],
+            [6, 'unfair'],
+            [7, 'sehr unfair']
         ],
         widget=widgets.RadioSelect
     )
@@ -262,7 +262,17 @@ class ProcedureTask(Page):
     form_fields = ['describe_procedure']
 
 class GroupDisplay(Page):
-    pass
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_id=player.id_in_group,
+            my_gender=player.participant.p_gender,
+            player1_gender=player.group.get_player_by_id(1).participant.p_gender,
+            player2_gender=player.group.get_player_by_id(2).participant.p_gender,
+            player3_gender=player.group.get_player_by_id(3).participant.p_gender,
+            player4_gender=player.group.get_player_by_id(4).participant.p_gender,
+            player5_gender=player.group.get_player_by_id(5).participant.p_gender,
+        )
 
 class HiddenProfileWaitPage(WaitPage):
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
