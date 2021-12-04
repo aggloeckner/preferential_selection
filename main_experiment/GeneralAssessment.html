@@ -1,7 +1,37 @@
 {{ block content }}
 <h4>Bitte beantworten Sie nun einige Fragen zu Ihrer Gruppe und Ihren Erfahrungen im vorangegangenen Informationsaustausch.</h4>
 <br><br>
-    {{ formfields }}
+<p>Ich sehe mich selbst als Mitglied meiner 5er-Gruppe.</p>
+<div style="display: flex">
+        {{ for choice in form.groupinteraction1 }}
+        <div style="flex: 1; text-align: center">
+            {{ choice }}
+            <br>
+            <span style="text-align: center">{{ choice.label }}</span>
+        </div>
+        {{ endfor }}
+</div><br><br>
+<p>Würden Sie gerne weitere Aufgaben gemeinsam mit Ihrer Gruppe bearbeiten?</p>
+<div style="display: flex">
+        {{ for choice in form.groupinteraction2 }}
+        <div style="flex: 1; text-align: center">
+            {{ choice }}
+            <br>
+            <span style="text-align: center">{{ choice.label }}</span>
+        </div>
+        {{ endfor }}
+</div><br><br>
+<p>Wie wohl haben Sie sich während der Bearbeitung der Gruppenaufgabe gefühlt?</p>
+<div style="display: flex">
+        {{ for choice in form.groupinteraction3 }}
+        <div style="flex: 1; text-align: center">
+            {{ choice }}
+            <br>
+            <span style="text-align: center">{{ choice.label }}</span>
+        </div>
+        {{ endfor }}
+</div><br>
+
     {{ next_button }}
 
 {{ endblock }}
