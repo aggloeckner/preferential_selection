@@ -25,6 +25,162 @@ class Player(BasePlayer):
     time_start = models.StringField()
     gender_based = models.BooleanField()
     describe_procedure = models.TextField(label="")
+    groupinteraction1 = models.IntegerField(
+        label="Ich sehe mich selbst als Mitglied meiner 5er-Gruppe.",
+        choices=[
+            [1, 'sehr wenig'],
+            [2, ''],
+            [3, ''],
+            [4, ''],
+            [5, ''],
+            [6, ''],
+            [7, 'sehr stark'],
+        ],
+        widget=widgets.RadioSelectHorizontal
+    )
+    groupinteraction2 = models.IntegerField(
+        label="Würden Sie gerne weitere Aufgaben gemeinsam mit Ihrer Gruppe bearbeiten?",
+        choices=[
+            [1, 'sehr ungern'],
+            [2, ''],
+            [3, ''],
+            [4, ''],
+            [5, ''],
+            [6, ''],
+            [7, 'sehr gern'],
+        ],
+        widget=widgets.RadioSelectHorizontal
+    )
+    groupinteraction3 = models.IntegerField(
+        label="Wie wohl haben Sie sich während der Bearbeitung der Gruppenaufgabe gefühlt?",
+        choices=[
+            [1, 'sehr unwohl'],
+            [2, ''],
+            [3, ''],
+            [4, ''],
+            [5, ''],
+            [6, ''],
+            [7, 'sehr wohl'],
+        ],
+        widget=widgets.RadioSelectHorizontal
+    )
+    fairness1 = models.IntegerField(
+        label="Die Entscheidungen wurden aufgrund von Fakten und nicht aufgrund von persönlichen Vorurteilen und Meinungen getroffen.",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness2 = models.IntegerField(
+        label="Die Regeln und das Verfahren waren für alle gleichermaßen fair.",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness3 = models.IntegerField(
+        label="Die Regeln und das Verfahren waren einheitlich für alle Beteiligten angewandt.",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness4 = models.IntegerField(
+        label="Die Rechte der Beteiligten wurden berücksichtigt. ",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness5 = models.IntegerField(
+        label="Die Beteiligten wurden mit Respekt behandelt.",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness6 = models.IntegerField(
+        label="Die Bedürfnisse der Beteiligten wurden berücksichtigt.",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness7 = models.IntegerField(
+        label="Die Beteiligten haben das Ergebnis des Auswahlverfahrens verdient.",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness8 = models.IntegerField(
+        label="Wie fair waren die Entscheidungsregeln und das Entscheidungsverfahren in dem Auswahlverfahren?",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
+    fairness9 = models.IntegerField(
+        label="Wie fair war das Ergebnis des Auswahlverfahrens?",
+        choices=[
+            [1, 'stimme voll zu'],
+            [2, 'stimme zu'],
+            [3, 'stimme eher zu'],
+            [4, 'teils, teils'],
+            [5, 'stimme eher nicht zu'],
+            [6, 'stimme nicht zu'],
+            [7, 'stimme überhaupt nicht zu']
+        ],
+        widget=widgets.RadioSelect
+    )
     hidden_profile_task = models.IntegerField(
         label="Wen würden Sie auf Basis der Ihnen aktuell vorliegenden Informationen für die Besetzung der Professur auswählen?",
         choices=[
@@ -105,6 +261,9 @@ class ProcedureTask(Page):
     form_model = 'player'
     form_fields = ['describe_procedure']
 
+class GroupDisplay(Page):
+    pass
+
 class HiddenProfileWaitPage(WaitPage):
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
 
@@ -140,10 +299,12 @@ class VotingWaitPage(WaitPage):
     body_text = "Wir bitten Sie um ein bisschen Geduld. Sobald alle Gruppenmitglieder mit der Abstimmung für einen Bewerber/eine Bewerberin fertig sind, können Sie das Experiment fortsetzen."
 
 class GeneralAssessment(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['groupinteraction1', 'groupinteraction2', 'groupinteraction3']
 
 class FairnessQuiestionnaire(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['fairness1', 'fairness2', 'fairness3', 'fairness4', 'fairness5', 'fairness6','fairness7', 'fairness8', 'fairness9']
 
 class Results(Page):
     pass
@@ -156,6 +317,7 @@ page_sequence = [
     GroupingWaitPage,
     ProcedureDescription,
     ProcedureTask,
+    GroupDisplay,
     HiddenProfileWaitPage,
     HiddenProfileTask,
     DiscussionWaitPage,
