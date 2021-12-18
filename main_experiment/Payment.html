@@ -1,5 +1,24 @@
 {{ block content }}
 
+    <div>
+        <b>Ihre Gesamtauszahlung aus dem heutigen Experiment berechnet sich wie folgt: </b><br>
+        8,50 € für die Teilnahme am Experiment <br>
+        {{ if player.group.correctVote }}
+            + 5,00 €, da die  Gruppenaufgabe richtig gelöst wurde. <br>
+            Insgesamt: 13,50 € <br>
+        {{ else }}
+            + 0,00 €, da die  Gruppenaufgabe nicht richtig gelöst wurde. <br>
+            Insgesamt: 8,50 € <br>
+            <br>
+            Zu Ihrer Information: Bewerber/in A ist die Person, die für die Besetzung der Professur am besten geeignet ist.
+        {{ endif }} <br><br>
+
+    </div>
+
+    <hr>
+
+    {% formfield 'comments' label="Wenn Sie uns Feedback geben möchten oder Kommentare zu dieser Studie haben, melden Sie uns diese gerne im Folgenden zurück:" %}
+
     {{ next_button }}
 
 {{ endblock }}

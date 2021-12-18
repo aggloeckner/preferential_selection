@@ -1,4 +1,30 @@
 {{ block content }}
+    <div>
+        Anzahl Stimmen für Bewerber/in A: {{ player.group.votesA }}<br>
+        Anzahl Stimmen für Bewerber/in B: {{ player.group.votesB }}<br>
+        Anzahl Stimmen für Bewerber/in C: {{ player.group.votesC }}<br>
+        Anzahl Stimmen für Bewerber/in D: {{ player.group.votesD }}<br>
+        Anzahl Stimmen für Bewerber/in E: {{ player.group.votesE }}<br>
+        Anzahl Stimmen für Bewerber/in F: {{ player.group.votesF }}<br>
+    </div>
+    <br>
+    <div>
+        Die Mehrheit der Berufungskommission hat für {{ player.group.winner }} gestimmt. <br>
+        {{ if player.group.clearVote }}
+            {{ if player.group.correctVote }}
+                Da die Professur mit der geeignetsten Bewerberin/dem geeignetsten Bewerber besetzt werden
+                konnte, erhalten Sie zusätzliche 5 Euro für diesen Teil des Experiments.
+            {{ else }}
+                Da die Professur nicht mit der geeignetsten Bewerberin/dem geeignetsten Bewerber besetzt werden
+                konnte, erhalten Sie keine zusätzliche Vergütung für diesen Teil des Experiments.
+            {{ endif }}
+        {{ else }}
+            Es gab keine eindeutige Mehrheit, daher kann die Professur nicht besetzt werden. Da die Professur nicht
+            mit der geeignetsten Bewerberin/dem geeignetsten Bewerber besetzt werden konnte, erhalten Sie keine
+            zusätzliche Vergütung für diesen Teil des Experiments.
+        {{ endif }}
+    </div>
+    <br>
 
     {{ next_button }}
 

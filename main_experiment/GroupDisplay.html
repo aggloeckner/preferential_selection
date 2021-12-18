@@ -33,35 +33,50 @@
 {{ block script }}
 <script>
     function initTable(){
-        if(js_vars.my_gender == 1) {
-            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female_red.svg')";
+        if (js_vars.my_gender == 1) {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female-red.svg')";
+        }
+        else if (js_vars.my_gender == 2) {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/male-red.svg')";
         }
         else {
-            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/male_red.svg')";
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/diverse-red.svg')";
         }
-        if(get_avatar_gender(1) == 1) {
-            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/female_celeste.svg')";
+        if (get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/female-celeste.svg')";
         }
-        else {
-            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/male_celeste.svg')";
-        }
-        if(get_avatar_gender(2) == 1) {
-            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/female_yellow.svg')";
+        else if (get_avatar_gender(1) == 2) {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/male-celeste.svg')";
         }
         else {
-            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/male_yellow.svg')";
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/diverse-celeste.svg')";
         }
-        if(get_avatar_gender(3) == 1) {
-            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/female_orange.svg')";
+        if (get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/female-yellow.svg')";
         }
-        else {
-            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/male_orange.svg')";
-        }
-        if(get_avatar_gender(4) == 1) {
-            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/female_violet.svg')";
+        else if (get_avatar_gender(2) == 2) {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/male-yellow.svg')";
         }
         else {
-            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/male_violet.svg')";
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/diverse-yellow.svg')";
+        }
+        if (get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/female-orange.svg')";
+        }
+        else if (get_avatar_gender(3) == 2) {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/male-orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/diverse-orange.svg')";
+        }
+        if (get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/female-violet.svg')";
+        }
+        else if (get_avatar_gender(4) == 2) {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/male-violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/diverse-violet.svg')";
         }
     }
 

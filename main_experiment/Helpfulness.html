@@ -1,0 +1,281 @@
+{{ block style }}
+<style>
+    body {
+        margin-top: -50px;
+    }
+
+    .avatar {
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 5px;
+      height: 50px;
+    }
+    .chat {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 130px 130px;
+      grid-gap: 0px 0px;
+      border-style: solid;
+      border-width: 0.5px;
+      font-size: 10px;
+    }
+    .chat-box {
+      padding: 5px;
+      border-style: solid;
+      border-width: 0.5px;
+      justify-content: center;
+    }
+    table {
+      margin: auto;
+      text-align:center;
+    }
+
+</style>
+{{ endblock }}
+
+{{ block content }}
+<body>
+    <div>
+        <h5>Bitte beantworten Sie nun einige Fragen zu Ihrer Gruppe und Ihren Erfahrungen im vorangegangenen
+        Informationsaustausch.</h5>
+        <br>
+        Wie hilfreich (von „gar nicht hilfreich“ bis „sehr hilfreich“) waren nach Ihrer Einschätzung die Beiträge der
+        einzelnen Gruppenmitglieder für die Auswahl des geeignetsten Bewerbers/ der geeignetsten Bewerberin?
+    </div>
+    <br>
+    <div class="chat">
+        <div class="chat-box">
+            <div id="avatar1" class="avatar"></div>
+            {{ if player.participant.id_in_session > 1 }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer1 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer1 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ else }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer2 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer2 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ endif }}
+        </div>
+        <div class="chat-box">
+            <div id="avatar2" class="avatar"></div>
+            {{ if player.participant.id_in_session > 2 }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer2 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer2 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ else }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer3 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer3 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ endif }}
+        </div>
+        <div class="chat-box">
+            <div id="avatar3" class="avatar"></div>
+            {{ if player.participant.id_in_session > 3 }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer3 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer3 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ else }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer4 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer4 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ endif }}
+        </div>
+        <div class="chat-box">
+            <div id="avatar4" class="avatar"></div>
+            {{ if player.participant.id_in_session > 4 }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer4 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer4 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ else }}
+                <table>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer5 }}
+                            <td style="width: 60px; margin: auto;">{{ choice.label }}</td>
+                        {{ endfor }}
+                    </tr>
+                    <tr>
+                        {{ for choice in form.helpfulnessPlayer5 }}
+                            <td style="width: 60px; margin: auto;">{{ choice }}</td>
+                        {{ endfor }}
+                    </tr>
+                </table>
+            {{ endif }}
+        </div>
+    </div>
+
+    <br>
+
+    {{ next_button }}
+
+</body>
+
+{{ endblock }}
+
+
+{{ block script }}
+<script>
+
+    function initFunction(){
+        if (get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/female-celeste.svg')";
+        }
+        else if (get_avatar_gender(1) == 2) {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/male-celeste.svg')";
+        }
+        else {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/diverse-celeste.svg')";
+        }
+        if (get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/female-yellow.svg')";
+        }
+        else if (get_avatar_gender(2) == 2) {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/male-yellow.svg')";
+        }
+        else {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/diverse-yellow.svg')";
+        }
+        if (get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/female-orange.svg')";
+        }
+        else if (get_avatar_gender(3) == 2) {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/male-orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/diverse-orange.svg')";
+        }
+        if (get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/female-violet.svg')";
+        }
+        else if (get_avatar_gender(4) == 2) {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/male-violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/diverse-violet.svg')";
+        }
+    }
+
+    function get_avatar_gender(id){
+        if (id < js_vars.player_id) {
+            if (id == 1) {
+                return js_vars.player1_gender;
+            }
+            else if (id == 2) {
+                return js_vars.player2_gender;
+            }
+            else if (id == 3) {
+                return js_vars.player3_gender;
+            }
+            else if (id == 4) {
+                return js_vars.player4_gender;
+            }
+        }
+        else {
+            if (id == 1) {
+                return js_vars.player2_gender;
+            }
+            else if (id == 2) {
+                return js_vars.player3_gender;
+            }
+            else if (id == 3) {
+                return js_vars.player4_gender;
+            }
+            else if (id == 4) {
+                return js_vars.player5_gender;
+            }
+        }
+
+
+        if (id == get_player_id(1)) {
+            return js_vars.player1_gender;
+        }
+        else if (id == get_player_id(2)) {
+            return js_vars.player2_gender;
+        }
+        else if (id == get_player_id(3)) {
+            return js_vars.player3_gender;
+        }
+        else if (id == get_player_id(4)) {
+            return js_vars.player4_gender;
+        }
+        else if (id == get_player_id(5)) {
+            return js_vars.player5_gender;
+        }
+    }
+
+    function get_player_id(id){
+        if (id > js_vars.player_id) {
+            return (id - 1);
+        }
+        else {
+            return (id);
+        }
+    }
+
+    window.onload = initFunction;
+
+</script>
+
+{{ endblock }}

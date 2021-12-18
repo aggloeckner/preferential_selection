@@ -139,19 +139,19 @@
       background-repeat: no-repeat;
     }
     tr.mychat {
-      background-image: url("/static/images/message_lightred.svg");
+      background-image: url("/static/images/message.svg");
     }
     tr.chat1 {
-      background-image: url("/static/images/message_lightblue.svg");
+      background-image: url("/static/images/message.svg");
     }
     tr.chat2 {
-      background-image: url("/static/images/message_yellow.svg");
+      background-image: url("/static/images/message.svg");
     }
     tr.chat3 {
-      background-image: url("/static/images/message_orange.svg");
+      background-image: url("/static/images/message.svg");
     }
     tr.chat4 {
-      background-image: url("/static/images/message_violet.svg");
+      background-image: url("/static/images/message.svg");
     }
 
 </style>
@@ -502,67 +502,97 @@
 <script>
 
 
-    function initAllSliders(){
-        if(js_vars.my_gender == 1) {
-            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/female_red.svg')";
+    function initFunction(){
+        if (js_vars.my_gender == 1) {
+            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/female-red.svg')";
+        }
+        else if (js_vars.my_gender == 2) {
+            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/male-red.svg')";
         }
         else {
-            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/male_red.svg')";
+            document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/diverse-red.svg')";
         }
-        if(get_avatar_gender(1) == 1) {
-            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/female_celeste.svg')";
+        if (get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/female-celeste.svg')";
         }
-        else {
-            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/male_celeste.svg')";
-        }
-        if(get_avatar_gender(2) == 1) {
-            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/female_yellow.svg')";
+        else if (get_avatar_gender(1) == 2) {
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/male-celeste.svg')";
         }
         else {
-            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/male_yellow.svg')";
+            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/diverse-celeste.svg')";
         }
-        if(get_avatar_gender(3) == 1) {
-            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/female_orange.svg')";
+        if (get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/female-yellow.svg')";
         }
-        else {
-            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/male_orange.svg')";
-        }
-        if(get_avatar_gender(4) == 1) {
-            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/female_violet.svg')";
+        else if (get_avatar_gender(2) == 2) {
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/male-yellow.svg')";
         }
         else {
-            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/male_violet.svg')";
+            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/diverse-yellow.svg')";
+        }
+        if (get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/female-orange.svg')";
+        }
+        else if (get_avatar_gender(3) == 2) {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/male-orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/diverse-orange.svg')";
+        }
+        if (get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/female-violet.svg')";
+        }
+        else if (get_avatar_gender(4) == 2) {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/male-violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/diverse-violet.svg')";
         }
 
-        if(js_vars.my_gender == 1) {
-            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female_red.svg')";
+        if (js_vars.my_gender == 1) {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female-red.svg')";
+        }
+        else if (js_vars.my_gender == 2) {
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/male-red.svg')";
         }
         else {
-            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/male_red.svg')";
+            document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/diverse-red.svg')";
         }
-        if(get_avatar_gender(1) == 1) {
-            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/female_celeste.svg')";
+        if (get_avatar_gender(1) == 1) {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/female-celeste.svg')";
         }
-        else {
-            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/male_celeste.svg')";
-        }
-        if(get_avatar_gender(2) == 1) {
-            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/female_yellow.svg')";
+        else if (get_avatar_gender(1) == 2) {
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/male-celeste.svg')";
         }
         else {
-            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/male_yellow.svg')";
+            document.getElementById('avatar1_tbl').style.backgroundImage = "url('/static/images/diverse-celeste.svg')";
         }
-        if(get_avatar_gender(3) == 1) {
-            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/female_orange.svg')";
+        if (get_avatar_gender(2) == 1) {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/female-yellow.svg')";
         }
-        else {
-            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/male_orange.svg')";
-        }
-        if(get_avatar_gender(4) == 1) {
-            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/female_violet.svg')";
+        else if (get_avatar_gender(2) == 2) {
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/male-yellow.svg')";
         }
         else {
-            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/male_violet.svg')";
+            document.getElementById('avatar2_tbl').style.backgroundImage = "url('/static/images/diverse-yellow.svg')";
+        }
+        if (get_avatar_gender(3) == 1) {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/female-orange.svg')";
+        }
+        else if (get_avatar_gender(3) == 2) {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/male-orange.svg')";
+        }
+        else {
+            document.getElementById('avatar3_tbl').style.backgroundImage = "url('/static/images/diverse-orange.svg')";
+        }
+        if (get_avatar_gender(4) == 1) {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/female-violet.svg')";
+        }
+        else if (get_avatar_gender(4) == 2) {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/male-violet.svg')";
+        }
+        else {
+            document.getElementById('avatar4_tbl').style.backgroundImage = "url('/static/images/diverse-violet.svg')";
         }
 
         $('#ButtonG').attr("disabled", true);
@@ -627,7 +657,7 @@
         }
     }
 
-    window.onload = initAllSliders;
+    window.onload = initFunction;
 
     let mychat = document.getElementById('mychat');
     let chat1 = document.getElementById('chat1');
