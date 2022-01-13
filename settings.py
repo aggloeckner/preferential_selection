@@ -27,10 +27,10 @@ SESSION_CONFIGS = [
         app_sequence=[
 #            'informed_consent_lab',
 #            'LabIds',
-#            'demographics',
+            'demographics',
             'main_experiment'
         ],
-        num_demo_participants=5,
+        num_demo_participants=10,
         max_number_participants=2000,
     ),
 ]

@@ -30,6 +30,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     time_start = models.StringField()
+    perfect_group = models.BooleanField()
     gender_based = models.BooleanField()
     describe_procedure = models.TextField(label="")
     hidden_profile_task = models.IntegerField(
@@ -44,6 +45,60 @@ class Player(BasePlayer):
         ],
         widget=widgets.RadioSelect
     )
+    message_A1_time = models.StringField(blank = True)
+    message_A2_time = models.StringField(blank = True)
+    message_A3_time = models.StringField(blank = True)
+    message_A4_time = models.StringField(blank = True)
+    message_A5_time = models.StringField(blank = True)
+    message_A6_time = models.StringField(blank = True)
+    message_A7_time = models.StringField(blank = True)
+    message_A8_time = models.StringField(blank = True)
+    message_A9_time = models.StringField(blank = True)
+    message_B1_time = models.StringField(blank = True)
+    message_B2_time = models.StringField(blank = True)
+    message_B3_time = models.StringField(blank = True)
+    message_B4_time = models.StringField(blank = True)
+    message_B5_time = models.StringField(blank = True)
+    message_B6_time = models.StringField(blank = True)
+    message_B7_time = models.StringField(blank = True)
+    message_B8_time = models.StringField(blank = True)
+    message_B9_time = models.StringField(blank = True)
+    message_C1_time = models.StringField(blank = True)
+    message_C2_time = models.StringField(blank = True)
+    message_C3_time = models.StringField(blank = True)
+    message_C4_time = models.StringField(blank = True)
+    message_C5_time = models.StringField(blank = True)
+    message_C6_time = models.StringField(blank = True)
+    message_C7_time = models.StringField(blank = True)
+    message_C8_time = models.StringField(blank = True)
+    message_C9_time = models.StringField(blank = True)
+    message_D1_time = models.StringField(blank = True)
+    message_D2_time = models.StringField(blank = True)
+    message_D3_time = models.StringField(blank = True)
+    message_D4_time = models.StringField(blank = True)
+    message_D5_time = models.StringField(blank = True)
+    message_D6_time = models.StringField(blank = True)
+    message_D7_time = models.StringField(blank = True)
+    message_D8_time = models.StringField(blank = True)
+    message_D9_time = models.StringField(blank = True)
+    message_E1_time = models.StringField(blank = True)
+    message_E2_time = models.StringField(blank = True)
+    message_E3_time = models.StringField(blank = True)
+    message_E4_time = models.StringField(blank = True)
+    message_E5_time = models.StringField(blank = True)
+    message_E6_time = models.StringField(blank = True)
+    message_E7_time = models.StringField(blank = True)
+    message_E8_time = models.StringField(blank = True)
+    message_E9_time = models.StringField(blank = True)
+    message_F1_time = models.StringField(blank = True)
+    message_F2_time = models.StringField(blank = True)
+    message_F3_time = models.StringField(blank = True)
+    message_F4_time = models.StringField(blank = True)
+    message_F5_time = models.StringField(blank = True)
+    message_F6_time = models.StringField(blank = True)
+    message_F7_time = models.StringField(blank = True)
+    message_F8_time = models.StringField(blank = True)
+    message_F9_time = models.StringField(blank = True)
     voted_candidate = models.IntegerField(
         label="Nachdem Sie mit den anderen Personen Ihrer Gruppe neue Informationen zu den infrage kommendenden Bewerbern/Bewerberinnen geteilt haben, für welchen Bewerber/welche Bewerberin wollen Sie nun Ihre Stimme abgeben?",
         choices=[
@@ -486,30 +541,73 @@ class Player(BasePlayer):
 
 # DEFS
 
-def group_by_arrival_time_method(subsession, waiting_players):
+def group_players(subsession):
     import random
     import datetime
 
-    print(len(waiting_players))
-    print(len(subsession.get_players()))
+    weights = []
 
-    if len(waiting_players) == len(subsession.get_players()):
+    with open('LabIds/CountGenderBased.txt', 'r') as file:
+        weights.append(int(file.read()))
 
-        treatment = random.choice([True, False])
+    with open('LabIds/CountPerformanceBased.txt', 'r') as file:
+        weights.append(int(file.read()))
 
-        for player in subsession.get_players():
-            player.gender_based = treatment
-            player.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+    treatment = random.choices([True, False],weights=weights,k=int(len(subsession.get_players())/5))
 
-        return subsession.get_players()
+    males = []
+    females = []
+    others = []
 
-#    waiting = True
-#    for player in waiting_players:
-#        if not waiting_too_long(player):
-#            waiting = False
+    for p in subsession.get_players():
+        if p.participant.p_gender == 1:
+            females.append(p)
+        elif p.participant.p_gender == 2:
+            males.append(p)
+        else:
+            others.append(p)
 
-#    if waiting == True:
-#        return subsession.get_players()
+    matrix_of_groups = []
+    group = []
+    for j in range(int(len(subsession.get_players())/5)):
+        if len(females) >= 2 and len(males) >= 3:
+            for i in range(2):
+                group.append(females[0].id_in_subsession)
+                females[0].perfect_group = True
+                females[0].gender_based = treatment[j]
+                females.pop(0)
+            for i in range(3):
+                group.append(males[0].id_in_subsession)
+                males[0].perfect_group = True
+                males[0].gender_based = treatment[j]
+                males.pop(0)
+        else:
+            for i in range(5):
+                if len(group) < 5:
+                    if len(females) > 0:
+                        group.append(females[0].id_in_subsession)
+                        females[0].perfect_group = False
+                        females[0].gender_based = False
+                        females.pop(0)
+                    elif len(males) > 0:
+                        group.append(males[0].id_in_subsession)
+                        males[0].perfect_group = False
+                        males[0].gender_based = False
+                        males.pop(0)
+                    else:
+                        group.append(others[0].id_in_subsession)
+                        others[0].perfect_group = False
+                        others[0].gender_based = False
+                        others.pop(0)
+
+        matrix_of_groups.append(group.copy())
+        group.clear()
+
+    for player in subsession.get_players():
+        player.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
+    subsession.set_group_matrix(matrix_of_groups)
+
 
 def live_chat(player: Player, data):
     my_id = player.id_in_group
@@ -554,17 +652,50 @@ def set_payoffs(group):
 
 # PAGES
 class GroupingWaitPage(WaitPage):
-    group_by_arrival_time = True
+    after_all_players_arrive = group_players
+    wait_for_all_groups = True
     body_text = "Bitte warten Sie einen Moment, bis das Experiment losgeht."
 
     #def vars_for_template(self):
      #   return {'body_text': 'Sobald die anderen Teilnehmer eintreffen, geht es los.',
      #           'title_text': 'Bitte warten Sie.'}
 
-class ProcedureDescription(Page):
-    pass
+class Instructions(Page):
+    @staticmethod
+    def vars_for_template(player):
+        number_females = 0
+        number_males = 0
+        number_diverse = 0
+        number_others = 0
 
-class ProcedureTask(Page):
+        for p in player.get_others_in_group():
+            if p.participant.p_gender == 1:
+                number_females += 1
+            if p.participant.p_gender == 2:
+                number_males += 1
+            if p.participant.p_gender == 3:
+                number_diverse += 1
+            if p.participant.p_gender == 4:
+                number_others += 1
+
+        if player.participant.p_gender == 1:
+            number_females += 1
+        if player.participant.p_gender == 2:
+            number_males += 1
+        if player.participant.p_gender == 3:
+            number_diverse += 1
+        if player.participant.p_gender == 4:
+            number_others += 1
+
+        return dict(
+            number_females = number_females,
+            number_males = number_males,
+            number_diverse = number_diverse,
+            number_others = number_others,
+        )
+
+
+class DescribeProcedure(Page):
     form_model = 'player'
     form_fields = ['describe_procedure']
 
@@ -592,6 +723,16 @@ class DiscussionWaitPage(WaitPage):
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
 
 class Discussion(Page):
+    form_model = 'player'
+    form_fields = [
+        'message_A1_time','message_A2_time','message_A3_time','message_A4_time','message_A5_time','message_A6_time','message_A7_time','message_A8_time','message_A9_time',
+        'message_B1_time','message_B2_time','message_B3_time','message_B4_time','message_B5_time','message_B6_time','message_B7_time','message_B8_time','message_B9_time',
+        'message_C1_time','message_C2_time','message_C3_time','message_C4_time','message_C5_time','message_C6_time','message_C7_time','message_C8_time','message_C9_time',
+        'message_D1_time','message_D2_time','message_D3_time','message_D4_time','message_D5_time','message_D6_time','message_D7_time','message_D8_time','message_D9_time',
+        'message_E1_time','message_E2_time','message_E3_time','message_E4_time','message_E5_time','message_E6_time','message_E7_time','message_E8_time','message_E9_time',
+        'message_F1_time','message_F2_time','message_F3_time','message_F4_time','message_F5_time','message_F6_time','message_F7_time','message_F8_time','message_F9_time',
+    ]
+
     timeout_seconds = 600000
     timer_text = 'Verbleibende Zeit: <br>'
     live_method = 'live_chat'
@@ -749,21 +890,21 @@ class EndOfStudy(Page):
 
 page_sequence = [
     GroupingWaitPage,
-    #ProcedureDescription,
-    #ProcedureTask,
-    #GroupDisplay,
-    #HiddenProfileWaitPage,
-    #HiddenProfileTask,
-    #DiscussionWaitPage,
-    #Discussion,
+    Instructions,
+    DescribeProcedure,
+    GroupDisplay,
+    HiddenProfileWaitPage,
+    HiddenProfileTask,
+    DiscussionWaitPage,
+    Discussion,
     Voting,
     VotingWaitPage,
-    #Helpfulness,
-    #Competence,
-    #Competitiveness,
-    #Independence,
-    #GeneralAssessment,
-    #FairnessQuiestionnaire,
+    Helpfulness,
+    Competence,
+    Competitiveness,
+    Independence,
+    GeneralAssessment,
+    FairnessQuiestionnaire,
     Results,
     Payment,
     EndOfStudy

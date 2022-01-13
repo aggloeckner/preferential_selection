@@ -487,7 +487,60 @@
         </div>
     </div>
 
-    {{ formfields }}
+    <input type="hidden" name="message_A1_time" id="message_A1_time"/>
+    <input type="hidden" name="message_A2_time" id="message_A2_time"/>
+    <input type="hidden" name="message_A3_time" id="message_A3_time"/>
+    <input type="hidden" name="message_A4_time" id="message_A4_time"/>
+    <input type="hidden" name="message_A5_time" id="message_A5_time"/>
+    <input type="hidden" name="message_A6_time" id="message_A6_time"/>
+    <input type="hidden" name="message_A7_time" id="message_A7_time"/>
+    <input type="hidden" name="message_A8_time" id="message_A8_time"/>
+    <input type="hidden" name="message_A9_time" id="message_A9_time"/>
+    <input type="hidden" name="message_B1_time" id="message_B1_time"/>
+    <input type="hidden" name="message_B2_time" id="message_B2_time"/>
+    <input type="hidden" name="message_B3_time" id="message_B3_time"/>
+    <input type="hidden" name="message_B4_time" id="message_B4_time"/>
+    <input type="hidden" name="message_B5_time" id="message_B5_time"/>
+    <input type="hidden" name="message_B6_time" id="message_B6_time"/>
+    <input type="hidden" name="message_B7_time" id="message_B7_time"/>
+    <input type="hidden" name="message_B8_time" id="message_B8_time"/>
+    <input type="hidden" name="message_B9_time" id="message_B9_time"/>
+    <input type="hidden" name="message_C1_time" id="message_C1_time"/>
+    <input type="hidden" name="message_C2_time" id="message_C2_time"/>
+    <input type="hidden" name="message_C3_time" id="message_C3_time"/>
+    <input type="hidden" name="message_C4_time" id="message_C4_time"/>
+    <input type="hidden" name="message_C5_time" id="message_C5_time"/>
+    <input type="hidden" name="message_C6_time" id="message_C6_time"/>
+    <input type="hidden" name="message_C7_time" id="message_C7_time"/>
+    <input type="hidden" name="message_C8_time" id="message_C8_time"/>
+    <input type="hidden" name="message_C9_time" id="message_C9_time"/>
+    <input type="hidden" name="message_D1_time" id="message_D1_time"/>
+    <input type="hidden" name="message_D2_time" id="message_D2_time"/>
+    <input type="hidden" name="message_D3_time" id="message_D3_time"/>
+    <input type="hidden" name="message_D4_time" id="message_D4_time"/>
+    <input type="hidden" name="message_D5_time" id="message_D5_time"/>
+    <input type="hidden" name="message_D6_time" id="message_D6_time"/>
+    <input type="hidden" name="message_D7_time" id="message_D7_time"/>
+    <input type="hidden" name="message_D8_time" id="message_D8_time"/>
+    <input type="hidden" name="message_D9_time" id="message_D9_time"/>
+    <input type="hidden" name="message_E1_time" id="message_E1_time"/>
+    <input type="hidden" name="message_E2_time" id="message_E2_time"/>
+    <input type="hidden" name="message_E3_time" id="message_E3_time"/>
+    <input type="hidden" name="message_E4_time" id="message_E4_time"/>
+    <input type="hidden" name="message_E5_time" id="message_E5_time"/>
+    <input type="hidden" name="message_E6_time" id="message_E6_time"/>
+    <input type="hidden" name="message_E7_time" id="message_E7_time"/>
+    <input type="hidden" name="message_E8_time" id="message_E8_time"/>
+    <input type="hidden" name="message_E9_time" id="message_E9_time"/>
+    <input type="hidden" name="message_F1_time" id="message_F1_time"/>
+    <input type="hidden" name="message_F2_time" id="message_F2_time"/>
+    <input type="hidden" name="message_F3_time" id="message_F3_time"/>
+    <input type="hidden" name="message_F4_time" id="message_F4_time"/>
+    <input type="hidden" name="message_F5_time" id="message_F5_time"/>
+    <input type="hidden" name="message_F6_time" id="message_F6_time"/>
+    <input type="hidden" name="message_F7_time" id="message_F7_time"/>
+    <input type="hidden" name="message_F8_time" id="message_F8_time"/>
+    <input type="hidden" name="message_F9_time" id="message_F9_time"/>
 
     <br>
 
@@ -687,276 +740,384 @@
         liveSend('Bewerber/in A hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
         $('#ButtonA1').attr("disabled", true);
         document.getElementById("ButtonA1").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A1_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA2() {
 	    liveSend('Bewerber/in A hat bei LEHRERFAHRUNG überdurchschnittlich abgeschnitten.');
 	    $('#ButtonA2').attr("disabled", true);
 	    document.getElementById("ButtonA2").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA3() {
 	    liveSend('Bewerber/in A hat bei KOOPERATION IN FAKULTÄT überdurchschnittlich abgeschnitten.');
 	    $('#ButtonA3').attr("disabled", true);
 	    document.getElementById("ButtonA3").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A3_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA4() {
     	liveSend('Bewerber/in A hat bei EINWERBEN VON DRITTMITTELN unterdurchschnittlich abgeschnitten.');
 	    $('#ButtonA4').attr("disabled", true);
 	    document.getElementById("ButtonA4").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_A4_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA5() {
 	    liveSend('Bewerber/in A hat bei INTERDISZIPLINÄRE AUSRICHTUNG unterdurchschnittlich abgeschnitten.');
 	    $('#ButtonA5').attr("disabled", true);
 	    document.getElementById("ButtonA5").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_A5_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA6() {
     	liveSend('Bewerber/in A hat bei INTERNATIONALE KOOPERATIONSERFAHRUNG durchschnittlich abgeschnitten.');
 	    $('#ButtonA6').attr("disabled", true);
 	    document.getElementById("ButtonA6").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A6_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA7() {
     	liveSend('Bewerber/in A hat bei BETREUUNG ABSCHLUSSARBEITEN durchschnittlich abgeschnitten.');
 	    $('#ButtonA7').attr("disabled", true);
 	    document.getElementById("ButtonA7").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A7_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA8() {
     	liveSend('Bewerber/in A hat bei ENGLISCHKENNTNISSE überdurchschnittlich abgeschnitten.');
 	    $('#ButtonA8').attr("disabled", true);
 	    document.getElementById("ButtonA8").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A8_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA9() {
     	liveSend('Bewerber/in A hat bei PUBLIKATIONEN überdurchschnittlich abgeschnitten.');
 	    $('#ButtonA9').attr("disabled", true);
 	    document.getElementById("ButtonA9").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_A9_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
 ////////////////////////////
     function buttonsendB1() {
 	    liveSend('Bewerber/in B hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
 	    $('#ButtonB1').attr("disabled", true);
 	    document.getElementById("ButtonB1").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B1_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB2() {
     	liveSend('Bewerber/in B hat bei LEHRERFAHRUNG überdurchschnittlich abgeschnitten.');
 	    $('#ButtonB2').attr("disabled", true);
 	    document.getElementById("ButtonB2").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB3() {
 	    liveSend('Bewerber/in B hat bei KOOPERATION IN FAKULTÄT durchschnittlich abgeschnitten.');
 	    $('#ButtonB3').attr("disabled", true);
 	    document.getElementById("ButtonB3").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B3_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB4() {
 	    liveSend('Bewerber/in B hat bei EINWERBEN VON DRITTMITTELN unterdurchschnittlich abgeschnitten.');
 	    $('#ButtonB4').attr("disabled", true);
 	    document.getElementById("ButtonB4").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_B4_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB5() {
     	liveSend('Bewerber/in B hat bei INTERDISZIPLINÄRE AUSRICHTUNG unterdurchschnittlich abgeschnitten.');
 	    $('#ButtonB5').attr("disabled", true);
 	    document.getElementById("ButtonB5").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_B5_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB6() {
 	    liveSend('Bewerber/in B hat bei INTERNATIONALE KOOPERATIONSERFAHRUNG durchschnittlich abgeschnitten.');
 	    $('#ButtonB6').attr("disabled", true);
 	    document.getElementById("ButtonB6").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B6_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB7() {
     	liveSend('Bewerber/in B hat bei BETREUUNG ABSCHLUSSARBEITEN durchschnittlich abgeschnitten.');
 	    $('#ButtonB7').attr("disabled", true);
 	    document.getElementById("ButtonB7").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B7_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB8() {
 	    liveSend('Bewerber/in B hat bei ENGLISCHKENNTNISSE durchschnittlich abgeschnitten.');
     	$('#ButtonB8').attr("disabled", true);
     	document.getElementById("ButtonB8").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B8_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendB9() {
 	    liveSend('Bewerber/in B hat bei PUBLIKATIONEN durchschnittlich abgeschnitten.');
 	    $('#ButtonB9').attr("disabled", true);
 	    document.getElementById("ButtonB9").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_B9_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
 /////////////////////////
     function buttonsendC1() {
 	    liveSend('Bewerber/in C hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
     	$('#ButtonC1').attr("disabled", true);
 	    document.getElementById("ButtonC1").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C1_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC2() {
 	    liveSend('Bewerber/in C hat bei LEHRERFAHRUNG überdurchschnittlich abgeschnitten.');
 	    $('#ButtonC2').attr("disabled", true);
 	    document.getElementById("ButtonC2").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC3() {
     	liveSend('Bewerber/in C hat bei KOOPERATION IN FAKULTÄT durchschnittlich abgeschnitten.');
     	$('#ButtonC3').attr("disabled", true);
     	document.getElementById("ButtonC3").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C3_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC4() {
     	liveSend('Bewerber/in C hat bei EINWERBEN VON DRITTMITTELN unterdurchschnittlich abgeschnitten.');
     	$('#ButtonC4').attr("disabled", true);
     	document.getElementById("ButtonC4").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_C4_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC5() {
     	liveSend('Bewerber/in C hat bei INTERDISZIPLINÄRE AUSRICHTUNG unterdurchschnittlich abgeschnitten.');
     	$('#ButtonC5').attr("disabled", true);
     	document.getElementById("ButtonC5").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_C5_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC6() {
     	liveSend('Bewerber/in C hat bei INTERNATIONALE KOOPERATIONSERFAHRUNG durchschnittlich abgeschnitten.');
     	$('#ButtonC6').attr("disabled", true);
     	document.getElementById("ButtonC6").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C6_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC7() {
     	liveSend('Bewerber/in C hat bei BETREUUNG ABSCHLUSSARBEITEN durchschnittlich abgeschnitten.');
     	$('#ButtonC7').attr("disabled", true);
     	document.getElementById("ButtonC7").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C7_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC8() {
     	liveSend('Bewerber/in C hat bei ENGLISCHKENNTNISSE durchschnittlich abgeschnitten.');
     	$('#ButtonC8').attr("disabled", true);
     	document.getElementById("ButtonC8").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C8_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendC9() {
     	liveSend('Bewerber/in C hat bei PUBLIKATIONEN durchschnittlich abgeschnitten.');
     	$('#ButtonC9').attr("disabled", true);
     	document.getElementById("ButtonC9").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_C9_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
 /////////////////////
     function buttonsendD1() {
 	    liveSend('Bewerber/in D hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
 	    $('#ButtonD1').attr("disabled", true);
 	    document.getElementById("ButtonD1").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D1_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD2() {
     	liveSend('Bewerber/in D hat bei LEHRERFAHRUNG überdurchschnittlich abgeschnitten.');
     	$('#ButtonD2').attr("disabled", true);
     	document.getElementById("ButtonD2").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD3() {
     	liveSend('Bewerber/in D hat bei KOOPERATION IN FAKULTÄT durchschnittlich abgeschnitten.');
     	$('#ButtonD3').attr("disabled", true);
     	document.getElementById("ButtonD3").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D3_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD4() {
     	liveSend('Bewerber/in D hat bei EINWERBEN VON DRITTMITTELN unterdurchschnittlich abgeschnitten.');
     	$('#ButtonD4').attr("disabled", true);
     	document.getElementById("ButtonD4").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_D4_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD5() {
     	liveSend('Bewerber/in D hat bei INTERDISZIPLINÄRE AUSRICHTUNG unterdurchschnittlich abgeschnitten.');
     	$('#ButtonD5').attr("disabled", true);
     	document.getElementById("ButtonD5").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_D5_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD6() {
     	liveSend('Bewerber/in D hat bei INTERNATIONALE KOOPERATIONSERFAHRUNG durchschnittlich abgeschnitten.');
     	$('#ButtonD6').attr("disabled", true);
     	document.getElementById("ButtonD6").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D6_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD7() {
     	liveSend('Bewerber/in D hat bei BETREUUNG ABSCHLUSSARBEITEN durchschnittlich abgeschnitten.');
     	$('#ButtonD7').attr("disabled", true);
     	document.getElementById("ButtonD7").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D7_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD8() {
     	liveSend('Bewerber/in D hat bei ENGLISCHKENNTNISSE durchschnittlich abgeschnitten.');
     	$('#ButtonD8').attr("disabled", true);
     	document.getElementById("ButtonD8").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D8_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendD9() {
     	liveSend('Bewerber/in D hat bei PUBLIKATIONEN durchschnittlich abgeschnitten.');
     	$('#ButtonD9').attr("disabled", true);
     	document.getElementById("ButtonD9").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_D9_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
 /////////////////////
     function buttonsendE1() {
     	liveSend('Bewerber/in E hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
 	    $('#ButtonE1').attr("disabled", true);
 	    document.getElementById("ButtonE1").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E1_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE2() {
     	liveSend('Bewerber/in E hat bei LEHRERFAHRUNG überdurchschnittlich abgeschnitten.');
     	$('#ButtonE2').attr("disabled", true);
     	document.getElementById("ButtonE2").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE3() {
     	liveSend('Bewerber/in E hat bei KOOPERATION IN FAKULTÄT durchschnittlich abgeschnitten.');
     	$('#ButtonE3').attr("disabled", true);
     	document.getElementById("ButtonE3").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E3_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE4() {
     	liveSend('Bewerber/in E hat bei EINWERBEN VON DRITTMITTELN unterdurchschnittlich abgeschnitten.');
     	$('#ButtonE4').attr("disabled", true);
     	document.getElementById("ButtonE4").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_E4_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE5() {
     	liveSend('Bewerber/in E hat bei INTERDISZIPLINÄRE AUSRICHTUNG unterdurchschnittlich abgeschnitten.');
     	$('#ButtonE5').attr("disabled", true);
     	document.getElementById("ButtonE5").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_E5_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE6() {
     	liveSend('Bewerber/in E hat bei INTERNATIONALE KOOPERATIONSERFAHRUNG durchschnittlich abgeschnitten.');
     	$('#ButtonE6').attr("disabled", true);
     	document.getElementById("ButtonE6").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E6_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE7() {
     	liveSend('Bewerber/in E hat bei BETREUUNG ABSCHLUSSARBEITEN durchschnittlich abgeschnitten.');
     	$('#ButtonE7').attr("disabled", true);
     	document.getElementById("ButtonE7").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E7_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE8() {
     	liveSend('Bewerber/in E hat bei ENGLISCHKENNTNISSE durchschnittlich abgeschnitten.');
     	$('#ButtonE8').attr("disabled", true);
     	document.getElementById("ButtonE8").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E8_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendE9() {
     	liveSend('Bewerber/in E hat bei PUBLIKATIONEN durchschnittlich abgeschnitten.');
     	$('#ButtonE9').attr("disabled", true);
     	document.getElementById("ButtonE9").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_E9_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
 ///////////////////////////////
     function buttonsendF1() {
     	liveSend('Bewerber/in F hat bei AUFENTHALT IM AUSLAND überdurchschnittlich abgeschnitten.');
     	$('#ButtonF1').attr("disabled", true);
     	document.getElementById("ButtonF1").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F1_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF2() {
     	liveSend('Bewerber/in F hat bei LEHRERFAHRUNG überdurchschnittlich abgeschnitten.');
     	$('#ButtonF2').attr("disabled", true);
     	document.getElementById("ButtonF2").style.background='#CEF6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF3() {
     	liveSend('Bewerber/in F hat bei KOOPERATION IN FAKULTÄT durchschnittlich abgeschnitten.');
     	$('#ButtonF3').attr("disabled", true);
     	document.getElementById("ButtonF3").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F3_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF4() {
 	    liveSend('Bewerber/in F hat bei EINWERBEN VON DRITTMITTELN unterdurchschnittlich abgeschnitten.');
 	    $('#ButtonF4').attr("disabled", true);
     	document.getElementById("ButtonF4").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_F4_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF5() {
     	liveSend('Bewerber/in F hat bei INTERDISZIPLINÄRE AUSRICHTUNG unterdurchschnittlich abgeschnitten.');
     	$('#ButtonF5').attr("disabled", true);
     	document.getElementById("ButtonF5").style.background='#F6CECE';
+        var currentdate = new Date();
+        document.getElementById('message_F5_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF6() {
     	liveSend('Bewerber/in F hat bei INTERNATIONALE KOOPERATIONSERFAHRUNG durchschnittlich abgeschnitten.');
     	$('#ButtonF6').attr("disabled", true);
     	document.getElementById("ButtonF6").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F6_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF7() {
     	liveSend('Bewerber/in F hat bei BETREUUNG ABSCHLUSSARBEITEN durchschnittlich abgeschnitten.');
     	$('#ButtonF7').attr("disabled", true);
     	document.getElementById("ButtonF7").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F7_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF8() {
     	liveSend('Bewerber/in F hat bei ENGLISCHKENNTNISSE durchschnittlich abgeschnitten.');
     	$('#ButtonF8').attr("disabled", true);
     	document.getElementById("ButtonF8").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F8_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendF9() {
     	liveSend('Bewerber/in F hat bei PUBLIKATIONEN durchschnittlich abgeschnitten.');
     	$('#ButtonF9').attr("disabled", true);
     	document.getElementById("ButtonF9").style.background='#F5F6CE';
+        var currentdate = new Date();
+        document.getElementById('message_F9_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
 </script>
 
