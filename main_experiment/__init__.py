@@ -100,7 +100,7 @@ class Player(BasePlayer):
     message_F8_time = models.StringField(blank = True)
     message_F9_time = models.StringField(blank = True)
     voted_candidate = models.IntegerField(
-        label="Nachdem Sie mit den anderen Personen Ihrer Gruppe neue Informationen zu den infrage kommendenden Bewerbern/Bewerberinnen geteilt haben, für welchen Bewerber/welche Bewerberin wollen Sie nun Ihre Stimme abgeben?",
+        label="Nachdem Sie mit den anderen Personen Ihrer Gruppe neue Informationen zu den infrage kommendenden Bewerber/innen geteilt haben, für welche/n Bewerber/in wollen Sie nun Ihre Stimme abgeben?",
         choices=[
             [1, 'Bewerber/in A'],
             [2, 'Bewerber/in B'],
