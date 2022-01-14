@@ -191,7 +191,7 @@
           <div class="grid-item"><button  id="ButtonR" type="button" class="button-red">Unterdurchschnittlich</button></div>
         </div>
         <!-- Participant 1 -->
-        {% if player.participant.id_in_session == 1 %}
+        {% if player.id_in_group == 1 %}
         <div class="grid-container">
             <div class="grid-column">
                 <div class="grid-item">Bewerber/in A</div>
@@ -245,7 +245,7 @@
         {% endif %}
 
         <!-- Participant 2 -->
-        {% if player.participant.id_in_session == 2 %}
+        {% if player.id_in_group == 2 %}
         <div class="grid-container">
            <div class="grid-column">
               <div class="grid-item">Bewerber/in A</div>
@@ -299,7 +299,7 @@
         {% endif %}
 
         <!-- Participant 3 -->
-        {% if player.participant.id_in_session == 3 %}
+        {% if player.id_in_group == 3 %}
             <div class="grid-container">
            <div class="grid-column">
               <div class="grid-item">Bewerber/in A</div>
@@ -353,7 +353,7 @@
         {% endif %}
 
         <!-- Participant 4 -->
-        {% if player.participant.id_in_session == 4 %}
+        {% if player.id_in_group == 4 %}
             <div class="grid-container">
            <div class="grid-column">
               <div class="grid-item">Bewerber/in A</div>
@@ -407,7 +407,7 @@
        {% endif %}
 
         <!-- Participant 5 -->
-        {% if player.participant.id_in_session == 5 %}
+        {% if player.id_in_group == 5 %}
             <div class="grid-container">
            <div class="grid-column">
               <div class="grid-item">Bewerber/in A</div>
