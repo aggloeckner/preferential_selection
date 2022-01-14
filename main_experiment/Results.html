@@ -26,6 +26,18 @@
         {{ endif }}
     </div>
     <br>
+    <div>
+        {{ if player.gender_based }}
+        Bitte teilen Sie die folgenden Informationen nicht mit anderen potenziellen Teilnehmer:innen.
+        Im Rahmen dieser Studie soll ermittelt werden, wie sich die Information einer Geschlechterquote
+        von 40 % Frauen auf die Leistungen einer Gruppe und die Leistungsbewertungen der Gruppenmitglieder
+        untereinander auswirkt. Dementsprechend waren in Ihrer Gruppe 2 weibliche und 3 männliche
+        Teilnehmer:innen vertreten. Die Geschlechterquote sagt jedoch nichts über die vorangegangene Leistung
+        der Teilnehmer:innen in der Online-Studie aus. Bitte nehmen Sie die Information über die Frauenquote
+        also nicht zum Anlass, Ihre weiblichen Gruppenmitglieder (oder sich selbst) als ‚Quotenfrauen‘ zu
+        stigmatisieren.
+        {{ endif }}
+    </div>
 
     {{ next_button }}
 
