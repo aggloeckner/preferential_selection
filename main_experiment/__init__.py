@@ -733,7 +733,7 @@ class Discussion(Page):
         'message_F1_time','message_F2_time','message_F3_time','message_F4_time','message_F5_time','message_F6_time','message_F7_time','message_F8_time','message_F9_time',
     ]
 
-    timeout_seconds = 600000
+    timeout_seconds = 600
     timer_text = 'Verbleibende Zeit: <br>'
     live_method = 'live_chat'
 

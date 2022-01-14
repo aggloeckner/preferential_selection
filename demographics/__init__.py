@@ -22,7 +22,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     age = models.IntegerField(
-        label="Bitte geben Sie ihr Alter als ganze Zahl an (z.B. 21):",
+        label="Bitte geben Sie Ihr Alter als ganze Zahl an (z.B. 21):",
         min=18,
         max=99
     )
