@@ -12,6 +12,16 @@ SESSION_CONFIGS = [
         max_number_participants=2000,
     ),
     dict(
+        name='online_experiment',
+        app_sequence=[
+            'informed_consent_online',
+#            'LabIds',
+            'online_experiment'
+        ],
+        num_demo_participants=1,
+        max_number_participants=2000,
+    ),
+    dict(
         name='preferential_selection',
         app_sequence=[
             'informed_consent_lab',

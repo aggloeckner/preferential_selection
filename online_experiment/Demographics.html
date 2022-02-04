@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block title %}
+    Demografische Informationen
+{% endblock %}
+{% block content %}
+<br>
+<div class="instructions well well-lg">
+    <b>
+        Zunächst bitten wir Sie, einige Angaben zu Ihrer Person zu machen.
+    </b><br>
+    {{ formfields }}
+    <br>
+
+
+{{ next_button }}
+
+{% endblock %}

@@ -7,7 +7,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'informed_consent'
+    name_in_url = 'informed_consent_on'
     players_per_group = None
     num_rounds = 1
 
@@ -21,7 +21,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    informed_consent = models.BooleanField(
+    informed_consent_on = models.BooleanField(
         choices=[
             [True, 'Ja, ich stimme zu.'],
             [False, 'Nein, ich stimme nicht zu.']
@@ -33,11 +33,11 @@ class Player(BasePlayer):
 # PAGES
 class InformedConsent(Page):
     form_model = 'player'
-    form_fields = ['informed_consent']
+    form_fields = ['informed_consent_on']
 
     @staticmethod
     def error_message(player, values):
-        if(values['informed_consent'] == False):
+        if(values['informed_consent_on'] == False):
             return "Um fortzufahren müssen Sie der Datenschutzerklärung zustimmen."
 
 
