@@ -41,8 +41,7 @@ class Player(BasePlayer):
         choices=[
             [1, 'Weiblich'],
             [2, 'Männlich'],
-            [3, 'Divers'],
-            [4, 'Anderes'],
+            [3, 'Divers']
         ],
         widget=widgets.RadioSelect
     )
