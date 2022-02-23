@@ -42,4 +42,6 @@ class InformedConsent(Page):
 
 
 
-page_sequence = [InformedConsent]
+page_sequence = [
+    InformedConsent
+]

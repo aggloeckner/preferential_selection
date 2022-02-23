@@ -19,6 +19,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    treatment = models.IntegerField()
     profile_task = models.IntegerField(
         label="Wen würden Sie auf Basis der Ihnen vorliegenden Informationen für die Besetzung der Professur auswählen?",
         choices=[
@@ -65,15 +66,38 @@ class Demographics(Page):
     form_model = 'player'
     form_fields = ['gender', 'age', 'education']
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
+        player.treatment = random.choice([1,2,3])
+
 class Instructions(Page):
-    pass
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class ProfileTask(Page):
     form_model = 'player'
     form_fields = ['profile_task']
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class EndPage(Page):
-    pass
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
+        if (player.participant.label != "1234555"):
+            with open('LabIds/CountParticipation.txt', 'w') as file:
+                file.write('\n')
+                file.write(player.participant.label)
 
 page_sequence = [
     Demographics,

@@ -15,11 +15,12 @@ SESSION_CONFIGS = [
         name='online_experiment',
         app_sequence=[
             'informed_consent_online',
-#            'LabIds',
+            'LabIds',
             'online_experiment'
         ],
         num_demo_participants=1,
         max_number_participants=2000,
+        online_study=True,
     ),
     dict(
         name='preferential_selection',
@@ -31,6 +32,7 @@ SESSION_CONFIGS = [
         ],
         num_demo_participants=5,
         max_number_participants=2000,
+        online_study=False,
     ),
     dict(
         name='test',
@@ -54,7 +56,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = [ 'p_gender', 'letters_choices', 't1_results', 'expiry_timestamp', 'endgame', 'letters_choices_made', 'letters_choices' ]
+PARTICIPANT_FIELDS = [ 'time_start', 'time_end', 'p_gender', 'letters_choices', 't1_results', 'expiry_timestamp', 'endgame', 'letters_choices_made', 'letters_choices' ]
 SESSION_FIELDS = []
 
 # ISO-639 code

@@ -1,322 +1,329 @@
-{% extends "global/Page.html" %}
-{% load otree static %}
-
-{% block title %}
+{{ block title }}
     Entscheidungsaufgabe
-{% endblock %}
-{% block style %}
-<style>
-.button-red {
-  background-color: #F44336;
-  border: none;
-  color: black;
-  padding: 15px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-  font-size: 10px;
-  margin: 0px 0px;
-  width: 150px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-}
-.button-yellow {
-  background-color: #F4E036;
-  border: none;
-  color: black;
-  padding: 15px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-  font-size: 10px;
-  margin: 0px 0px;
-  width: 150px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-}
-.button-green {
-  background-color: #4CAF50;
-  border: none;
-  color: black;
-  padding: 15px 5px;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-  font-size: 10px;
-  margin: 0px 0px;
-  width: 150px;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-}
-.grid-container-legend {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: 10px 10px;
-  justify-content: center;
-  padding: 15px;
-}
-.grid-container {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: auto auto auto auto auto auto;
-  grid-template-rows: auto;
-  padding: 0px;
-}
-.grid-column {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto auto auto auto;
-  padding: 0px;
-}
-.grid-item {
-  justify-content: center;
-  padding: 2px;
-  font-size: 12px;
-  text-align: center;
-}
-{% endblock %}
-{% block content %}
-Bitte lesen Sie sich die Informationen über die Bewerber/innen A-F aufmerksam und konzentriert durch.
-<br>Beantworten Sie bitte im Anschluss die unten aufgeführte Frage.
-<br><br>
-[Option 1]
-<div class="grid-container">
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in A</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-        </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in B</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-        </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in C</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-         </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in D</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-         </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in E</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-         </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in F</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-          </div>
-    </div>
+{{ endblock }}
+{{ block style }}
+
+    <style>
+        .button-red {
+          background-color: #F44336;
+          border: none;
+          color: black;
+          padding: 15px 5px;
+          text-align: center;
+          text-decoration: none;
+          display: flex;
+          font-size: 10px;
+          margin: 0px 0px;
+          width: 150px;
+          height: 30px;
+          justify-content: center;
+          align-items: center;
+        }
+        .button-yellow {
+          background-color: #F4E036;
+          border: none;
+          color: black;
+          padding: 15px 5px;
+          text-align: center;
+          text-decoration: none;
+          display: flex;
+          font-size: 10px;
+          margin: 0px 0px;
+          width: 150px;
+          height: 30px;
+          justify-content: center;
+          align-items: center;
+        }
+        .button-green {
+          background-color: #4CAF50;
+          border: none;
+          color: black;
+          padding: 15px 5px;
+          text-align: center;
+          text-decoration: none;
+          display: flex;
+          font-size: 10px;
+          margin: 0px 0px;
+          width: 150px;
+          height: 30px;
+          justify-content: center;
+          align-items: center;
+        }
+        .grid-container-legend {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          grid-template-rows: 10px 10px;
+          justify-content: center;
+          padding: 15px;
+        }
+        .grid-container {
+          display: grid;
+          justify-content: center;
+          grid-template-columns: auto auto auto auto auto auto;
+          grid-template-rows: auto;
+          padding: 0px;
+        }
+        .grid-column {
+          display: grid;
+          justify-content: center;
+          grid-template-columns: auto;
+          grid-template-rows: auto auto auto auto auto auto;
+          padding: 0px;
+        }
+        .grid-item {
+          justify-content: center;
+          padding: 2px;
+          font-size: 12px;
+          text-align: center;
+        }
+    </style>
+
+{{ endblock }}
+
+{{ block content }}
+
+    <p>
+        Bitte lesen Sie sich die Informationen über die Bewerber/innen A-F aufmerksam und konzentriert durch.
+        <br>Beantworten Sie bitte im Anschluss die unten aufgeführte Frage.
+        <br><br>
+    </p>
+
+    {{ if player.treatment == 1 }}
+        <div class="grid-container">
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in A</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in B</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in C</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                 </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in D</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                 </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in E</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                 </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in F</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                  </div>
+            </div>
+            <br>
+    {{ elif player.treatment == 2 }}
+        <div class="grid-container">
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in A</div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in B</div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in C</div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                 </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in D</div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                 </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in E</div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                 </div>
+               <div class="grid-column">
+                  <div class="grid-item">Bewerber/in F</div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Publikationen</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Englischkenntnisse</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Kooperation in Fakultät</button></div>
+                    <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
+                  </div>
+            </div>
+
+        <br>
+    {{ elif player.treatment == 3 }}
+        Bewerber/in A
+        <ul>
+            <li>Bewerber/in A hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Publikationen durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in A hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
+        </ul>
+        <br>
+        Bewerber/in B
+        <ul>
+            <li>Bewerber/in B hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Publikationen durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in B hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
+        </ul>
+        <br>
+        Bewerber/in C
+        <ul>
+            <li>Bewerber/in C hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Publikationen durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in C hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
+        </ul>
+        <br>
+        Bewerber/in D
+        <ul>
+            <li>Bewerber/in D hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Publikationen durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in D hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
+        </ul>
+        <br>
+        Bewerber/in E
+        <ul>
+            <li>Bewerber/in E hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Publikationen durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in E hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
+        </ul>
+        <br>
+        Bewerber/in F
+        <ul>
+            <li>Bewerber/in F hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Englischkenntnisse überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Publikationen überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Kooperation in Fakultät überdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
+            <li>Bewerber/in F hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
+        </ul>
+
+    {{ endif }}
     <br>
-[Option 2] <br>
-<div class="grid-container">
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in A</div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-        </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in B</div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-        </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in C</div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-         </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in D</div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-         </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in E</div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-         </div>
-       <div class="grid-column">
-          <div class="grid-item">Bewerber/in F</div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Interdisziplinäre Ausrichtung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Publikationen</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Betreuung Abschlussarbeiten</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Englischkenntnisse</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Aufenthalt im Ausland</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-yellow">Internationale Kooperationserfahrung</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-red">Einwerben von Drittmitteln</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Kooperation in Fakultät</button></div>
-            <div class="grid-item"><button type="button" disabled class="button-green">Lehrerfahrung</button></div>
-          </div>
-    </div>
+    {{ formfields }}
+    <br>
+    {{ next_button }}
 
-<br>
-[Option 3]<br>
-Bewerber/in A
-<ul>
-    <li>Bewerber/in A hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Publikationen durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in A hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
-</ul>
-<br>
-Bewerber/in B
-<ul>
-    <li>Bewerber/in B hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Publikationen durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in B hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
-</ul>
-<br>
-Bewerber/in C
-<ul>
-    <li>Bewerber/in C hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Publikationen durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in C hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
-</ul>
-<br>
-Bewerber/in D
-<ul>
-    <li>Bewerber/in D hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Publikationen durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in D hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
-</ul>
-<br>
-Bewerber/in E
-<ul>
-    <li>Bewerber/in E hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Englischkenntnisse durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Publikationen durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Kooperation in Fakultät durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in E hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
-</ul>
-<br>
-Bewerber/in F
-<ul>
-    <li>Bewerber/in F hat bei Aufenthalt im Ausland überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Lehrerfahrung überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Englischkenntnisse überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Publikationen überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Kooperation in Fakultät überdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Internationale Kooperationserfahrung durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Betreuung Abschlussarbeiten durchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Einwerben von Drittmitteln unterdurchschnittlich abgeschnitten.</li>
-    <li>Bewerber/in F hat bei Interdisziplinäre Ausrichtung unterdurchschnittlich abgeschnitten.</li>
-</ul>
-<br>
-{{ formfields }}
-<br>
-{{ next_button }}
-
-{% endblock %}
+{{ endblock }}

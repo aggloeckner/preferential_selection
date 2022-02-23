@@ -33,12 +33,6 @@ class IdPage(Page):
 
     @staticmethod
     def error_message(player, values):
-        # Enough participations
-        with open('LabIds/CountParticipation.txt', 'r') as file:
-            txt = int(file.read())
-        if txt > player.session.config['max_number_participants']:
-            return "Sie können leider nicht teilnehmen, da die Studie geschlossen ist."
-
         # Only digits
         if any([c not in digits for c in values['DecisionLabId']]):
             return "Bitte nur Ziffern eingeben!"
@@ -64,8 +58,10 @@ class IdPage(Page):
         # Exclude participants who didn't participate in the online study
         with open('LabIds/OnlineStudy.txt', 'r') as file:
             txt = file.read()
-        if(not (values['DecisionLabId'] in txt) and values['DecisionLabId'] != "1234555"):
+        if(not (values['DecisionLabId'] in txt) and values['DecisionLabId'] != "1234555" and not player.session.config['online_study']):
             return "Da Sie an der Online-Studie nicht teilgenommen haben, können Sie leider nicht teilnehmen."
+        if(values['DecisionLabId'] in txt and values['DecisionLabId'] != "1234555"):
+            return "An dieser Studie haben Sie bereits teilgenommen!"
 
     @staticmethod
     def before_next_page(player, timeout_happened):
@@ -73,7 +69,7 @@ class IdPage(Page):
         player.participant.label = player.DecisionLabId
 
         import datetime
-        player.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        player.participant.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 
 page_sequence = [IdPage]
