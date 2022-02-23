@@ -19,7 +19,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    treatment = models.IntegerField()
     profile_task = models.IntegerField(
         label="Wen würden Sie auf Basis der Ihnen vorliegenden Informationen für die Besetzung der Professur auswählen?",
         choices=[
@@ -70,8 +69,6 @@ class Demographics(Page):
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
-
-        player.treatment = random.choice([1,2,3])
 
 class Instructions(Page):
     @staticmethod
