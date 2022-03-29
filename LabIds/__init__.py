@@ -28,8 +28,12 @@ class IdPage(Page):
     @staticmethod
     def vars_for_template(player):
         pdone = round(player.participant._index_in_pages / player.participant._max_page_index * 100)
+        online_study = player.session.config['online_study']
 
-        return {"pdone": pdone}
+        return dict(
+            pdone = pdone,
+            online_study = online_study
+        )
 
     @staticmethod
     def error_message(player, values):
@@ -59,7 +63,7 @@ class IdPage(Page):
         with open('LabIds/OnlineStudy.txt', 'r') as file:
             txt = file.read()
         if(not (values['DecisionLabId'] in txt) and values['DecisionLabId'] != "1234555" and not player.session.config['online_study']):
-            return "Da Sie an der Online-Studie nicht teilgenommen haben, können Sie leider nicht teilnehmen."
+            return "Da Sie an der Online-Studie nicht teilgenommen haben, können Sie leider nicht teilnehmen. Bitte wenden Sie sich an die Versuchsleitung."
         if(values['DecisionLabId'] in txt and values['DecisionLabId'] != "1234555"):
             return "An dieser Studie haben Sie bereits teilgenommen!"
 
