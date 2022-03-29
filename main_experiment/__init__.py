@@ -411,7 +411,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     fairness1 = models.IntegerField(
-        label="Die Entscheidungen wurden aufgrund von Fakten und nicht aufgrund von persönlichen Vorurteilen und Meinungen getroffen.",
+        label="Die Entscheidungen bezüglich der Zusammensetzung der Berufungskomission wurden aufgrund von Fakten und nicht aufgrund von persönlichen Vorurteilen und Meinungen getroffen.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -424,7 +424,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness2 = models.IntegerField(
-        label="Die Regeln und das Verfahren waren für alle gleichermaßen fair.",
+        label="Die Regeln und das Verfahren, die zur Auswahl der Mitglieder der Berufungskommission dienten, waren für alle gleichermaßen fair.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -437,7 +437,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness3 = models.IntegerField(
-        label="Die Regeln und das Verfahren waren einheitlich für alle Beteiligten angewandt.",
+        label="Die Regeln und das Verfahren, die zur Auswahl der Mitglieder der Berufungskommission dienten, waren einheitlich für alle Beteiligten angewandt.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -450,7 +450,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness4 = models.IntegerField(
-        label="Die Rechte der Beteiligten wurden berücksichtigt. ",
+        label="Die Rechte der Beteiligten wurden bei der Zusammenstellung der Gruppe berücksichtigt. ",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -463,7 +463,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness5 = models.IntegerField(
-        label="Die Beteiligten wurden mit Respekt behandelt.",
+        label="Die Beteiligten wurden bei der Zusammenstellung der Gruppe  mit Respekt behandelt.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -476,7 +476,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness6 = models.IntegerField(
-        label="Die Bedürfnisse der Beteiligten wurden berücksichtigt.",
+        label="Die Bedürfnisse der Beteiligten wurden bei der Zusammenstellung der Gruppe berücksichtigt.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -489,7 +489,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness7 = models.IntegerField(
-        label="Die Beteiligten haben das Ergebnis des Auswahlverfahrens verdient.",
+        label="Die Beteiligten haben das Ergebnis des Auswahlverfahrens zur Zusammensetzung der Berufungskommission verdient.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
@@ -502,7 +502,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness8 = models.IntegerField(
-        label="Wie fair waren die Entscheidungsregeln und das Entscheidungsverfahren in dem Auswahlverfahren?",
+        label="Wie fair waren die Entscheidungsregeln und das Entscheidungsverfahren in dem Auswahlverfahren zur Zusammensetzung Ihrer Gruppe?",
         choices=[
             [1, 'sehr fair'],
             [2, 'fair'],
@@ -515,7 +515,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
     fairness9 = models.IntegerField(
-        label="Wie fair war das Ergebnis des Auswahlverfahrens?",
+        label="Wie fair war das Ergebnis des Auswahlverfahrens zur Zusammensetzung Ihrer Gruppe?",
         choices=[
             [1, 'sehr fair'],
             [2, 'fair'],
