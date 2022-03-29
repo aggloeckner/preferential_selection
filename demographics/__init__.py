@@ -32,7 +32,6 @@ class Player(BasePlayer):
             [1, 'Weiblich'],
             [2, 'Männlich'],
             [3, 'Divers'],
-            [4, 'Anderes'],
         ],
         widget=widgets.RadioSelect
     )
