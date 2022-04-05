@@ -39,9 +39,9 @@ class Player(BasePlayer):
     gender = models.IntegerField(
         label="Bitte geben Sie das Geschlecht an, dem Sie sich zugehörig fühlen:",
         choices=[
+            [0, 'Männlich'],
             [1, 'Weiblich'],
-            [2, 'Männlich'],
-            [3, 'Divers']
+            [2, 'Divers']
         ],
         widget=widgets.RadioSelect
     )
