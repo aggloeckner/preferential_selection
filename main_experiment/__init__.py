@@ -560,10 +560,10 @@ def group_players(subsession):
     others = []
 
     for p in subsession.get_players():
-        if p.participant.p_gender == 1:
-            females.append(p)
-        elif p.participant.p_gender == 2:
+        if p.participant.p_gender == 0:
             males.append(p)
+        elif p.participant.p_gender == 1:
+            females.append(p)
         else:
             others.append(p)
 
