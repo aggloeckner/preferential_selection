@@ -411,7 +411,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     fairness1 = models.IntegerField(
-        label="Die Entscheidungen bezüglich der Zusammensetzung der Berufungskommission wurden aufgrund von Fakten und nicht aufgrund von persönlichen Vorurteilen und Meinungen getroffen.",
+        label="Die Entscheidungen bezüglich der Zusammensetzung der Berufungskomission wurden aufgrund von Fakten und nicht aufgrund von persönlichen Vorurteilen und Meinungen getroffen.",
         choices=[
             [1, 'stimme voll zu'],
             [2, 'stimme zu'],
