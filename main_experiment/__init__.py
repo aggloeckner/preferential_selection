@@ -669,27 +669,27 @@ class Instructions(Page):
         number_others = 0
 
         for p in player.get_others_in_group():
-            if p.participant.p_gender == 0:
-                number_males += 1
             if p.participant.p_gender == 1:
                 number_females += 1
             if p.participant.p_gender == 2:
-                number_diverse += 1
+                number_males += 1
             if p.participant.p_gender == 3:
+                number_diverse += 1
+            if p.participant.p_gender == 4:
                 number_others += 1
 
-        if player.participant.p_gender == 0:
-            number_males += 1
         if player.participant.p_gender == 1:
             number_females += 1
         if player.participant.p_gender == 2:
-            number_diverse += 1
+            number_males += 1
         if player.participant.p_gender == 3:
+            number_diverse += 1
+        if player.participant.p_gender == 4:
             number_others += 1
 
         return dict(
-            number_males = number_males,
             number_females = number_females,
+            number_males = number_males,
             number_diverse = number_diverse,
             number_others = number_others,
         )
