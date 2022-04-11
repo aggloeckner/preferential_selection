@@ -17,7 +17,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     DecisionLabId = models.CharField( max_length = 7 )
-    time_start = models.StringField()
 
 
 # PAGES
@@ -56,15 +55,15 @@ class IdPage(Page):
         # Already participated
         with open('LabIds/Participated.txt', 'r') as file:
             txt = file.read()
-        if(values['DecisionLabId'] in txt and values['DecisionLabId'] != "1234555"):
+        if values['DecisionLabId'] in txt and values['DecisionLabId'] != "1234555" and not player.session.config['online_study']:
             return "An dieser Studie haben Sie bereits teilgenommen!"
 
         # Exclude participants who didn't participate in the online study
         with open('LabIds/OnlineStudy.txt', 'r') as file:
             txt = file.read()
-        if(not (values['DecisionLabId'] in txt) and values['DecisionLabId'] != "1234555" and not player.session.config['online_study']):
+        if not (values['DecisionLabId'] in txt) and values['DecisionLabId'] != "1234555" and not player.session.config['online_study']:
             return "Da Sie an der Online-Studie nicht teilgenommen haben, können Sie leider nicht teilnehmen. Bitte wenden Sie sich an die Versuchsleitung."
-        if(values['DecisionLabId'] in txt and values['DecisionLabId'] != "1234555"):
+        if values['DecisionLabId'] in txt and values['DecisionLabId'] != "1234555" and player.session.config['online_study']:
             return "An dieser Studie haben Sie bereits teilgenommen!"
 
     @staticmethod

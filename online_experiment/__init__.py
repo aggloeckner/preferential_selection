@@ -58,9 +58,22 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect
     )
 
-# ******************************************************************************************************************** #
-# *** Demographics *** #
-# ******************************************************************************************************************** #
+# ADMINPAGE
+def vars_for_admin_report(subsession):
+    with open('LabIds/CountOnlineStudy.txt', 'r') as file:
+        completions = int(file.read())
+
+    with open('LabIds/CostsOnline.txt', 'r') as file:
+        costs = file.read()
+
+    return dict(
+        completions = completions,
+        costs = costs
+    )
+
+
+# PAGES
+
 class Demographics(Page):
     form_model = 'player'
     form_fields = ['gender', 'age', 'education']
@@ -85,16 +98,29 @@ class ProfileTask(Page):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
-class EndPage(Page):
-    @staticmethod
-    def before_next_page(player, timeout_happened):
-        import datetime
-        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        player.payoff = 2
 
         if (player.participant.label != "1234555"):
-            with open('LabIds/CountParticipation.txt', 'w') as file:
+            with open('LabIds/OnlineStudy.txt', 'a') as file:
                 file.write('\n')
                 file.write(player.participant.label)
+
+            with open('LabIds/CountOnlineStudy.txt', 'r') as file:
+                txt = int(file.read())
+                txt += 1
+            with open('LabIds/CountOnlineStudy.txt', 'w') as file:
+                file.write(str(txt))
+
+            with open('LabIds/CostsOnline.txt', 'r') as file:
+                txt = float(file.read())
+                print(txt)
+                txt += float(player.payoff)
+                print(txt)
+            with open('LabIds/CostsOnline.txt', 'w') as file:
+                file.write(str(txt))
+
+class EndPage(Page):
+    pass
 
 page_sequence = [
     Demographics,

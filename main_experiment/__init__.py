@@ -27,9 +27,13 @@ class Group(BaseGroup):
     winner = models.StringField(initial="")
     clearVote = models.BooleanField()
     correctVote = models.BooleanField()
+    player1_gender = models.IntegerField()
+    player2_gender = models.IntegerField()
+    player3_gender = models.IntegerField()
+    player4_gender = models.IntegerField()
+    player5_gender = models.IntegerField()
 
 class Player(BasePlayer):
-    time_start = models.StringField()
     perfect_group = models.BooleanField()
     gender_based = models.BooleanField()
     describe_procedure = models.TextField(label="")
@@ -553,7 +557,11 @@ def group_players(subsession):
     with open('LabIds/CountPerformanceBased.txt', 'r') as file:
         weights.append(int(file.read()))
 
-    treatment = random.choices([True, False],weights=weights,k=int(len(subsession.get_players())/5))
+    if weights[0] == 0 and weights[1] == 0:
+        weights[0] = 1
+        weights[1] = 1
+
+    treatment = random.choices([False, True],weights=weights,k=int(len(subsession.get_players())/5))
 
     males = []
     females = []
@@ -603,8 +611,8 @@ def group_players(subsession):
         matrix_of_groups.append(group.copy())
         group.clear()
 
-    for player in subsession.get_players():
-        player.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+    for p in subsession.get_players():
+        p.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
     subsession.set_group_matrix(matrix_of_groups)
 
@@ -615,6 +623,12 @@ def live_chat(player: Player, data):
     return{0: response}
 
 def set_payoffs(group):
+    group.player1_gender = group.get_player_by_id(1).participant.p_gender
+    group.player2_gender = group.get_player_by_id(2).participant.p_gender
+    group.player3_gender = group.get_player_by_id(3).participant.p_gender
+    group.player4_gender = group.get_player_by_id(4).participant.p_gender
+    group.player5_gender = group.get_player_by_id(5).participant.p_gender
+
     players = group.get_players()
     for p in players:
         group.votesA += (p.voted_candidate == 1)
@@ -623,6 +637,7 @@ def set_payoffs(group):
         group.votesD += (p.voted_candidate == 4)
         group.votesE += (p.voted_candidate == 5)
         group.votesF += (p.voted_candidate == 6)
+
     maxVotes = max(group.votesA, group.votesB, group.votesC, group.votesD, group.votesE, group.votesF)
     if group.votesA == maxVotes:
         group.winner = "Bewerber/in A"
@@ -649,6 +664,32 @@ def set_payoffs(group):
     group.clearVote = not ("und" in group.winner)
     group.correctVote = "Bewerber/in A" in group.winner and group.clearVote
     print(group.winner)
+
+    for p in players:
+        if group.correctVote:
+            p.payoff = 13.5
+        else:
+            p.payoff = 8.5
+
+# ADMINPAGE
+def vars_for_admin_report(subsession):
+    with open('LabIds/CountGenderBased.txt', 'r') as file:
+        completions_gender = int(file.read())
+
+    with open('LabIds/CountPerformanceBased.txt', 'r') as file:
+        completions_performance = int(file.read())
+
+    completions = completions_gender + completions_performance
+
+    with open('LabIds/CostsLab.txt', 'r') as file:
+        costs = file.read()
+
+    return dict(
+        completions = completions,
+        completions_gender = completions_gender,
+        completions_performance = completions_performance,
+        costs = costs
+    )
 
 # PAGES
 class GroupingWaitPage(WaitPage):
@@ -694,10 +735,20 @@ class Instructions(Page):
             number_others = number_others,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 
 class DescribeProcedure(Page):
     form_model = 'player'
     form_fields = ['describe_procedure']
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class GroupDisplay(Page):
     @staticmethod
@@ -712,15 +763,35 @@ class GroupDisplay(Page):
             player5_gender=player.group.get_player_by_id(5).participant.p_gender,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class HiddenProfileWaitPage(WaitPage):
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class HiddenProfileTask(Page):
     form_model = 'player'
     form_fields = ['hidden_profile_task']
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class DiscussionWaitPage(WaitPage):
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class Discussion(Page):
     form_model = 'player'
@@ -749,13 +820,28 @@ class Discussion(Page):
             player5_gender = player.group.get_player_by_id(5).participant.p_gender,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class Voting(Page):
     form_model = 'player'
     form_fields = ['voted_candidate']
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class VotingWaitPage(WaitPage):
     body_text = "Wir bitten Sie um ein bisschen Geduld. Sobald alle Gruppenmitglieder mit der Abstimmung für einen Bewerber/eine Bewerberin fertig sind, können Sie das Experiment fortsetzen."
     after_all_players_arrive = 'set_payoffs'
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class Helpfulness(Page):
     form_model = 'player'
@@ -785,6 +871,11 @@ class Helpfulness(Page):
             player5_gender = player.group.get_player_by_id(5).participant.p_gender,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class Competence(Page):
     form_model = 'player'
 
@@ -812,6 +903,11 @@ class Competence(Page):
             player4_gender = player.group.get_player_by_id(4).participant.p_gender,
             player5_gender = player.group.get_player_by_id(5).participant.p_gender,
         )
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class Competitiveness(Page):
     form_model = 'player'
@@ -841,6 +937,11 @@ class Competitiveness(Page):
             player5_gender = player.group.get_player_by_id(5).participant.p_gender,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class Independence(Page):
     form_model = 'player'
 
@@ -869,20 +970,65 @@ class Independence(Page):
             player5_gender = player.group.get_player_by_id(5).participant.p_gender,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
 class GeneralAssessment(Page):
     form_model = 'player'
     form_fields = ['groupinteraction1', 'groupinteraction2', 'groupinteraction3']
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class FairnessQuiestionnaire(Page):
     form_model = 'player'
     form_fields = ['fairness1', 'fairness2', 'fairness3', 'fairness4', 'fairness5', 'fairness6','fairness7', 'fairness8', 'fairness9']
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
+        if(player.participant.label != "1234555"):
+            if player.perfect_group and player.gender_based:
+                with open('LabIds/CountGenderBased.txt', 'r') as file:
+                    txt = int(file.read())
+                    txt += 1
+                with open('LabIds/CountGenderBased.txt', 'w') as file:
+                    file.write(str(txt))
+            if player.perfect_group and not player.gender_based:
+                with open('LabIds/CountPerformanceBased.txt', 'r') as file:
+                    txt = int(file.read())
+                    txt += 1
+                with open('LabIds/CountPerformanceBased.txt', 'w') as file:
+                    file.write(str(txt))
+            with open('LabIds/Participated.txt', 'a') as file:
+                file.write('\n')
+                file.write(player.participant.label)
+            with open('LabIds/CostsLab.txt', 'r') as file:
+                txt = float(file.read())
+                txt += player.payoff
+            with open('LabIds/CostsLab.txt', 'w') as file:
+                file.write(str(txt))
+
 class Results(Page):
-    pass
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class Payment(Page):
     form_model = 'player'
     form_fields = ['comments']
+
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class EndOfStudy(Page):
     pass

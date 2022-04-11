@@ -4,8 +4,8 @@ SESSION_CONFIGS = [
     dict(
         name='real_effort_task',
         app_sequence=[
-#            'informed_consent_online',
 #            'LabIds',
+#            'informed_consent_online',
             'realefforttask',
         ],
         num_demo_participants=1,
@@ -14,8 +14,8 @@ SESSION_CONFIGS = [
     dict(
         name='online_experiment',
         app_sequence=[
-            'informed_consent_online',
             'LabIds',
+            'informed_consent_online',
             'online_experiment'
         ],
         num_demo_participants=1,
@@ -25,8 +25,8 @@ SESSION_CONFIGS = [
     dict(
         name='preferential_selection',
         app_sequence=[
-            'informed_consent_lab',
             'LabIds',
+            'informed_consent_lab',
             'demographics',
             'main_experiment'
         ],
