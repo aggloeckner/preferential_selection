@@ -76,24 +76,7 @@
       font-size: 12px;
       text-align: center;
     }
-    .otree-timer {
-     padding-top: 8px;
-      width: 120px;
-      color: black;
-      font-size: 10px;
-      float: right;
-      height: 50px;
-      margin-left: -15px;
-      margin-top:250px;
-      margin-right: 10px;
-      text-align: center;
-      align-items: center;
-      vertical-align: middle;
-      background-color: white;
-      border-color: black;
-      /*delete border-radius attribute for (default) rounded corners*/
-      border-radius: 0%;
-    }
+
     .avatar {
       background-repeat: no-repeat;
       background-position: center;
@@ -110,6 +93,7 @@
       font-size: 10px;
     }
     .mychat-box {
+      font-size: 10px;
       padding: 5px;
       grid-column: 1 / span 2;
       grid-row: 1;
@@ -161,7 +145,15 @@
 <body>
 
     <div style="text-align: justify; margin-left: auto">
-        Um Informationen mit Ihren Gruppenmitgliedern zu teilen, klicken Sie auf die jeweilige Schaltfläche. <br>Sie können jede der Ihnen zugeteilten Informationen nur einmal mit Ihren Gruppenmitgliedern teilen. <br>Es steht Ihnen frei, wie viele Informationen Sie mit der Gruppe teilen.
+        Auf dieser Seite können Sie die Oberfläche austesten,
+        mit der Sie im nächsten Schritt die Gruppendiskussion führen werden.<br>
+        Klicken Sie auf die Schaltflächen, um Nachrichten zu senden.
+        Jede der Nachrichten kann nur einmal gesendet werden.<br>
+        Ihre gesendeten Nachrichten werden unten abgebildet. <br><br>
+        In der Gruppendiskussion auf der nächsten Seite werden unter Ihrem
+        Chatfenster auch die Chatfenster Ihrer <br>Gruppenmitglieder angezeigt.
+        Probieren Sie herum und gewöhnen Sie sich an die Oberfläche. <br>
+        Sobald Sie so weit sind, klicken Sie auf den "Weiter"-Button am Ende der Seite, um die Gruppendiskussion zu starten.
     </div><br>
 
     <table  style="width: 800px; border: 1px solid black; margin-left:75px;">
@@ -178,7 +170,7 @@
         </tr>
     </table>
 
-    <div style="margin-left: 120px">
+    <div style="margin-left: 0px">
         <div class="grid-container-legend">
           <div class="grid-item"></div>
           <div class="grid-item"><b>Legende</b></div>
@@ -464,85 +456,15 @@
 
     <br>
 
-    <div class="chat">
+
         <div class="mychat-box">
             <div id="my_avatar" class="avatar"></div>
             <div class="messages"><table id="mychat"></table></div>
         </div>
-        <div class="chat-box">
-            <div id="avatar1" class="avatar"></div>
-            <div class="messages"><table id="chat1"></table></div>
-        </div>
-        <div class="chat-box">
-            <div id="avatar2" class="avatar"></div>
-            <div class="messages"><table id="chat2"></table></div>
-        </div>
-        <div class="chat-box">
-            <div id="avatar3" class="avatar"></div>
-            <div class="messages"><table id="chat3"></table></div>
-        </div>
-        <div class="chat-box">
-            <div id="avatar4" class="avatar"></div>
-            <div class="messages"><table id="chat4"></table></div>
-        </div>
-    </div>
 
-    <input type="hidden" name="message_A1_time" id="message_A1_time"/>
-    <input type="hidden" name="message_A2_time" id="message_A2_time"/>
-    <input type="hidden" name="message_A3_time" id="message_A3_time"/>
-    <input type="hidden" name="message_A4_time" id="message_A4_time"/>
-    <input type="hidden" name="message_A5_time" id="message_A5_time"/>
-    <input type="hidden" name="message_A6_time" id="message_A6_time"/>
-    <input type="hidden" name="message_A7_time" id="message_A7_time"/>
-    <input type="hidden" name="message_A8_time" id="message_A8_time"/>
-    <input type="hidden" name="message_A9_time" id="message_A9_time"/>
-    <input type="hidden" name="message_B1_time" id="message_B1_time"/>
-    <input type="hidden" name="message_B2_time" id="message_B2_time"/>
-    <input type="hidden" name="message_B3_time" id="message_B3_time"/>
-    <input type="hidden" name="message_B4_time" id="message_B4_time"/>
-    <input type="hidden" name="message_B5_time" id="message_B5_time"/>
-    <input type="hidden" name="message_B6_time" id="message_B6_time"/>
-    <input type="hidden" name="message_B7_time" id="message_B7_time"/>
-    <input type="hidden" name="message_B8_time" id="message_B8_time"/>
-    <input type="hidden" name="message_B9_time" id="message_B9_time"/>
-    <input type="hidden" name="message_C1_time" id="message_C1_time"/>
-    <input type="hidden" name="message_C2_time" id="message_C2_time"/>
-    <input type="hidden" name="message_C3_time" id="message_C3_time"/>
-    <input type="hidden" name="message_C4_time" id="message_C4_time"/>
-    <input type="hidden" name="message_C5_time" id="message_C5_time"/>
-    <input type="hidden" name="message_C6_time" id="message_C6_time"/>
-    <input type="hidden" name="message_C7_time" id="message_C7_time"/>
-    <input type="hidden" name="message_C8_time" id="message_C8_time"/>
-    <input type="hidden" name="message_C9_time" id="message_C9_time"/>
-    <input type="hidden" name="message_D1_time" id="message_D1_time"/>
-    <input type="hidden" name="message_D2_time" id="message_D2_time"/>
-    <input type="hidden" name="message_D3_time" id="message_D3_time"/>
-    <input type="hidden" name="message_D4_time" id="message_D4_time"/>
-    <input type="hidden" name="message_D5_time" id="message_D5_time"/>
-    <input type="hidden" name="message_D6_time" id="message_D6_time"/>
-    <input type="hidden" name="message_D7_time" id="message_D7_time"/>
-    <input type="hidden" name="message_D8_time" id="message_D8_time"/>
-    <input type="hidden" name="message_D9_time" id="message_D9_time"/>
-    <input type="hidden" name="message_E1_time" id="message_E1_time"/>
-    <input type="hidden" name="message_E2_time" id="message_E2_time"/>
-    <input type="hidden" name="message_E3_time" id="message_E3_time"/>
-    <input type="hidden" name="message_E4_time" id="message_E4_time"/>
-    <input type="hidden" name="message_E5_time" id="message_E5_time"/>
-    <input type="hidden" name="message_E6_time" id="message_E6_time"/>
-    <input type="hidden" name="message_E7_time" id="message_E7_time"/>
-    <input type="hidden" name="message_E8_time" id="message_E8_time"/>
-    <input type="hidden" name="message_E9_time" id="message_E9_time"/>
-    <input type="hidden" name="message_F1_time" id="message_F1_time"/>
-    <input type="hidden" name="message_F2_time" id="message_F2_time"/>
-    <input type="hidden" name="message_F3_time" id="message_F3_time"/>
-    <input type="hidden" name="message_F4_time" id="message_F4_time"/>
-    <input type="hidden" name="message_F5_time" id="message_F5_time"/>
-    <input type="hidden" name="message_F6_time" id="message_F6_time"/>
-    <input type="hidden" name="message_F7_time" id="message_F7_time"/>
-    <input type="hidden" name="message_F8_time" id="message_F8_time"/>
-    <input type="hidden" name="message_F9_time" id="message_F9_time"/>
 
     <br>
+ {{ next_button }}
 
 
 
@@ -565,42 +487,7 @@
         else {
             document.getElementById('my_avatar').style.backgroundImage = "url('/static/images/diverse-red.svg')";
         }
-        if (get_avatar_gender(1) == 1) {
-            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/female-celeste.svg')";
-        }
-        else if (get_avatar_gender(1) == 2) {
-            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/male-celeste.svg')";
-        }
-        else {
-            document.getElementById('avatar1').style.backgroundImage = "url('/static/images/diverse-celeste.svg')";
-        }
-        if (get_avatar_gender(2) == 1) {
-            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/female-yellow.svg')";
-        }
-        else if (get_avatar_gender(2) == 2) {
-            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/male-yellow.svg')";
-        }
-        else {
-            document.getElementById('avatar2').style.backgroundImage = "url('/static/images/diverse-yellow.svg')";
-        }
-        if (get_avatar_gender(3) == 1) {
-            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/female-orange.svg')";
-        }
-        else if (get_avatar_gender(3) == 2) {
-            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/male-orange.svg')";
-        }
-        else {
-            document.getElementById('avatar3').style.backgroundImage = "url('/static/images/diverse-orange.svg')";
-        }
-        if (get_avatar_gender(4) == 1) {
-            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/female-violet.svg')";
-        }
-        else if (get_avatar_gender(4) == 2) {
-            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/male-violet.svg')";
-        }
-        else {
-            document.getElementById('avatar4').style.backgroundImage = "url('/static/images/diverse-violet.svg')";
-        }
+
 
         if (js_vars.my_gender == 1) {
             document.getElementById('my_avatar_tbl').style.backgroundImage = "url('/static/images/female-red.svg')";
@@ -713,26 +600,10 @@
     window.onload = initFunction;
 
     let mychat = document.getElementById('mychat');
-    let chat1 = document.getElementById('chat1');
-    let chat2 = document.getElementById('chat2');
-    let chat3 = document.getElementById('chat3');
-    let chat4 = document.getElementById('chat4');
 
     function liveRecv(data) {
         if (data.id_in_group == js_vars.player_id) {
             mychat.innerHTML = '<tr class="mychat"><td>' + data.msg + '</td></tr>' + mychat.innerHTML;
-        }
-        else if (get_player_id(data.id_in_group) == 1) {
-            chat1.innerHTML = '<tr class="chat1"><td>' + data.msg + '</td></tr>' + chat1.innerHTML;
-        }
-        else if (get_player_id(data.id_in_group) == 2) {
-            chat2.innerHTML = '<tr class="chat2"><td>' + data.msg + '</td></tr>' + chat2.innerHTML;
-        }
-        else if (get_player_id(data.id_in_group) == 3) {
-            chat3.innerHTML = '<tr class="chat3"><td>' + data.msg + '</td></tr>' + chat3.innerHTML;
-        }
-        else if (get_player_id(data.id_in_group) == 4) {
-            chat4.innerHTML = '<tr class="chat4"><td>' + data.msg + '</td></tr>' + chat4.innerHTML;
         }
     }
 
@@ -747,8 +618,8 @@
 	    liveSend('Bewerber/in A hat bei LEHRERFAHRUNG <b style="color:#4CAF50">überdurchschnittlich</b> abgeschnitten.');
 	    $('#ButtonA2').attr("disabled", true);
 	    document.getElementById("ButtonA2").style.background='#CEF6CE';
-        var currentdate = new Date();
-        document.getElementById('message_A2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
+        //var currentdate = new Date();
+        //document.getElementById('message_A2_time').value = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + " " + (currentdate.getHours() < 10 ? "0" : "") + currentdate.getHours() + ":" + (currentdate.getMinutes() < 10 ? "0" : "") + currentdate.getMinutes() + ":" + (currentdate.getSeconds() < 10 ? "0" : "") + currentdate.getSeconds();
     }
     function buttonsendA3() {
 	    liveSend('Bewerber/in A hat bei KOOPERATION IN FAKULTÄT <b style="color:#4CAF50">überdurchschnittlich</b> abgeschnitten.');

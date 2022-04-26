@@ -622,6 +622,11 @@ def live_chat(player: Player, data):
     response = dict(id_in_group=my_id, msg=data)
     return{0: response}
 
+def live_chatTest(player: Player, data):
+    my_id = player.id_in_group
+    response = dict(id_in_group=my_id, msg=data)
+    return{0: response}
+
 def set_payoffs(group):
     group.player1_gender = group.get_player_by_id(1).participant.p_gender
     group.player2_gender = group.get_player_by_id(2).participant.p_gender
@@ -784,6 +789,21 @@ class HiddenProfileTask(Page):
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
+class DiscussionTestPage(Page):
+    form_model = 'player'
+    live_method = 'live_chatTest'
+    @staticmethod
+    def js_vars(player):
+        return dict(
+            player_id=player.id_in_group,
+            my_gender=player.participant.p_gender,
+            player1_gender=player.group.get_player_by_id(1).participant.p_gender,
+            player2_gender=player.group.get_player_by_id(2).participant.p_gender,
+            player3_gender=player.group.get_player_by_id(3).participant.p_gender,
+            player4_gender=player.group.get_player_by_id(4).participant.p_gender,
+            player5_gender=player.group.get_player_by_id(5).participant.p_gender,
+        )
 
 class DiscussionWaitPage(WaitPage):
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
@@ -1041,6 +1061,7 @@ page_sequence = [
     GroupDisplay,
     HiddenProfileWaitPage,
     HiddenProfileTask,
+    DiscussionTestPage,
     DiscussionWaitPage,
     Discussion,
     Voting,
