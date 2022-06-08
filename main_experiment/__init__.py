@@ -552,14 +552,20 @@ def group_players(subsession):
     weights = []
 
     with open('LabIds/CountGenderBased.txt', 'r') as file:
-        weights.append(int(file.read()))
+        weights.append(105-int(file.read()))
 
     with open('LabIds/CountPerformanceBased.txt', 'r') as file:
-        weights.append(int(file.read()))
+        weights.append(105-int(file.read()))
 
+    if weights[0] < 0:
+        weights[0] = 0
+    if weights[1] < 0:
+        weights[1] = 0
     if weights[0] == 0 and weights[1] == 0:
         weights[0] = 1
         weights[1] = 1
+
+    print(weights)
 
     treatment = random.choices([False, True],weights=weights,k=int(len(subsession.get_players())/5))
 
