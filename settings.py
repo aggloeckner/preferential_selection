@@ -45,6 +45,13 @@ SESSION_CONFIGS = [
         num_demo_participants=10,
         max_number_participants=2000,
     ),
+    dict(
+        name='alternativ_mareike',
+        app_sequence=[
+            'alternativstudie_mareike'
+        ],
+        num_demo_participants=1,
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
