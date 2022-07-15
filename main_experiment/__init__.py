@@ -1045,7 +1045,7 @@ class FairnessQuiestionnaire(Page):
                 file.write(player.participant.label)
             with open('LabIds/CostsLab.txt', 'r') as file:
                 txt = float(file.read())
-                txt += player.payoff
+                txt += float(player.payoff)
             with open('LabIds/CostsLab.txt', 'w') as file:
                 file.write(str(txt))
 
