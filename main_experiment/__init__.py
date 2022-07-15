@@ -684,22 +684,30 @@ def set_payoffs(group):
 
 # ADMINPAGE
 def vars_for_admin_report(subsession):
+    with open('LabIds/CostsOnline.txt', 'r') as file:
+        costs_online = file.read()
+
+    with open('LabIds/CostsLab.txt', 'r') as file:
+        costs_lab = file.read()
+
+    with open('LabIds/CountOnlineStudy.txt', 'r') as file:
+        completions_online = int(file.read())
+
     with open('LabIds/CountGenderBased.txt', 'r') as file:
         completions_gender = int(file.read())
 
     with open('LabIds/CountPerformanceBased.txt', 'r') as file:
         completions_performance = int(file.read())
 
-    completions = completions_gender + completions_performance
-
-    with open('LabIds/CostsLab.txt', 'r') as file:
-        costs = file.read()
+    completions_lab = completions_gender + completions_performance
 
     return dict(
-        completions = completions,
+        completions_online = completions_online,
         completions_gender = completions_gender,
         completions_performance = completions_performance,
-        costs = costs
+        completions_lab = completions_lab,
+        costs_online = costs_online,
+        costs_lab = costs_lab
     )
 
 # PAGES
