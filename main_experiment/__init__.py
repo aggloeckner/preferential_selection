@@ -1027,7 +1027,7 @@ class FairnessQuiestionnaire(Page):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
-        if(player.participant.label != "1234555"):
+        if(player.participant.label != "1234555" and player.participant.label != ""):
             if player.perfect_group and player.gender_based:
                 with open('LabIds/CountGenderBased.txt', 'r') as file:
                     txt = int(file.read())
