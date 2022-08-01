@@ -1,20 +1,33 @@
-{% extends "global/Page.html" %}
-{% load staticfiles otree %}
+{{ block content }}
 
 
-{% block content %}
+	<strong><div id="myTable">Bitte geben Sie Ihre Decision Lab ID an:</div></strong><br>
+
+	<span>Sollten Sie sich nicht an Ihre Decision Lab ID erinnern, so wenden Sie sich bitte an <a href="mailto:labids-dlc@uni-koeln.de", target="_blank">labids-dlc@uni-koeln.de</a>.</span><br>
 
 
-	<strong>Bitte geben Sie Ihre Decision Lab ID an:</strong><br>
+	{{ formfield player.DecisionLabId label=""}}<br><br>
 
-		<span>Sollten Sie sich nicht an Ihre Decision Lab ID erinnern, so wenden Sie sich bitte an <a href="mailto:labids-dlc@uni-koeln.de", target="_blank">labids-dlc@uni-koeln.de</a>.</span><br>
+    {{ next_button }}
 
+{{ endblock }}
 
+{{ block script }}
+	<script>
 
-{% formfield player.DecisionLabId label=""%}<br><br>
-	
+		function openLink() {
+			ID = formInputs.DecisionLabId.value
+			link = "https://otree08-dlc.uni-koeln.de/room/room" + "/?participant_label=" + ID
+			if (!js_vars.online_study) {
+				window.open(link);
+			}
+		}
 
+		function init() {
+			$(".otree-btn-next").on("click", openLink)
+		}
 
-    {% next_button %}
+		window.onload = init;
 
-{% endblock %}
+	</script>
+{{ endblock }}

@@ -35,6 +35,14 @@ class IdPage(Page):
         )
 
     @staticmethod
+    def js_vars(player):
+        online_study = player.session.config['online_study']
+
+        return dict(
+            online_study = online_study
+        )
+
+    @staticmethod
     def error_message(player, values):
         # Only digits
         if any([c not in digits for c in values['DecisionLabId']]):
@@ -74,5 +82,12 @@ class IdPage(Page):
         import datetime
         player.participant.time_start = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
+class EndPage(Page):
+    @staticmethod
+    def is_displayed(player):
+        return not player.session.config['online_study']
 
-page_sequence = [IdPage]
+page_sequence = [
+    IdPage,
+    EndPage
+]

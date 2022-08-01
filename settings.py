@@ -2,6 +2,17 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
+        name='preferential_selection',
+        app_sequence=[
+            'informed_consent_lab',
+            'demographics',
+            'main_experiment'
+        ],
+        num_demo_participants=5,
+        max_number_participants=2000,
+        online_study=False,
+    ),
+    dict(
         name='real_effort_task',
         app_sequence=[
 #            'LabIds',
@@ -23,15 +34,12 @@ SESSION_CONFIGS = [
         online_study=True,
     ),
     dict(
-        name='preferential_selection',
+        name='pre_room',
         app_sequence=[
-            'LabIds',
-            'informed_consent_lab',
-            'demographics',
-            'main_experiment'
+            'LabIds'
         ],
-        num_demo_participants=5,
-        max_number_participants=2000,
+        num_demo_participants=1,
+        max_number_participants=5000,
         online_study=False,
     ),
     dict(
@@ -51,6 +59,13 @@ SESSION_CONFIGS = [
             'alternativstudie_mareike'
         ],
         num_demo_participants=1,
+    ),
+]
+
+ROOMS = [
+    dict(
+        name='room',
+        display_name='Hauptstudie'
     ),
 ]
 
