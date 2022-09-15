@@ -1,0 +1,15 @@
+{{ extends 'otree/WaitPage.html' }}
+{{ block title }}{{ title_text }}{{ endblock }}
+{{ block content }}
+    {{ body_text }}
+    <p>
+		{{ if timer > 5 }}
+			Scheinbar brauchen Ihre Mitspieler noch ein wenig länger.<br>
+		{{ endif }}
+		{{ if timer > 10 }}
+			Entschuldigen Sie die längere Wartezeit. Wir würden Sie bitten, sich noch ein Wenig zu gedulden.
+		{{ elif timer > 15 }}
+			Entschuldigen Sie die längere Wartezeit. Wir würden Sie bitten, sich noch weitere {{ timer }} Minuten zu gedulden.
+		{{ endif }}
+    </p>
+{{ endblock }}

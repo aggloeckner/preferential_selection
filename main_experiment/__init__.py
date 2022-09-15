@@ -536,14 +536,71 @@ class Player(BasePlayer):
         blank = True
     )
 
-    def waiting_too_long(player):
-        participant = player.participant
-
-        import time
-        # assumes you set wait_page_arrival in PARTICIPANT_FIELDS.
-        return time.time() - participant.wait_page_arrival > 5 * 60
-
 # DEFS
+
+def waiting_too_long(player):
+    participant = player.participant
+
+    import time
+    # assumes you set wait_page_arrival in PARTICIPANT_FIELDS.
+    return time.time() - participant.wait_page_arrival > player.session.config['time_out_timer'] * 60
+
+def group_by_arrival_time_method(subsession, waiting_players):
+    import random
+    import datetime
+
+    for p in waiting_players:
+        p.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+
+    weights = []
+
+    with open('LabIds/CountGenderBased.txt', 'r') as file:
+        weights.append(105-int(file.read()))
+
+    with open('LabIds/CountPerformanceBased.txt', 'r') as file:
+        weights.append(105-int(file.read()))
+
+    if weights[0] < 0:
+        weights[0] = 0
+    if weights[1] < 0:
+        weights[1] = 0
+    if weights[0] == 0 and weights[1] == 0:
+        weights[0] = 1
+        weights[1] = 1
+
+    print(weights)
+
+    treatment = random.choices([False, True], weights=weights, k=1)
+
+    f_players = [p for p in waiting_players if p.participant.p_gender == 1]
+    m_players = [p for p in waiting_players if p.participant.p_gender == 2]
+
+    if len(f_players) >= 2 and len(m_players) >= 3:
+        print('about to create a group')
+        f_players[0].perfect_group = True
+        f_players[1].perfect_group = True
+        m_players[0].perfect_group = True
+        m_players[1].perfect_group = True
+        m_players[2].perfect_group = True
+        f_players[0].gender_based = treatment[0]
+        f_players[1].gender_based = treatment[0]
+        m_players[0].gender_based = treatment[0]
+        m_players[1].gender_based = treatment[0]
+        m_players[2].gender_based = treatment[0]
+        f_players[0].participant.timeout = False
+        f_players[1].participant.timeout = False
+        m_players[0].participant.timeout = False
+        m_players[1].participant.timeout = False
+        m_players[2].participant.timeout = False
+        return [f_players[0], f_players[1], m_players[0], m_players[1], m_players[2]]
+
+    for p in waiting_players:
+        if waiting_too_long(p):
+            # make a single-player group.
+            p.participant.timeout = True
+            return [p]
+
+    print('not enough players yet to create a group')
 
 def group_players(subsession):
     import random
@@ -567,7 +624,7 @@ def group_players(subsession):
 
     print(weights)
 
-    treatment = random.choices([False, True],weights=weights,k=int(len(subsession.get_players())/5))
+    treatment = random.choices([False, True], weights=weights, k=int(len(subsession.get_players())/5))
 
     males = []
     females = []
@@ -701,24 +758,59 @@ def vars_for_admin_report(subsession):
 
     completions_lab = completions_gender + completions_performance
 
+    count_f = 0
+    count_m = 0
+    count_d = 0
+    for p in subsession.get_players():
+        try:
+            count_f += p.participant.p_gender == 1
+        except KeyError:
+            count_f += 0
+    for p in subsession.get_players():
+        try:
+            count_m += p.participant.p_gender == 2
+        except KeyError:
+            count_m += 0
+    for p in subsession.get_players():
+        try:
+            count_d += p.participant.p_gender == 3
+        except KeyError:
+            count_d += 0
+
+
     return dict(
         completions_online = completions_online,
         completions_gender = completions_gender,
         completions_performance = completions_performance,
         completions_lab = completions_lab,
         costs_online = costs_online,
-        costs_lab = costs_lab
+        costs_lab = costs_lab,
+        count_f = count_f,
+        count_m = count_m,
+        count_d = count_d,
     )
 
 # PAGES
 class GroupingWaitPage(WaitPage):
-    after_all_players_arrive = group_players
-    wait_for_all_groups = True
-    body_text = "Bitte warten Sie einen Moment, bis das Experiment losgeht."
+    template_name = 'main_experiment/GroupingWaitPage.html'
+    group_by_arrival_time = True
+    # after_all_players_arrive = group_players
+    # wait_for_all_groups = True
 
-    #def vars_for_template(self):
-     #   return {'body_text': 'Sobald die anderen Teilnehmer eintreffen, geht es los.',
-     #           'title_text': 'Bitte warten Sie.'}
+    @staticmethod
+    def vars_for_template(player):
+        import math
+        import time
+        timer = math.floor((time.time() - player.participant.wait_page_arrival) / 60)
+        return dict(
+            body_text="Bitte warten Sie einen Moment, bis das Experiment losgeht.",
+            timer=timer
+        )
+
+    @staticmethod
+    def app_after_this_page(player, upcoming_apps):
+        if player.participant.timeout:
+            return "timeout"
 
 class Instructions(Page):
     @staticmethod

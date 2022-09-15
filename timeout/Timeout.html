@@ -1,0 +1,28 @@
+
+{{ block content }}
+
+    {{ if player.participant.timeout }}
+
+    <div>
+        Leider haben Ihre Gruppenmitglieder zu lange gebraucht oder die Studie frühzeitig abgebrochen. Daher
+        können Sie leider nicht weiter an der Studie teilnehmen.<br>
+        Selbstverständlich werden Sie für Ihre Teilnahme bis hierhin mit einem Betrag von 4 € entschädigt. <br><br>
+
+        {{ if player.participant.p_gender == 1 }}
+            Gerne können Sie sich unter dem folgenden Link für eine andere Session anmelden:<br>
+            <a href="https://decisionlabcologne.uni-koeln.de/home/referral?ref=z74CAsJxFPLbPw">https://decisionlabcologne.uni-koeln.de/home/referral?ref=z74CAsJxFPLbPw</a>
+        {{ elif player.participant.p_gender == 2 }}
+            Gerne können Sie sich unter dem folgenden Link für eine andere Session anmelden:<br>
+            <a href="https://decisionlabcologne.uni-koeln.de/home/referral?ref=6cQtrpHl3Oaw6g">https://decisionlabcologne.uni-koeln.de/home/referral?ref=6cQtrpHl3Oaw6g</a>
+        {{ endif }}
+    </div>
+
+    {{ else }}
+
+    <div>
+        Sie können dieses Fenster jetzt schließen.
+    </div>
+
+    {{ endif }}
+
+{{ endblock }}

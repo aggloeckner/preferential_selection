@@ -56,6 +56,8 @@ class demographics(Page):
 
     @staticmethod
     def before_next_page(player, timeout_happened):
+        import time
+        player.participant.wait_page_arrival = time.time()
         player.participant.p_gender = player.gender
 
 

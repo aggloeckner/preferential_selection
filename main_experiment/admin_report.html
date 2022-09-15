@@ -4,10 +4,16 @@
 
 	Die Online-Vorstudie kostet bisher insgesamt <b>{{ costs_online|cu }}</b>.
 </p><br>
+
 <h3>Zweite Online-Studie (Laborstudie):</h3>
 <p>
 	Insgesamt haben bereits <b>{{ completions_lab }}</b> Personen teilgenommen, deren Daten für die Analyse verwendet werden können. <br>
 	Davon waren <b>{{ completions_gender }}</b> Personen in der Gender-Based-Bedingung und <b>{{ completions_performance }}</b>
 	Personen in der Performance-Based-Bedingung.<br><br>
 	Die Laborstudie kostet bisher insgesamt <b>{{ costs_lab|cu }}</b>.
+</p><br>
+
+<h3>Aktuelle Session:</h3>
+<p>
+	Zur aktuellen Session sind <b>{{ count_f }}</b> {{ if count_f == 0 }}Frau{{ else }}Frauen{{ endif }}, <b>{{ count_m }}</b> {{ if count_f == 0 }}Mann{{ else }}Männer{{ endif }} und <b>{{ count_d }}</b> Diverse erschienen.
 </p>

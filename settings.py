@@ -6,11 +6,13 @@ SESSION_CONFIGS = [
         app_sequence=[
             'informed_consent_lab',
             'demographics',
-            'main_experiment'
+            'main_experiment',
+            'timeout'
         ],
         num_demo_participants=5,
         max_number_participants=2000,
         online_study=False,
+        time_out_timer=20,
     ),
     dict(
         name='real_effort_task',
@@ -48,7 +50,8 @@ SESSION_CONFIGS = [
 #            'informed_consent_lab',
 #            'LabIds',
             'demographics',
-            'main_experiment'
+            'main_experiment',
+            'timeout'
         ],
         num_demo_participants=10,
         max_number_participants=2000,
@@ -78,7 +81,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-PARTICIPANT_FIELDS = [ 'time_start', 'time_end', 'p_gender', 'letters_choices', 't1_results', 'expiry_timestamp', 'endgame', 'letters_choices_made', 'letters_choices' ]
+PARTICIPANT_FIELDS = [ 'time_start', 'time_end', 'p_gender', 'wait_page_arrival', 'timeout', 'letters_choices', 't1_results', 'expiry_timestamp', 'endgame', 'letters_choices_made', 'letters_choices' ]
 SESSION_FIELDS = []
 
 # ISO-639 code
