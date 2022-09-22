@@ -570,7 +570,7 @@ def group_by_arrival_time_method(subsession, waiting_players):
 
     print(weights)
 
-    treatment = random.choices([False, True], weights=weights, k=1)
+    treatment = random.choices([True, False], weights=weights, k=1)
 
     f_players = [p for p in waiting_players if p.participant.p_gender == 1]
     m_players = [p for p in waiting_players if p.participant.p_gender == 2]
