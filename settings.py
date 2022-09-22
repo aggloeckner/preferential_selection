@@ -12,7 +12,7 @@ SESSION_CONFIGS = [
         num_demo_participants=5,
         max_number_participants=2000,
         online_study=False,
-        time_out_timer=20,
+        time_out_timer=15,
     ),
     dict(
         name='real_effort_task',

@@ -814,6 +814,10 @@ class GroupingWaitPage(WaitPage):
 
 class Instructions(Page):
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def vars_for_template(player):
         number_females = 0
         number_males = 0
@@ -857,11 +861,19 @@ class DescribeProcedure(Page):
     form_fields = ['describe_procedure']
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class GroupDisplay(Page):
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
     @staticmethod
     def js_vars(player):
         return dict(
@@ -878,9 +890,28 @@ class GroupDisplay(Page):
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        import time
+        player.participant.wait_page_arrival = time.time()
 
 class HiddenProfileWaitPage(WaitPage):
+    template_name = 'main_experiment/WaitPage.html'
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
+
+    @staticmethod
+    def is_displayed(player):
+        if waiting_too_long(player):
+            player.participant.timeout = True
+        return not player.participant.timeout
+
+    @staticmethod
+    def vars_for_template(player):
+        import math
+        import time
+        timer = math.floor((time.time() - player.participant.wait_page_arrival) / 60)
+        return dict(
+            body_text="Bitte warten Sie einen Moment, bis das Experiment losgeht.",
+            timer=timer
+        )
 
     @staticmethod
     def before_next_page(player, timeout_happened):
@@ -892,6 +923,10 @@ class HiddenProfileTask(Page):
     form_fields = ['hidden_profile_task']
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
@@ -899,6 +934,11 @@ class HiddenProfileTask(Page):
 class DiscussionTestPage(Page):
     form_model = 'player'
     live_method = 'live_chatTest'
+
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
     @staticmethod
     def js_vars(player):
         return dict(
@@ -911,8 +951,32 @@ class DiscussionTestPage(Page):
             player5_gender=player.group.get_player_by_id(5).participant.p_gender,
         )
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        import datetime
+        player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        import time
+        player.participant.wait_page_arrival = time.time()
+
 class DiscussionWaitPage(WaitPage):
+    template_name = 'main_experiment/WaitPage.html'
     body_text = "Bitte warten Sie einen Moment, bis das Experiment weitergeht."
+
+    @staticmethod
+    def is_displayed(player):
+        if waiting_too_long(player):
+            player.participant.timeout = True
+        return not player.participant.timeout
+
+    @staticmethod
+    def vars_for_template(player):
+        import math
+        import time
+        timer = math.floor((time.time() - player.participant.wait_page_arrival) / 60)
+        return dict(
+            body_text="Bitte warten Sie einen Moment, bis das Experiment losgeht.",
+            timer=timer
+        )
 
     @staticmethod
     def before_next_page(player, timeout_happened):
@@ -933,6 +997,10 @@ class Discussion(Page):
     timeout_seconds = 600
     timer_text = 'Verbleibende Zeit: <br>'
     live_method = 'live_chat'
+
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
 
     @staticmethod
     def js_vars(player):
@@ -956,13 +1024,36 @@ class Voting(Page):
     form_fields = ['voted_candidate']
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
+        import time
+        player.participant.wait_page_arrival = time.time()
 
 class VotingWaitPage(WaitPage):
+    template_name = 'main_experiment/WaitPage.html'
     body_text = "Wir bitten Sie um ein bisschen Geduld. Sobald alle Gruppenmitglieder mit der Abstimmung für einen Bewerber/eine Bewerberin fertig sind, können Sie das Experiment fortsetzen."
     after_all_players_arrive = 'set_payoffs'
+
+    @staticmethod
+    def is_displayed(player):
+        if waiting_too_long(player):
+            player.participant.timeout = True
+        return not player.participant.timeout
+
+    @staticmethod
+    def vars_for_template(player):
+        import math
+        import time
+        timer = math.floor((time.time() - player.participant.wait_page_arrival) / 60)
+        return dict(
+            body_text="Bitte warten Sie einen Moment, bis das Experiment losgeht.",
+            timer=timer
+        )
 
     @staticmethod
     def before_next_page(player, timeout_happened):
@@ -971,6 +1062,10 @@ class VotingWaitPage(WaitPage):
 
 class Helpfulness(Page):
     form_model = 'player'
+
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
 
     @staticmethod
     def get_form_fields(player):
@@ -1006,6 +1101,10 @@ class Competence(Page):
     form_model = 'player'
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def get_form_fields(player):
         if player.participant.id_in_session == 1:
             return ['competencePlayer2','competencePlayer3','competencePlayer4','competencePlayer5']
@@ -1039,6 +1138,10 @@ class Competitiveness(Page):
     form_model = 'player'
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def get_form_fields(player):
         if player.participant.id_in_session == 1:
             return ['competitivenessPlayer2','competitivenessPlayer3','competitivenessPlayer4','competitivenessPlayer5']
@@ -1070,6 +1173,10 @@ class Competitiveness(Page):
 
 class Independence(Page):
     form_model = 'player'
+
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
 
     @staticmethod
     def get_form_fields(player):
@@ -1106,6 +1213,10 @@ class GeneralAssessment(Page):
     form_fields = ['groupinteraction1', 'groupinteraction2', 'groupinteraction3']
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
@@ -1113,6 +1224,10 @@ class GeneralAssessment(Page):
 class FairnessQuiestionnaire(Page):
     form_model = 'player'
     form_fields = ['fairness1', 'fairness2', 'fairness3', 'fairness4', 'fairness5', 'fairness6','fairness7', 'fairness8', 'fairness9']
+
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
 
     @staticmethod
     def before_next_page(player, timeout_happened):
@@ -1143,6 +1258,10 @@ class FairnessQuiestionnaire(Page):
 
 class Results(Page):
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
@@ -1152,12 +1271,19 @@ class Payment(Page):
     form_fields = ['comments']
 
     @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
+    @staticmethod
     def before_next_page(player, timeout_happened):
         import datetime
         player.participant.time_end = datetime.datetime.now().strftime("%d.%m.%Y %H:%M:%S")
 
 class EndOfStudy(Page):
-    pass
+    @staticmethod
+    def is_displayed(player):
+        return not player.participant.timeout
+
 
 
 page_sequence = [
